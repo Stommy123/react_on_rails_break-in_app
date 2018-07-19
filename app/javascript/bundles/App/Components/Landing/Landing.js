@@ -1,11 +1,11 @@
 import React from 'react';
 import { Mask, Row, Col, Button, View, Container} from 'mdbreact';
-import './Landing.css'
+
 
 class LandingPage extends React.Component {
 
   render(){
-  
+
     return (
       <div id="landing_page">
           <View>
