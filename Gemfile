@@ -15,6 +15,9 @@ gem 'materialize-sass'
 
 gem 'devise'
 
+# Allow Facebook signup/login
+gem 'omniauth-facebook'
+
 gem 'hirb'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
