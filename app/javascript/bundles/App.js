@@ -8,7 +8,7 @@ class App extends Component {
     return (
 
       <div className="App">
-        <Nav></Nav>
+        <Nav user={this.props.user} />
         <LandingPage></LandingPage>
       </div>
     );
