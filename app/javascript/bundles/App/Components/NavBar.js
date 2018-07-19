@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import { Navbar, NavbarBrand, Fa, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, FormInline } from 'mdbreact';
 
 
@@ -24,6 +24,7 @@ class Nav extends React.Component {
       collapse: false
     });
   }
+
   render(){
   const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
     return (
@@ -46,6 +47,10 @@ class Nav extends React.Component {
                     </NavItem>
                     <NavItem>
                       <NavLink to="#!">Features</NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <Link to="/map/googlemap">Map</Link>
+                      <Route path="/map/googlemap" component={Map} />
                     </NavItem>
                     <NavItem>
                       <NavLink to="#!">Services</NavLink>
