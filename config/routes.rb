@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'user#index'
   get 'vote/index'
   get 'report/index'
   get 'user/index'
