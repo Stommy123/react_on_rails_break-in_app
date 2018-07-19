@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_193350) do
+ActiveRecord::Schema.define(version: 2018_07_19_191014) do
+
 
   create_table "reports", force: :cascade do |t|
     t.string "description"
-    t.string "lat"
-    t.string "lng"
+    t.integer "lat"
+    t.integer "lng"
     t.string "photo"
     t.string "category"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -45,10 +46,10 @@ ActiveRecord::Schema.define(version: 2018_07_19_193350) do
 
   create_table "votes", force: :cascade do |t|
     t.string "type"
-    t.integer "user_id"
-    t.integer "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "report_id"
     t.index ["report_id"], name: "index_votes_on_report_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
