@@ -6,7 +6,7 @@ class Map extends Component {
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
         defaultCenter = { { lat: 25.8028, lng: -80.2044 } }
-        defaultZoom = { 13 }
+        defaultZoom = { 12 }
       >
       <Marker options={{icon: 'https://i.imgur.com/MsV4Jer.png'}}  position={{ lat: 25.8028, lng: -80.2044 }} />
       </GoogleMap>
