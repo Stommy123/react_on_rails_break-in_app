@@ -5,6 +5,14 @@ ruby '2.5.1'
 
 gem 'react_on_rails'
 
+gem 'bootstrap-sass', '~> 3.3.7'
+
+gem 'jquery-rails'
+
+gem 'material-sass'
+
+gem 'materialize-sass'
+
 gem 'hirb'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
