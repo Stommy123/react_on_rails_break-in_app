@@ -1,0 +1,15 @@
+  
+  #Nav .navbar {
+    background-color: #424f95;
+    transition: background .5s ease-in-out,padding .5s ease-in-out;
+  }
+  
+  #Nav .top-nav-collapse {
+    background: #424f95 !important;
+  }
+  
+  @media (max-width: 768px) {
+    #Nav .navbar:not(.top-nav-collapse) {
+        background: #424f95 !important;
+    }
+  }
