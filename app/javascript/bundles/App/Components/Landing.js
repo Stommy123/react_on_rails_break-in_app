@@ -3,6 +3,7 @@ import { Mask, Row, Col, Button, View, Container} from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import  {Carousel, CarouselCaption, CarouselInner, CarouselItem} from 'mdbreact';
 
 
 class LandingPage extends React.Component {
@@ -14,9 +15,16 @@ class LandingPage extends React.Component {
           <View>
             <Mask className="d-flex justify-content-center align-items-center gradient">
             <Container>
-              <Row>
+            <Carousel
+          activeItem={1}
+          length={4}
+          showControls={true}
+          showIndicators={true}
+          className="z-depth-2">
+            <CarouselItem itemId="1">
+              <Row className="intro-content">
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Make purchases with our app </h1>
+                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Welcome to Break-In App </h1>
                   <hr className="hr-light"/>
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
@@ -28,19 +36,59 @@ class LandingPage extends React.Component {
                   <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
                 </Col>
                 </Row>
+                </CarouselItem>
+                <CarouselItem itemId="2">
+              <Row className="intro-content2">
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 2! </h1>
+                  <hr className="hr-light"/>
+                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
+                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
+                  iste.</h6>
+                  <Button color="white">Download</Button>
+                  <Button outline color="white">Learn More</Button>
+                </div>
+                <Col md="6" xl="5" className="mt-xl-5">
+                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
+                </Col>
+                </Row>
+                </CarouselItem>
+                <CarouselItem itemId="3">
+              <Row className="intro-content3">
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 3! </h1>
+                  <hr className="hr-light"/>
+                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
+                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
+                  iste.</h6>
+                  <Button color="white">Download</Button>
+                  <Button outline color="white">Learn More</Button>
+                </div>
+                <Col md="6" xl="5" className="mt-xl-5">
+                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
+                </Col>
+                </Row>
+                </CarouselItem>
+                <CarouselItem itemId="4">
+              <Row className="intro-content4">
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 4! </h1>
+                  <hr className="hr-light"/>
+                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
+                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
+                  iste.</h6>
+                  <Button color="white">Download</Button>
+                  <Button outline color="white">Learn More</Button>
+                </div>
+                <Col md="6" xl="5" className="mt-xl-5">
+                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
+                </Col>
+                </Row>
+                </CarouselItem>
+                </Carousel>
               </Container>
             </Mask>
           </View>
-
-          <Container>
-            <Row className="py-5">
-              <Col md="12" className="text-center">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </Col>
-            </Row>
-          </Container>
           </div>
     );
   }
