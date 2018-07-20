@@ -5,6 +5,16 @@ import Test from './Test.js';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import Button from '@material-ui/core/Button';
+
+const handleLiveMap = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/map/googlemap');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+
 
 class Nav extends React.Component {
   constructor(props) {
@@ -46,8 +56,12 @@ class Nav extends React.Component {
                       <NavLink to="#!">Home</NavLink>
                     </NavItem>
                     <NavItem>
-                      <Link to="/map/googlemap">Live Map</Link>
-                      <Route path="/map/googlemap" component={Test} />
+                      <Button
+                        color="inherit"
+                        onClick={ handleLiveMap }
+                        >
+                        Live Map
+                      </Button>
                     </NavItem>
                     <NavItem>
                       <NavLink to="#!">Account</NavLink>
