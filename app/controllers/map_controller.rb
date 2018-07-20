@@ -1,4 +1,5 @@
 class MapController < ApplicationController
+
   def googlemap
   end
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import { Navbar, NavbarBrand, Fa, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, FormInline } from 'mdbreact';
-
+import Test from './Test.js';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -43,23 +46,14 @@ class Nav extends React.Component {
                       <NavLink to="#!">Home</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink to="#!">About</NavLink>
+                      <Link to="/map/googlemap">Live Map</Link>
+                      <Route path="/map/googlemap" component={Test} />
                     </NavItem>
                     <NavItem>
-                      <NavLink to="#!">Features</NavLink>
+                      <NavLink to="#!">Account</NavLink>
                     </NavItem>
                     <NavItem>
-                      <Link to="/map/googlemap">Map</Link>
-                      <Route path="/map/googlemap" component={Map} />
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Services</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Support</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Team</NavLink>
+                      <NavLink to="#!">Scoreboard</NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink to="#!">Contact</NavLink>

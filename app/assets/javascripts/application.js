@@ -17,3 +17,4 @@
 //= require bootstrap
 //= require jquery
 //= require materialize-sprockets
+//= require materialize
