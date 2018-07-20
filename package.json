@@ -11,6 +11,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-geolocated": "^2.4.0",
+    "react-geolocation": "^1.0.3",
     "react-google-maps": "^9.4.5",
     "react-on-rails": "11.0.9",
     "react-router": "^4.3.1",

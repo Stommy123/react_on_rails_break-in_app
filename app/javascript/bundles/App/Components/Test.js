@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import GeoLocation from "react-geolocation";
+
+
+
+// const getLocation = () => {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//   } else {
+//     x.innerHTML = "Geolocation is not supported by this browser.";
+//   }
+// }
+//
+// const showPosition = (position) => {
+//   position1 = position.coords.latitude
+//   position2 = position.coords.longitude
+// }
 
 class Test extends Component {
    render() {
+
 
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
@@ -20,6 +37,7 @@ class Test extends Component {
    ));
    return(
       <div>
+        <GeoLocation />
         <GoogleMapExample
           containerElement={ <div style={{ height: `80vw`, width: '100vw' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
