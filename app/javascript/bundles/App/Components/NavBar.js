@@ -7,9 +7,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import Button from '@material-ui/core/Button';
 
+
 const handleLiveMap = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/map/googlemap');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+const handleDemo = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/demo');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
