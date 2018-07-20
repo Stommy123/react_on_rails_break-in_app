@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-
+gem 'geocoder'
 gem 'react_on_rails'
 
 gem 'bootstrap-sass', '~> 3.3.7'
