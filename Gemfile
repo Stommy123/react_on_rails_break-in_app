@@ -15,6 +15,8 @@ gem 'materialize-sass'
 
 gem 'devise'
 
+gem 'faker'
+
 # Allow Facebook signup/login
 gem 'omniauth-facebook'
 
