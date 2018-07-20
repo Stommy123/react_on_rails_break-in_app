@@ -24,7 +24,7 @@ class Test extends Component {
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
         defaultCenter = { { lat: 25.8028, lng: -80.2044 } }
-        defaultZoom = { 12 }
+        defaultZoom = { 16 }
       >
       <div className="marker" style={{height: '10px', width: '10px' }}>
       <Marker
