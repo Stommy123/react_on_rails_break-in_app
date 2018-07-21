@@ -5,9 +5,8 @@ import Form from '../Form.js'
 import NavBar from '../NavBar.js'
 
 
-
-
 class MapBox extends Component {
+
   state = { reports: [] }
 
   componentDidMount() {
@@ -69,14 +68,9 @@ class MapBox extends Component {
   render() {
     return (
       <div><br/>
-      <div>
-      <NavBar />
-      </div><br />
-      <Form />
       <div id='info'></div>
-      <div className='Map' ref={(x) => { this.container = x }}>
+      <div className='Map' ref={(x) => { this.container = x }}></div>
       <div style={{backgroundImage: 'url(https://placekitten.com/g/'}} className="Marker" ref={(b) => { this.container = b }}></div>
-      </div>
       </div>
     )
   }

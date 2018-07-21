@@ -8,4 +8,26 @@ class ReportController < ApplicationController
         end
       end
     end
-  end
+
+    def create
+      @report = current_user.reports.new(reports_params)
+      if @report.save
+        render json: @report
+      else
+        render json: @report.errors.full_messages, status: 400
+      end
+    end
+
+    def destroy
+      @report = current_user.reports.find(params[:id])
+      @report.destroy
+      render json: @report
+    end
+
+    private
+
+    def report_params
+      params.require(:report).permit(:description, :category)
+    end
+
+end
