@@ -12,10 +12,25 @@
   background-size: cover;
   background-position: center center;
   height: 100vh;
+  
 }
 
 #landing_page h6 {
   line-height: 1.7;
+}
+.intro-content{
+  border-style: solid;
+  border-color: blue;
+  background-color: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+  border: 4%;
+  height: 30vh;
+  /* padding-left: 5%; */
+}
+
+.logo_cont{
+  border-style: solid;
+  border-color: blue;
+  height: 50vh;
 }
 
 

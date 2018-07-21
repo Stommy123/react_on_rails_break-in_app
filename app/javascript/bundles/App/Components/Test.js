@@ -36,10 +36,11 @@ class Test extends Component {
       </GoogleMap>
    ));
    return(
+      
       <div>
         <GeoLocation />
         <GoogleMapExample
-          containerElement={ <div style={{ height: `80vw`, width: '100vw' }} /> }
+          containerElement={ <div style={{ height: `80vh`, width: '100vw' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
         />
       </div>
