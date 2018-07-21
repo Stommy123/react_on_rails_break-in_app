@@ -4,13 +4,28 @@ import mapboxgl from 'mapbox-gl';
 class MapBox extends Component {
 
   componentDidMount() {
+    //api key
       mapboxgl.accessToken = 'pk.eyJ1Ijoic3RvbW15NDkiLCJhIjoiY2pqcm1ub3F3OG03dTNxbzZ6ZXJ4NHExaiJ9.4aFNxi2NordCBv36GUI3Mw'
-      new mapboxgl.Map({
+   //initialize map
+      var map = new mapboxgl.Map({
       container: this.container,
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [-80.2044, 25.8028],
       zoom: [15]
       })
+      //navigation
+      var nav = new mapboxgl.NavigationControl();
+      map.addControl(nav, 'top-right');
+      //geolocating
+      map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      }))
+
+
+
     }
   render() {
     return (

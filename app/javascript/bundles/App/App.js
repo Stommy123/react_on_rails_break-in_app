@@ -3,7 +3,7 @@ import axios from 'axios';
 import Nav from './Components/NavBar.js'
 import LandingPage from './Components/Landing.js';
 import Test from './Components/Test.js';
-import MapBox from './Components/MapBox.js'
+import MapBox from './Components/Maps/MapBox.js'
 import ReactDOM from 'react-dom'
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
