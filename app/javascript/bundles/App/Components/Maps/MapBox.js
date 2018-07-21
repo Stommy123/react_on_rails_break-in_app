@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
 import Form from '../Form.js'
 import NavBar from '../NavBar.js'
+import Flash from '../Flash.js';
 
 
 
@@ -39,14 +40,12 @@ class MapBox extends Component {
       }));
 
       //popup
-      let popup = new mapboxgl.Popup()
-      .setLngLat([-80.2044, 25.8028])
-      .addTo(map);
+      let popup = new mapboxgl.Popup({ offset: 25 })
+      .setText('This is a popup!');
       //marker
-      let marker = new mapboxgl.Marker({
-        container: this.container
-      })
+      let marker = new mapboxgl.Marker(el)
       .setLngLat([-80.2044, 25.8028])
+      .setPopup(popup)
       .addTo(map);
 
       map.on('mousemove', function (e) {
@@ -58,7 +57,10 @@ class MapBox extends Component {
         JSON.stringify(e.lngLat);
       });
 
-      this.state.reports.map((report => {
+      var el = document.createElement('div');
+      el.id = 'marker';
+
+      this.state.reports.forEach((report => {
         return new mapboxgl.Marker()
         .setLngLat([report.lng, report.lat])
         .addTo(map)
@@ -75,7 +77,7 @@ class MapBox extends Component {
       <Form />
       <div id='info'></div>
       <div className='Map' ref={(x) => { this.container = x }}>
-      <div style={{backgroundImage: 'url(https://placekitten.com/g/'}} className="Marker" ref={(b) => { this.container = b }}></div>
+      <div id='marker' className="Marker" ref={(b) => { this.container = b }}></div>
       </div>
       </div>
     )
