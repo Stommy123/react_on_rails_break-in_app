@@ -27,18 +27,12 @@
   /* padding-left: 5%; */
 }
 
-.introCont{
+.logo_cont{
   border-style: solid;
-  border-color: red;
-  border: 4%;
+  border-color: blue;
+  height: 50vh;
 }
 
-.logo_intro{
-  border-style: solid;
-  border-color:purple;
-  border: 4%;
-  margin-left: 20%;
-}
 
 @media (max-width: 768px) {
   #landing_page .navbar:not(.top-nav-collapse) {

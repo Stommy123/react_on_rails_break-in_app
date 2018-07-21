@@ -36,12 +36,14 @@ class LandingPage extends React.Component {
                 showIndicators={true}
                 className="z-depth-2">
             <CarouselItem itemId="1">
-              <Row className="d-flex justify-content-center">
+            <div className="logo_cont">
+              <Row className="d-flex align-self-center">
                 
                 <Col md="6" xl="5" className="mt-xl-5 ">
                   <img src={require("/Users/anthonyclemow/Desktop/projects/pitch_project/app/javascript/bundles/App/Components/break_in_logos-02.png")} className="img-fluid" alt="landingImg"/>
                 </Col>
                 </Row>
+              </div>
                 </CarouselItem>
                 <CarouselItem itemId="2">
               <Row className="intro-content2">
