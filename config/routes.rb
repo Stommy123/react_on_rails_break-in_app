@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'map/googlemap'
   get 'map/mapbox'
   devise_for :users
   root 'home#index'
