@@ -22,9 +22,11 @@ class MapBox extends Component {
           enableHighAccuracy: true
         },
         trackUserLocation: true
-      }))
-
-
+      }));
+      let popup = new mapboxgl.Popup()
+      let marker = new mapboxgl.Marker()
+      .setLngLat([-80.2044, 25.8028])
+      .addTo(map);
 
     }
   render() {
