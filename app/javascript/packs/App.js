@@ -5,8 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import App from '../bundles/App/App.js';
 import Test from '../bundles/App/Components/Test.js';
+// import InitMap from '../bundles/App/Components/InitMap.js'
+import MapBox from '../bundles/App/Components/MapBox.js'
 
 
 ReactOnRails.register({
-    App, Test
+    App, Test, MapBox
 });
