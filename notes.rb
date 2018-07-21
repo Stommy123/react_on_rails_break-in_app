@@ -31,3 +31,27 @@ function showPosition(position) {
 
 </body>
 </html>
+
+
+
+
+// const getLocation = () => {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//   } else {
+//     x.innerHTML = "Geolocation is not supported by this browser.";
+//   }
+// }
+//
+// const showPosition = (position) => {
+//   position1 = position.coords.latitude
+//   position2 = position.coords.longitude
+// }
+
+// <ul>
+//   {this.state.reports.map((reports) => {
+//     return(
+//       <li key={reports.id}>{reports.description}</li>
+//     )
+//   })}
+// </ul>
