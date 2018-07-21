@@ -1,9 +1,10 @@
+<div class="mh-100" style="width: 100vw; height: 100vh; background-color: #eee;background-image: url('https://mdbootstrap.com/img/Photos/Others/images/89.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 <% if @user.errors.any? %>
   <div class="alert alert-danger text-center" role="alert">
       <%= @user.errors.full_messages.join(', ') %>
   </div>
 <% end %>
-<div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 mt-4">
+<div class="pt-5 col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 mt-4">
   <div class="card">
     <!-- Card content -->
     <div class="card-body">

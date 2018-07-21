@@ -28,26 +28,18 @@ class LandingPage extends React.Component {
       <div id="landing_page">
           <View>
             <Mask className="d-flex justify-content-center align-items-center gradient">
-            <Container>
+            <Container className="introCont">
             <Carousel
-          activeItem={1}
-          length={4}
-          showControls={true}
-          showIndicators={true}
-          className="z-depth-2">
+                activeItem={1}
+                length={4}
+                showControls={true}
+                showIndicators={true}
+                className="z-depth-2">
             <CarouselItem itemId="1">
-              <Row className="intro-content">
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Welcome to Break-In App </h1>
-                  <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                  iste.</h6>
-                <Button onClick={ handleCreateAccount } color="white">Get Started</Button>
-                <Button onClick={ handleLogIn } outline color="white">Have an account? Log in</Button>
-                </div>
-                <Col md="6" xl="5" className="mt-xl-5">
-                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
+              <Row className="d-flex justify-content-center">
+                
+                <Col md="6" xl="5" className="mt-xl-5 ">
+                  <img src={require("/Users/anthonyclemow/Desktop/projects/pitch_project/app/javascript/bundles/App/Components/break_in_logos-02.png")} className="img-fluid" alt="landingImg"/>
                 </Col>
                 </Row>
                 </CarouselItem>
