@@ -14,7 +14,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require bootstrap
-//= require jquery
-//= require materialize-sprockets
-//= require materialize

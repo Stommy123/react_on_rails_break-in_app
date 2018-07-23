@@ -1,4 +1,5 @@
 class ReportController < ApplicationController
+    before_action :authenticate_user!
     def index
       respond_to do |format|
         format.html
@@ -10,7 +11,7 @@ class ReportController < ApplicationController
     end
 
     def create
-      @report = current_user.reports.new(reports_params)
+      @report = current_user.reports.new(report_params)
       if @report.save
         render json: @report
       else
