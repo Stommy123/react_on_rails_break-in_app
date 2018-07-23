@@ -8,6 +8,8 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import UpIcon from '@material-ui/icons/KeyboardArrowUp';
+import green from '@material-ui/core/colors/green';
 
 const styles = {
   list: {
@@ -60,17 +62,13 @@ class Locations extends Component {
 		const bottomList = (
 			<div className={classes.bottomList}>
 				<List></List>
-				<Button fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
-				<Divider />
-				<List></List>
-				<Button fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Break In</Button>
+					<Button id='drawer' variant="fab" color="secondary" aria-label="Add" onClick={this.toggleDrawer('bottom', true)}></Button>
 			</div>
 		);
 
 
     return (
       <div>
-    		<Button onClick={this.toggleDrawer('left', true)}>Navigation</Button>
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
@@ -92,7 +90,8 @@ class Locations extends Component {
           </div>
         </Drawer>
 				<MapBox />
-			 <Button id='addReport' variant="fab" color="primary" aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><AddIcon /></Button>
+				<Button id='drawer' variant="fab" color="secondary" aria-label="Add" onClick={this.toggleDrawer('left', true)}><AddIcon /></Button>
+			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button>
       </div>
     );
 	}

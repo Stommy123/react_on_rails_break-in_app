@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 
 const handleLiveMap = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/map/mapbox');
+  link.setAttribute('href', '/locations/index');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
@@ -101,7 +101,7 @@ class Nav extends React.Component {
                       </Button>
                     </NavItem>
                     <NavItem>
-                      <Button 
+                      <Button
                       color="inherit"
                       onClick={ handleContact }
                       >Contact
