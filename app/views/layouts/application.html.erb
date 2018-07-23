@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css' %>
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css' %>
-
+    <%= stylesheet_link_tag 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' %>
 
    <!-- <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css' rel='stylesheet'> -->
      <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,7 @@
 
   <body>
     <%= yield %>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
     <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Bootstrap core JavaScript -->

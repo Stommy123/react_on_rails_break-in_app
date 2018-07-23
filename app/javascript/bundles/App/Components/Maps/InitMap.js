@@ -12,6 +12,7 @@ const initMap = (mapContainer) => {
   let nav;
   let popup;
   let marker;
+  let geo;
    //initialize map
   map = new mapboxgl.Map({
       container: mapContainer,
@@ -19,16 +20,22 @@ const initMap = (mapContainer) => {
       center: [-80.2044, 25.8028],
       zoom: 15
   });
+
+  //geolocating
+  geo = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  })
+
+  map.addControl(geo)
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    trackUserLocation: true
+  }));
   //navigation
   nav = new mapboxgl.NavigationControl();
       map.addControl(nav, 'top-right');
-      //geolocating
-      map.addControl(new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true
-        },
-        trackUserLocation: true
-      }));
 
   //popup
   popup = new mapboxgl.Popup({ offset: 25 })
@@ -38,7 +45,7 @@ const initMap = (mapContainer) => {
   .setLngLat([-80.2044, 25.8028])
   .setPopup(popup)
   .addTo(map);
-  
+
   //lat & lng indicator
   map.on('mousemove', function (e) {
   document.getElementById('info').innerHTML =
