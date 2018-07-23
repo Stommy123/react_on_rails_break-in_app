@@ -3,6 +3,7 @@ import axios from 'axios';
 import Nav from './Components/NavBar.js'
 import LandingPage from './Components/Landing.js';
 import MapBox from './Components/Maps/MapBox.js'
+import Locations from './Components/Maps/Locations.js'
 import ReactDOM from 'react-dom'
 import Form from './Components/Form.js'
 import Report from './Components/Report.js'
@@ -12,7 +13,7 @@ import 'mdbreact/dist/css/mdb.css';
 
 
 class App extends Component {
-  
+
 
   render() {
     return (

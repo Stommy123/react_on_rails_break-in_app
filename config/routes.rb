@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   get 'support/index'
+  get 'locations/index'
   root 'home#index'
   devise_for :users
   resources :report, only: [:create, :index, :destroy]
