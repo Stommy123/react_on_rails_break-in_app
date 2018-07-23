@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :report, only: [:create, :index, :destroy]
   get 'map/mapbox'
+  get 'contact/index'
   get 'report/index'
   resources :home, only: [:index]
   resources :vote, only: [:index]
