@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 gem 'geocoder'
 gem 'react_on_rails'
+gem 'dotenv-rails'
+# Allow Facebook signup/login
+gem 'omniauth-facebook'
 
 gem 'bootstrap-sass', '~> 3.3.7'
 
@@ -18,9 +21,6 @@ gem 'materialize-sass'
 gem 'devise'
 
 gem 'faker'
-
-# Allow Facebook signup/login
-gem 'omniauth-facebook'
 
 gem 'hirb'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
