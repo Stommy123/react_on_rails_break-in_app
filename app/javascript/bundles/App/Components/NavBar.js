@@ -21,6 +21,13 @@ const handleContact = () => {
   document.body.appendChild(link);
   link.click();
 }
+const handleSupport = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/support/index');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
 
 
 const handleDemo = () => {
@@ -84,6 +91,14 @@ class Nav extends React.Component {
                     </NavItem>
                     <NavItem>
                       <NavLink to="#!">Scoreboard</NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <Button
+                        color="inherit"
+                        onClick={ handleSupport }
+                        >
+                        Support
+                      </Button>
                     </NavItem>
                     <NavItem>
                       <Button 

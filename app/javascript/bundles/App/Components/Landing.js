@@ -40,7 +40,7 @@ class LandingPage extends React.Component {
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Welcome to Break-In App </h1>
                   <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
+                  <h6 className="my-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
                   iste.</h6>
                 <Button onClick={ handleCreateAccount } color="white">Get Started</Button>
