@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_193350) do
+ActiveRecord::Schema.define(version: 2018_07_23_055718) do
 
   create_table "reports", force: :cascade do |t|
     t.string "description"
-    t.integer "lat"
-    t.integer "lng"
+    t.float "lat"
+    t.float "lng"
     t.string "photo"
     t.string "category"
     t.datetime "created_at", null: false

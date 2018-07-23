@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Report.destroy_all
   [
     ['White Landrover with windows smashed', 25.7998, -80.1993, 'Car break in'],
     ['Kids lighting trash cans on fire, 7th ave', 25.7993, -80.1983, 'Arsony'],
