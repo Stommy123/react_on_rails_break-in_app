@@ -7,6 +7,8 @@ gem 'react_on_rails'
 
 gem 'bootstrap-sass', '~> 3.3.7'
 
+gem 'rack-cors', require: 'rack/cors'
+
 gem 'jquery-rails'
 
 gem 'material-sass'

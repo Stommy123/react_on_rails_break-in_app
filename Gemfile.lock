@@ -143,9 +143,10 @@ GEM
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
+    rack-cors (1.0.2)
     rack-proxy (0.6.4)
       rack
-    rack-test (1.0.0)
+    rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
       actioncable (= 5.2.0)
@@ -176,7 +177,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    react_on_rails (11.0.9)
+    react_on_rails (11.0.10)
       addressable
       connection_pool
       execjs (~> 2.5)
@@ -218,7 +219,7 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.15)
+    uglifier (4.1.16)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -255,6 +256,7 @@ DEPENDENCIES
   mini_racer
   omniauth-facebook
   puma (~> 3.11)
+  rack-cors
   rails (~> 5.2.0)
   react_on_rails
   sass-rails (~> 5.0)

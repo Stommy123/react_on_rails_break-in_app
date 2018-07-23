@@ -7,20 +7,13 @@ import axios from 'axios';
 
 
 export default class Form extends Component {
+
   state = {
-    report: {
-      description: '',
-      category: ''
-    }
-  }
-  componentDidMount() {
-    axios.get(`/report/index.json`)
-    .then((response) => {
-      let reports = response.data;
-      this.setState({ reports })
-    })
-    .catch((error) => { console.log(error) })
-  }
+            report: {
+              description: '',
+              category: ''
+            }
+          }
 
   handleSubmit = (event) => {
     event.preventDefault();

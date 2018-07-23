@@ -1,4 +1,6 @@
-.Map {
-  height: 600px;
-  width: 600px;
+#mapContainer {
+  height: 50vh; }
+
+#report-div {
+  margin-top: 50px;
 }
