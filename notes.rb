@@ -168,3 +168,15 @@ geojson.features.forEach(function(marker) {
 
 </body>
 </html>
+
+
+<div id="report-div">
+<Report reports={this.state.reports} deleteReport={this.deleteReport} />
+</div>
+<Form createReport={this.createReport} />
+
+<Flash
+  message={ this.state.flash.message }
+  open={ this.state.flash.open}
+  type={ this.state.flash.type }
+  />

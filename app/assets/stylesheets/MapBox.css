@@ -1,6 +1,8 @@
-#mapContainer {
-  height: 50vh; }
-
-#report-div {
-  margin-top: 50px;
+#map {
+  min-height:500px;
+  width:500px;
 }
+
+
+
+#mapContainer { height: 80vh; }

@@ -14,11 +14,6 @@ import Button from '@material-ui/core/Button';
 
 export default class Report extends Component {
 
-  handleClick = (event, report) => {
-  event.preventDefault();
-  this.props.deleteReport(report);
-}
-
   render() {
     const { reports } = this.props
     return (
@@ -29,6 +24,8 @@ export default class Report extends Component {
               <TableRow>
                 <TableCell>Description</TableCell>
                 <TableCell>Category</TableCell>
+                <TableCell>lat</TableCell>
+                <TableCell>lng</TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
@@ -38,19 +35,8 @@ export default class Report extends Component {
                   <TableRow key={report.id}>
                     <TableCell>{report.description}</TableCell>
                     <TableCell>{report.category}</TableCell>
-                    <TableCell>
-                      <Button
-                        variant="contained"
-                        style={{
-                          float: 'right',
-                          backgroundColor: 'red',
-                          color: 'white'
-                        }}
-                        onClick={ (e) => { this.handleClick(e, task) } }
-                      >
-                        Delete
-                      </Button>
-                    </TableCell>
+                    <TableCell>{report.lat}</TableCell>
+                    <TableCell>{report.lng}</TableCell>
                   </TableRow>
                 )
               })}
