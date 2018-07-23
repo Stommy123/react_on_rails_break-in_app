@@ -14,6 +14,15 @@ const handleLiveMap = () => {
   document.body.appendChild(link);
   link.click();
 }
+const handleContact = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/contact/index');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+
+
 const handleDemo = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/demo');
@@ -77,7 +86,11 @@ class Nav extends React.Component {
                       <NavLink to="#!">Scoreboard</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink to="#!">Contact</NavLink>
+                      <Button 
+                      color="inherit"
+                      onClick={ handleContact }
+                      >Contact
+                      </Button>
                     </NavItem>
                   </NavbarNav>
                   <NavbarNav right >
