@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_07_24_222127) do
     t.string "uid"
     t.integer "points"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

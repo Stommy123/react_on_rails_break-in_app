@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'scoreboard/index'
   get 'support/index'
   get 'locations/index'
+  get 'saved_spots/index'
   root 'home#index'
   devise_for :users,
       controllers: {
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get 'report/index'
   resources :home, only: [:index]
   resources :vote, only: [:index]
+  get 'saved_spots', to: 'saved_spots#index'
   get 'hello_world', to: 'hello_world#index'
   get 'saved_spots_debug', to: 'saved_spots#index'
   resources :places, only: [:create, :index, :show, :destroy]
