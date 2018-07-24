@@ -5,4 +5,7 @@
 
 
 
-#mapContainer { height: 80vh; }
+#mapContainer {
+  height: 80vh;
+  margin-top: 50px;
+ }

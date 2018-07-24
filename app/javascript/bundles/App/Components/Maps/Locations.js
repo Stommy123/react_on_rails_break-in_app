@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
+import Nav from '../NavBar.js'
 
 const styles = {
   list: {
@@ -69,6 +70,7 @@ class Locations extends Component {
 
     return (
       <div>
+        <Nav />
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
