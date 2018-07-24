@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const handleLiveMap = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/locations/index');
+  link.setAttribute('href', '/places');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
@@ -49,13 +49,13 @@ export default class Nav extends Component {
                 <Button onClick={ handleLiveMap }><span class="text-muted">Live Map</span></Button>
               </div>
               <div class="bg-dark p-4">
+                <Button onClick={ handleScoreBoard }><span class="text-muted">Scoreboard</span></Button>
+              </div>
+              <div class="bg-dark p-4">
+                <Button onClick={ handleAbout }><span class="text-muted">About</span></Button>
+              </div>
+              <div class="bg-dark p-4">
               <Button onClick={ handleContact }><span class="text-muted">Contact</span></Button>
-              </div>
-              <div class="bg-dark p-4">
-              <Button onClick={ handleAbout }><span class="text-muted">About</span></Button>
-              </div>
-              <div class="bg-dark p-4">
-              <Button onClick={ handleScoreBoard }><span class="text-muted">Scoreboard</span></Button>
               </div>
           </div>
           <nav class="navbar navbar-dark bg-dark">

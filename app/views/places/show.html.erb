@@ -1,0 +1,15 @@
+<h1><%= @place.name%></h1>
+
+<% if @place.address.present? %>
+  <p>
+    <strong>Address: </strong><%= @place.address %>
+  </p>
+<% end %>
+
+<%= link_to 'All Reports', places_path %>
+<%= button_to 'Delete Reports', @place, method: :delete %>
+
+<hr>
+
+<%= react_component 'Places',
+    props: { coordinates: [@place.longitude, @place.latitude], geolocate: false } %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'user/index'
   get 'scoreboard/index'
   get 'support/index'
   get 'locations/index'
@@ -18,6 +19,6 @@ Rails.application.routes.draw do
   get 'saved_spots', to: 'saved_spots#index'
   get 'hello_world', to: 'hello_world#index'
   get 'saved_spots_debug', to: 'saved_spots#index'
-
+  resources :places, only: [:create, :index, :show, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
