@@ -14,6 +14,15 @@ const handleLiveMap = () => {
   document.body.appendChild(link);
   link.click();
 }
+
+const handleScoreboard = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/scoreboard/index');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+
 const handleContact = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/contact/index');
@@ -21,6 +30,7 @@ const handleContact = () => {
   document.body.appendChild(link);
   link.click();
 }
+
 const handleSupport = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/support/index');
@@ -76,9 +86,6 @@ class Nav extends React.Component {
                 <Collapse isOpen = {this.state.collapse} navbar>
                   <NavbarNav left>
                     <NavItem>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
                       <Button
                         color="inherit"
                         onClick={ handleLiveMap }
@@ -87,10 +94,12 @@ class Nav extends React.Component {
                       </Button>
                     </NavItem>
                     <NavItem>
-                      <NavLink to="#!">Account</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Scoreboard</NavLink>
+                      <Button
+                        color="inherit"
+                        onClick={ handleScoreboard }
+                        >
+                        Scoreboard
+                      </Button>
                     </NavItem>
                     <NavItem>
                       <Button
