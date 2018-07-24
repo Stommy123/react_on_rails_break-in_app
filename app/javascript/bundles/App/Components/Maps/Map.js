@@ -10,19 +10,28 @@ export default class Map extends Component {
   }
 
   componentDidMount() {
-    let { coordinates, geolocate } = this.props;
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXdlaXNzMTk4MiIsImEiOiJIeHpkYVBrIn0.3N03oecxx5TaQz7YLg2HqA'
+
+    let map;
+    let nav;
+    let popup;
+    let marker;
+    let geo;
+    let { coordinates, geolocate } = this.props;
+
     const geolocationOptions = {
       enableHighAccuracy: true,
       maximumAge        : 30000,
       timeout           : 27000
     };
+
     const mapOptions = {
       container: this.mapContainer,
       style: `mapbox://styles/mapbox/streets-v9`,
       zoom: 12,
       center: [-80.2044, 25.8028]
     }
+
     if ("geolocation" in navigator && geolocate) {
       navigator.geolocation.getCurrentPosition(
         // success callback
@@ -43,13 +52,28 @@ export default class Map extends Component {
     }
   }
 
+  geo = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  })
+
   createMap = (mapOptions, geolocationOptions) => {
     this.map = new mapboxgl.Map(mapOptions);
     const map = this.map;
     const { lat, lng } = map.getCenter();
     console.log(lat, lng);
     map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+      })
+    );
+    map.addControl(
       new mapboxgl.GeolocateControl({
+        positionOptions: geolocationOptions,
+        trackUserLocation: true
+      })
+    );
+    map.addControl(
+      new mapboxgl.NavigationControl({
         positionOptions: geolocationOptions,
         trackUserLocation: true
       })
