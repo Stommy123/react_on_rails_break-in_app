@@ -2,9 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
 import Form from '../Form.js';
-import NavBar from '../NavBar.js';
 import {initMap} from './InitMap.js';
-import Report from '../Report.js';
 
 
 

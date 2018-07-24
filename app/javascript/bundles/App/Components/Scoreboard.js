@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
-import ScoreNav from './ScoreNav.js'
+import Nav from './NavBar.js'
 
 
 
@@ -17,7 +17,7 @@ export default class Scoreboard extends Component {
     const { score } = this.props
     return (
       <div>
-      <ScoreNav />
+      <Nav />
         <Paper style={{margin: 10}}>
           <Table>
             <TableHead>
@@ -32,11 +32,11 @@ export default class Scoreboard extends Component {
                 <TableCell>0</TableCell>
               </TableRow>
             </TableHead>
-            <div>Everyone</div>
+            <div id='everyone'>Everyone</div>
             <TableBody>
                   <TableRow>
                     <TableCell>Rank</TableCell>
-                    <TableCell>User</TableCell>
+                    <TableCell>Username</TableCell>
                     <TableCell>Points</TableCell>
                   </TableRow>
                   <TableRow>
