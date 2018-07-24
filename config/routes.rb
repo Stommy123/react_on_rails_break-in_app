@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'user/index'
   get 'scoreboard/index'
   get 'support/index'
   get 'locations/index'

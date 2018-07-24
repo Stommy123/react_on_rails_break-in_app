@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :votes
   has_many :reports
+  scope :by_points, -> { order(points: :desc)}
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
