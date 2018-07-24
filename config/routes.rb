@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'scoreboard/index'
   get 'support/index'
   get 'locations/index'
+  get 'saved_spots/index'
   root 'home#index'
   devise_for :users,
       controllers: {

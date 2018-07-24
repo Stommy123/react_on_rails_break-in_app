@@ -7,6 +7,8 @@ import Locations from '../bundles/App/Components/Maps/Locations.js'
 import Contact from '../bundles/App/Components/Contact.js'
 import About from '../bundles/App/Components/About.js'
 import Scoreboard from '../bundles/App/Components/Scoreboard.js'
+import Savedspots from '../bundles/App/Components/Savedspots.js'
+
 
 ReactOnRails.register({
 
