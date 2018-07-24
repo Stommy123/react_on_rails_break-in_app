@@ -10,5 +10,5 @@ import Scoreboard from '../bundles/App/Components/Scoreboard.js'
 
 ReactOnRails.register({
 
-    App, MapBox, Report, Locations, Contact, About, Scoreboard
+    App, MapBox, Report, Locations, Contact, About, Scoreboard, Savedspots
 });

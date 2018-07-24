@@ -8,12 +8,14 @@ import { Navbar, NavbarBrand, Fa, NavbarNav, NavItem, NavLink, NavbarToggler, Co
 
 export default class Savedspots extends Component {
 
+  handleClick = () => {
+  console.log('Hello World');
+
+}
+
+
     render() {
-
-      handleClick = () => {
-      console.log('Hello World');
-    }
-
+      return (
 
       <ul>
         <li>Home</li>
@@ -22,6 +24,6 @@ export default class Savedspots extends Component {
         <li>Connect with other users</li>
         <li>REPORT!</li>
       </ul>
-
+    )
   }
 }

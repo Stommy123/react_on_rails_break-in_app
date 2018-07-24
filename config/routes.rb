@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'report/index'
   resources :home, only: [:index]
   resources :vote, only: [:index]
+  get 'saved_spots', to: 'saved_spots#index'
   get 'hello_world', to: 'hello_world#index'
   get 'saved_spots_debug', to: 'saved_spots#index'
 
