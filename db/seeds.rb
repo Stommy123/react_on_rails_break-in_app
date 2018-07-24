@@ -8,10 +8,12 @@
 
 require 'faker'
 50.times do
-  User.create(
-    email: Faker::Internet.email,
-    points: Faker::Number.between(100,1000)
+  user = User.new(
+    email: Faker::Internet.unique.email,
+    points: Faker::Number.between(100,1000),
+    password: 'asdfasdf'
   )
+  user.save(validate: false)
 end
 
 
