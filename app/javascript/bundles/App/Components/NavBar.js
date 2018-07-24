@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const handleLiveMap = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/locations/index');
+  link.setAttribute('href', '/places');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import MapBox from './MapBox';
+import Map from './Map';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -91,7 +91,7 @@ class Locations extends Component {
             {bottomList}
           </div>
         </Drawer>
-				<MapBox />
+				<Map />
 				<Button id='drawer' variant="fab" color="secondary" aria-label="Add" onClick={this.toggleDrawer('left', true)}><AddIcon /></Button>
 			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button>
       </div>
