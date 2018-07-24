@@ -23,10 +23,12 @@ export default class ScoreNav extends Component {
               </div>
           </div>
           <nav class="navbar navbar-dark bg-dark">
+          <div id='FlexNav'>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   <span id='NavTitle'>Scoreboard</span>
               </button>
+          </div>
           </nav>
       </div>
 
