@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+50.times do
+  User.create(
+    email: Faker::Internet.email,
+    points: Faker::Number.between(100,1000)
+  )
+end
+
+
+
 Report.destroy_all
   [
     ['White Landrover with windows smashed', 25.7998, -80.1993, 'Car break in'],
