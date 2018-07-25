@@ -1,10 +1,9 @@
 import React from 'react';
 import { Mask, Row, Col, Button, View, Container} from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
 import  {Carousel, CarouselCaption, CarouselInner, CarouselItem} from 'mdbreact';
 
+
+//DEFINES WHAT HAPPEN WHEN USER CLICKS LOG IN
 const handleLogIn = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/users/sign_in');
@@ -12,6 +11,8 @@ const handleLogIn = () => {
   document.body.appendChild(link);
   link.click();
 }
+
+//DEFINES WHAT HAPPENS WHEN USER CLICKS SIGN UP
 const handleCreateAccount = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/users/sign_up');

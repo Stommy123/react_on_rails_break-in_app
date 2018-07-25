@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+  #Facebook Log In
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
@@ -9,6 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  #Handles failure
   def failure
     redirect_to root_path
   end
