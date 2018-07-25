@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import Map from './Map';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -14,6 +13,7 @@ import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
 
+//STYLING FOR EACH POP UP DRAWER
 const styles = {
   list: {
     width: 275,
@@ -24,12 +24,13 @@ const styles = {
 	}
 };
 
-class Locations extends Component {
+class Places extends Component {
 	state = {
 	 left: false,
 	 bottom: false
  };
 
+ //METHOD TO OPEN AND CLOSE DRAWER -- NOT ALWAYS WORKING
  toggleDrawer = (side, open) => () => {
 	this.setState({
 		[side]: open,
@@ -110,8 +111,10 @@ class Locations extends Component {
 	}
 }
 
-Locations.propTypes = {
+//DEFINE PROP TYPES FOR MATERIAL UI COMPONENTS
+Places.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Locations);
+//EXPORTS THIS COMPONENT WITH STYLES INTACT
+export default withStyles(styles)(Places);

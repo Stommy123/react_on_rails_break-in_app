@@ -4,6 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+
+//DEFINES WHERE LIVE MAP LINK TAKES THE USER
 const handleLiveMap = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/places');
@@ -12,24 +14,26 @@ const handleLiveMap = () => {
   link.click();
 }
 
+//DEFINES WHERE CONTACT LINK TAKES THE USER
 const handleContact = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/contact/index');
+  link.setAttribute('href', '/contact');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
 }
 
+//DEFINES WHERE ABOUT LINK TAKES THE USER
 const handleAbout = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/support/index');
+  link.setAttribute('href', '/about');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
 }
 const handleScoreBoard = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/scoreboard/index');
+  link.setAttribute('href', '/scoreboard');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();

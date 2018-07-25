@@ -1,9 +1,13 @@
 class PlacesController < ApplicationController
+  #User must be logged in to view
   before_action :authenticate_user!
+  #Find Place for only show / destroy action
   before_action :set_place, only: [:show, :destroy]
 
 
   def create
+    #Creates a new Place report for current user that is signed in
+    #use ip address if params are not met, for all else render a 400 error
     @place = current_user.places.new(place_params.merge(ip: request.ip))
     if @place.save
       render json: @place
@@ -13,6 +17,7 @@ class PlacesController < ApplicationController
   end
 
   def index
+    #If format is html, then render all Places and their coordinates
     respond_to do |format|
       format.html do
         @place = Place.new
@@ -21,7 +26,7 @@ class PlacesController < ApplicationController
                           .coordinates
                           .reverse
       end
-
+      #If format is json, render all nearby places as markers
       format.json do
         @places = Place.near([params[:lat], params[:lng]], 50)
         render json:  {
@@ -51,6 +56,7 @@ class PlacesController < ApplicationController
 
 
   def destroy
+    #destroys the current user's place report then redirect back to map page
     @place = current_user.places.find(params[:id])
     @place.destroy
     redirect_to places_path
@@ -59,10 +65,12 @@ class PlacesController < ApplicationController
   private
 
   def place_params
+    #define parameters for what is an acceptable Place report
     params.require(:place).permit(:name, :street, :city, :state, :country, :latitude, :longitude, :image)
   end
 
   def set_place
+    #finds each individual place by its ID
     @place = Place.find(params[:id])
   end
 
