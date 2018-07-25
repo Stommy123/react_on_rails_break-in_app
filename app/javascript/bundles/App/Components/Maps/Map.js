@@ -143,15 +143,17 @@ export default class Map extends Component {
     const { myPlaces } = this.state;
     return(
       <div>
-        <div className='sidebar pad2' style={{width: '500px', height: '400px', float: 'left'}}>
+        <div style={{width: '500px', height: '400px', float: 'left'}}>
           {
             myPlaces.map( (place) => {
               return(
-                <div
+
+                <div id='scrollingNav'
                   key={place.id}
                   onClick={ (e) => { this.flyTo(place) } }
                 >
                   {place.name}
+                  <hr></hr>
                 </div>
               );
             })
