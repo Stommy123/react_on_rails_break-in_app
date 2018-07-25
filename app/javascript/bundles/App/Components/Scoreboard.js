@@ -6,7 +6,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
-import Nav from './NavBar.js'
+import Nav from './NavBar.js';
+
 
 
 
@@ -21,7 +22,7 @@ export default class Scoreboard extends Component {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>My Level</TableCell>
+                <TableCell><i className="fas fa-chess-pawn fa-3x"></i>My Level</TableCell>
                 <TableCell></TableCell>
                 <TableCell>Rank Name</TableCell>
               </TableRow>
@@ -91,7 +92,7 @@ export default class Scoreboard extends Component {
             </TableBody>
           </Table>
         </Paper>
-      </div>
+        </div>
     )
   }
 }
