@@ -18,7 +18,17 @@
 }
 
 .reportHeader{
-    justify-content: center;
+    border: 2px;
+    border-color: red;
+    border-style: solid;
+    height: 8vh;
+    text-align: center;
+
+}
+
+.reportHeaderText{
+    line-height: 8vh;
+    font-size: 3em;
 }
 
 .reportButton1{
@@ -93,4 +103,10 @@
     background-repeat: no-repeat;
     background-position: center;
     line-height: 100px;
+}
+
+.bottomList{
+    border: 2px;
+    border-color: red;
+    border-style: solid;
 }

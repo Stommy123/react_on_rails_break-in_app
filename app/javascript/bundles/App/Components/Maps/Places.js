@@ -18,10 +18,10 @@ const styles = {
   list: {
     width: 275,
   },
-	bottomList: {
-		height: 200,
-		width: 350,
-	}
+	// bottomList: {
+	// 	height: 200,
+	// 	width: 350,
+	// }
 };
 
 class Places extends Component {
@@ -65,8 +65,11 @@ class Places extends Component {
     );
 
 		const bottomList = (
+		<div className="bottomList">
 		<div className={classes.bottomList}>
-			<h5 className="reportHeader">Send a report</h5>
+		<div className="reportHeader">
+			<div className="reportHeaderText">Send a report</div>
+		</div>
 			<div className="row">
 				
     <div className="col">
@@ -94,6 +97,7 @@ class Places extends Component {
     <div className="col">
 		<Button className="reportButton8" fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Camera</Button>
     </div>
+		</div>
 		</div>
 		</div>
 		);
