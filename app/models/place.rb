@@ -3,6 +3,7 @@ class Place < ApplicationRecord
   geocoded_by :geocode_method
   after_validation :geocode, if: :needs_geocode?
   belongs_to :user
+  has_one_attached :image
 
   def address
     [street, city, state, country].compact.reject(&:empty?).join(', ')

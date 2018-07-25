@@ -3,7 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 gem 'geocoder'
+
 gem 'react_on_rails'
+
+gem 'carrierwave', '~> 1.0'
+
+
+gem "aws-sdk-s3", require: false
+
 gem 'dotenv-rails'
 # Allow Facebook signup/login
 gem 'omniauth-facebook'

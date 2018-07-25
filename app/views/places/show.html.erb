@@ -6,6 +6,13 @@
   </p>
 <% end %>
 
+<% if @place.image.attached? %>
+  <p>
+    <strong>Image:</strong>
+    <br>
+    <%= image_tag @place.image %>
+  </p>
+  <% end %>
 <%= link_to 'All Reports', places_path %>
 <%= button_to 'Delete Reports', @place, method: :delete %>
 

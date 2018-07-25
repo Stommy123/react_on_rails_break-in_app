@@ -1,8 +1,15 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_place, only: [:show, :destroy]
 
+
   def create
-    Place.create(place_params.merge(ip: request.ip))
+    @place = current_user.places.new(place_params.merge(ip: request.ip))
+    if @place.save
+      render json: @place
+    else
+      render json: @place.errors.full_messages, status: 400
+    end
   end
 
   def index
@@ -14,6 +21,7 @@ class PlacesController < ApplicationController
                           .coordinates
                           .reverse
       end
+
       format.json do
         @places = Place.near([params[:lat], params[:lng]], 50)
         render json:  {
@@ -31,6 +39,7 @@ class PlacesController < ApplicationController
                             }
                           }
                         end
+
                       }
       end
     end
@@ -39,7 +48,10 @@ class PlacesController < ApplicationController
   def show
   end
 
+
+
   def destroy
+    @place = current_user.places.find(params[:id])
     @place.destroy
     redirect_to places_path
   end
@@ -47,7 +59,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :street, :city, :state, :country, :latitude, :longitude)
+    params.require(:place).permit(:name, :street, :city, :state, :country, :latitude, :longitude, :image)
   end
 
   def set_place
