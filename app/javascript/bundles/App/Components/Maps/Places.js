@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import MapBox from './MapBox';
+import Map from './Map';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -10,6 +10,9 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'mdbreact';
 import { Container } from '../../../../../../node_modules/semantic-ui-react';
+import UpIcon from '@material-ui/icons/KeyboardArrowUp';
+import green from '@material-ui/core/colors/green';
+import Nav from '../NavBar.js'
 
 const styles = {
   list: {
@@ -77,6 +80,7 @@ class Locations extends Component {
     return (
       <div>
     		<Button onClick={this.toggleDrawer('left', true)}><Fa icon="bars" size="2x"></Fa></Button>
+        <Nav />
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
@@ -99,8 +103,8 @@ class Locations extends Component {
           </div>
         </Drawer>
 				</div>
-				<MapBox />
-			 <Button id='addReport' variant="fab" color="primary" aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><AddIcon /></Button>
+				<Map />
+			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button>
       </div>
     );
 	}

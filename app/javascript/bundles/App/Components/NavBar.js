@@ -1,19 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import { Navbar, NavbarBrand, Fa, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, FormInline } from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
+import React, {Component} from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
 
 const handleLiveMap = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/map/mapbox');
+  link.setAttribute('href', '/places');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
 }
+
 const handleContact = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/contact/index');
@@ -21,119 +19,54 @@ const handleContact = () => {
   document.body.appendChild(link);
   link.click();
 }
-const handleSupport = () => {
+
+const handleAbout = () => {
   let link = document.createElement('a');
   link.setAttribute('href', '/support/index');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
 }
-
-
-const handleDemo = () => {
+const handleScoreBoard = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/demo');
+  link.setAttribute('href', '/scoreboard/index');
   link.setAttribute('rel', 'nofollow');
   document.body.appendChild(link);
   link.click();
 }
 
 
-class Nav extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      collapse : false
-    }
-    this.onClick = this.onClick.bind(this);
-    this.handleNavbarClick = this.handleNavbarClick.bind(this);
-  }
 
-  onClick(){
-    this.setState({
-        collapse: !this.state.collapse,
-    });
-  }
-
-  handleNavbarClick(){
-    this.setState({
-      collapse: false
-    });
-  }
-
-  render(){
-  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
+export default class Nav extends Component {
+  render() {
     return (
-      <div id="Nav">
-       <Router>
-          <div>
-            <Navbar dark expand="md" fixed="top" scrolling>
-              <Container>
-                <NavbarBrand>
-                  <span className="white-text">Break-In App</span>
-                </NavbarBrand>
-                <NavbarToggler onClick = { this.onClick } />
-                <Collapse isOpen = {this.state.collapse} navbar>
-                  <NavbarNav left>
-                    <NavItem>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <Button
-                        color="inherit"
-                        onClick={ handleLiveMap }
-                        >
-                        Live Map
-                      </Button>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Account</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Scoreboard</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <Button
-                        color="inherit"
-                        onClick={ handleSupport }
-                        >
-                        Support
-                      </Button>
-                    </NavItem>
-                    <NavItem>
-                      <Button 
-                      color="inherit"
-                      onClick={ handleContact }
-                      >Contact
-                      </Button>
-                    </NavItem>
-                  </NavbarNav>
-                  <NavbarNav right >
-                    <NavItem>
-                      <NavLink to="!#">
-                        <Fa icon="facebook"></Fa>
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="!#">
-                        <Fa icon="twitter"></Fa>
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="!#">
-                        <Fa icon="instagram"></Fa>
-                      </NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
-          { this.state.collapse && overlay}
+      <div class="pos-f-t">
+          <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+                  <h4 class="text-white">Menu</h4>
+              </div>
+              <div class="bg-dark p-4">
+                <Button onClick={ handleLiveMap }><span class="text-muted">Live Map</span></Button>
+              </div>
+              <div class="bg-dark p-4">
+                <Button onClick={ handleScoreBoard }><span class="text-muted">Scoreboard</span></Button>
+              </div>
+              <div class="bg-dark p-4">
+                <Button onClick={ handleAbout }><span class="text-muted">About</span></Button>
+              </div>
+              <div class="bg-dark p-4">
+              <Button onClick={ handleContact }><span class="text-muted">Contact</span></Button>
+              </div>
           </div>
-        </Router>
+          <nav class="navbar navbar-dark bg-dark">
+          <div id='FlexNav'>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
           </div>
-    );
-  }
-};
+          </nav>
+      </div>
 
-export default Nav;
+    )
+  }
+}

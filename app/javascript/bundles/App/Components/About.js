@@ -1,8 +1,11 @@
 import React from 'react';
 import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact'
+import Nav from './NavBar.js'
 
-const Support = (props) => {
+const About = (props) => {
     return(
+      <div>
+        <Nav />
         <Container>
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold my-5">So why is Break-In so great?</h2>
@@ -24,7 +27,7 @@ const Support = (props) => {
               <h5 className="font-weight-bold my-4">Engagement</h5>
               <p className="grey-text mb-md-0 mb-5">With our trophy system and anonymous submission process, we ensure our users are engaged and reporting information accurately.</p>
             </Col>
-            
+
           </Row>
           <h2 className="h1-responsive font-weight-bold my-5">FAQ</h2>
           <ListGroup>
@@ -38,7 +41,8 @@ const Support = (props) => {
             </ListGroup>
         </section>
       </Container>
+    </div>
     );
 };
 
-export default Support;
+export default About;
