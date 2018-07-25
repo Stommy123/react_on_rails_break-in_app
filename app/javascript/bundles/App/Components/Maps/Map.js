@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
-
+import Divider from '@material-ui/core/Divider';
 
 export default class Map extends Component {
 
@@ -88,6 +88,8 @@ export default class Map extends Component {
         trackUserLocation: true
       })
     );
+
+
     //ON MAP LOAD, ADD ALL PLACE MARKERS FROM .JSON DATA
     map.on('load', (event) => {
       map.addSource(
@@ -105,7 +107,20 @@ export default class Map extends Component {
         const feature = features[0];
         const popup = new mapboxgl.Popup()
                         .setLngLat(feature.geometry.coordinates)
-                        .setHTML(`<a href='/places/${feature.properties['id']}'>${feature.properties['name']}</a>`)
+                        .setHTML(`
+                          <div>
+                            <div id="borders">
+                          <img src='#' href='/places/${feature.properties['id']}'/>Image Here<br/>
+                          <a href='/places/${feature.properties['id']}'>${feature.properties['name']}</a>
+                          </div>
+                          <Divider />
+                          <a href='/places/${feature.properties['id']}'>${feature.properties['category']}</a><br/>
+                          <Divider />
+                          <a href='/places/${feature.properties['id']}'>${feature.properties['description']}</a><br/>
+                          <a href='/places/${feature.properties['id']}'>${feature.properties['street']}</a><br/>
+                          <a href='/places/${feature.properties['id']}'>${feature.properties['city']}</a><br/>
+                          </div>
+                          `)
                         .addTo(map);
       });
       //IF MOUSE MOVES ONTOP A POPUP, CHANGE CURSOR TYPE
@@ -148,12 +163,10 @@ export default class Map extends Component {
             myPlaces.map( (place) => {
               return(
                 <div
-                  id='scrollingNav'
                   key={place.id}
                   onClick={ (e) => { this.flyTo(place) } }
                 >
                   {place.name}
-                  <hr></hr>
                 </div>
               );
             })

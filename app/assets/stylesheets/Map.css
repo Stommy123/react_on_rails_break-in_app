@@ -24,3 +24,14 @@ section:last-child {
     position: fixed;
     width:50%;
 }
+
+#borders {
+  border: solid 1px black;
+}
+
+.mapboxgl-popup-content {
+  background-color: white;
+}
+
+.mapboxgl-popup-content-wrapper {
+}
