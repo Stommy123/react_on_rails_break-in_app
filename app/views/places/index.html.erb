@@ -1,6 +1,4 @@
 
-<%= @coordinates.first %>, <%= @coordinates.last %>
-
 <%= react_component 'Places', props: { coordinates: @coordinates, geolocate: true } %>
 
 <%= form_with(model: @place) do |form| %>
@@ -9,6 +7,14 @@
   <div>
     <%= form.label :name %>
     <%= form.text_field :name, required: true, class: "text_input" %>
+  </div>
+  <div>
+    <%= form.label :category %>
+    <%= form.text_field :category, required: true, class: "text_input" %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description, required: true, class: "text_input" %>
   </div>
   <div>
     <%= form.label :street %>
@@ -21,10 +27,6 @@
   <div>
     <%= form.label :state %>
     <%= form.text_field :state, class: "text_input" %>
-  </div>
-  <div>
-    <%= form.label :country %>
-    <%= form.text_field :country, class: "text_input" %>
   </div>
   <div class="field">
     <%= form.label :image %>
