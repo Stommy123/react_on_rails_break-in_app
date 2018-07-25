@@ -29,6 +29,17 @@ You are calling from
     <%= form.label :country %>
     <%= form.text_field :country, class: "text_input" %>
   </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <% if @place.image.attached? %>
+      <p>
+        <strong>Image:</strong>
+        <br>
+        <%= image_tag @place.image %>
+      </p>
+      <% end %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
