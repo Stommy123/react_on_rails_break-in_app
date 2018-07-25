@@ -3,6 +3,19 @@
   right: 0;
 }
 
+
+.SideNavHeader{
+  height: 20vh;
+  background-image: url("./break_in_logos-01.png");
+  background-size: 12vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bottomModule{
+  width: 15vw;
+}
+
 #drawer {
   position: absolute;
   left: 0;

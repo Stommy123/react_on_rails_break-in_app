@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_24_232941) do
+ActiveRecord::Schema.define(version: 2018_07_24_233609) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2018_07_24_232941) do
     t.string "description"
     t.string "category"
     t.string "photo"
+    t.integer "user_id"
     t.index ["latitude", "longitude"], name: "index_places_on_latitude_and_longitude"
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "reports", force: :cascade do |t|

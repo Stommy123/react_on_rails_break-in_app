@@ -8,17 +8,19 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'mdbreact';
+import { Container } from '../../../../../../node_modules/semantic-ui-react';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
 
 const styles = {
   list: {
-    width: 750,
+    width: 275,
   },
 	bottomList: {
-		height: 500,
-		width: 500
+		height: 200,
+		width: 300,
 	}
 };
 
@@ -41,35 +43,43 @@ class Locations extends Component {
 
     const sideList = (
       <div className={classes.list}>
-				<Button fullWidth='true' onClick={this.toggleDrawer('left', true)}>Navigation</Button>
-        <List></List>
-				<Button color='primary' fullWidth='true' onClick={this.toggleDrawer('left', true)}>Home</Button>
+				<Button className="SideNavHeader" fullWidth='true' onClick={this.toggleDrawer('left', true)}></Button>
         <Divider />
-				<Button fullWidth='true' onClick={this.toggleDrawer('left', true)}>Work</Button>
+				<List></List>
+				<Button className="SideNavOptions" color='primary' fullWidth='true' onClick={this.toggleDrawer('left', true)}>Home</Button>
+        <Divider />
+				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Work</Button>
         <List></List>
 				<Divider />
-				<Button fullWidth='true' onClick={this.toggleDrawer('left', true)}>Favorites</Button>
+				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Favorites</Button>
         <List></List>
 				<Divider />
-				<Button fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Calender</Button>
+				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Calender</Button>
         <List></List>
 				<Divider />
-				<Button fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
+				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
         <List></List>
 				<Divider />
       </div>
     );
 
 		const bottomList = (
+		<div className="reportDrawer)">
 			<div className={classes.bottomList}>
+			<Container></Container>
 				<List></List>
-					<Button id='drawer' variant="fab" color="secondary" aria-label="Add" onClick={this.toggleDrawer('bottom', true)}></Button>
+				<Button fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
+				<Divider />
+				<List></List>
+				<Button fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Break In</Button>
 			</div>
+		</div>
 		);
 
 
     return (
       <div>
+    		<Button onClick={this.toggleDrawer('left', true)}><Fa icon="bars" size="2x"></Fa></Button>
         <Nav />
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
@@ -81,7 +91,8 @@ class Locations extends Component {
             {sideList}
           </div>
         </Drawer>
-				<Drawer anchor='bottom' open={this.state.bottom} onClose={this.toggleDrawer('bottom', false)}>
+				<div className="bottomModule">
+				<Drawer anchor='right' open={this.state.bottom} onClose={this.toggleDrawer('bottom', false)}>
           <div
             tabIndex={0}
             role="button"
@@ -91,8 +102,8 @@ class Locations extends Component {
             {bottomList}
           </div>
         </Drawer>
+				</div>
 				<Map />
-				<Button id='drawer' variant="fab" color="secondary" aria-label="Add" onClick={this.toggleDrawer('left', true)}><AddIcon /></Button>
 			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button>
       </div>
     );
