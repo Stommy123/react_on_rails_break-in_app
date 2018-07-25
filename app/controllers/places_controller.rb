@@ -28,24 +28,28 @@ class PlacesController < ApplicationController
       end
       #If format is json, render all nearby places as markers
       format.json do
-        @places = Place.near([params[:lat], params[:lng]], 50)
-        render json:  {
-                        type: "FeatureCollection",
-                        features: @places.map do |place|
-                          {
-                            type: "Feature",
-                            geometry: {
-                              type: "Point",
-                              coordinates: [place.longitude, place.latitude]
-                            },
-                            properties: {
-                              name: place.name,
-                              id: place.id
+        if params[:filter] == "mine"
+          @places = current_user.places
+          render json: @places
+        else
+          @places = Place.near([params[:lat], params[:lng]], 50)
+          render json:  {
+                          type: "FeatureCollection",
+                          features: @places.map do |place|
+                            {
+                              type: "Feature",
+                              geometry: {
+                                type: "Point",
+                                coordinates: [place.longitude, place.latitude]
+                              },
+                              properties: {
+                                name: place.name,
+                                id: place.id
+                              }
                             }
-                          }
-                        end
-
-                      }
+                          end
+                        }
+        end
       end
     end
   end

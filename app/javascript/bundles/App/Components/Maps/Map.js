@@ -8,12 +8,15 @@ export default class Map extends Component {
 //Inherits window.map from wherever its called
   constructor(){
     super();
+    this.state = { myPlaces: [] };
     window.map = this;
   }
 
 //METHODS AND FUNCTIONS THAT WILL TAKE PLACE AFTER COMPONENT MOUNTS THE DOM
   componentDidMount() {
-
+    axios.get('/places.json?filter=mine')
+      .then( (response) => { this.setState({ myPlaces: response.data } ) } )
+      .catch( (error) => { console.log(error) } )
 //API KEY FOR MAPBOX
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXdlaXNzMTk4MiIsImEiOiJIeHpkYVBrIn0.3N03oecxx5TaQz7YLg2HqA'
 
@@ -127,15 +130,39 @@ export default class Map extends Component {
     this.map.remove();
   }
 
+  flyTo = (place) => {
+    this.map.flyTo({
+      center: [place.longitude, place.latitude],
+      bearing: 20,
+      zoom: 12,
+      pitch: 20
+    })
+  }
+
   render() {
+    const { myPlaces } = this.state;
     return(
       <div>
-        <div class='sidebar pad2'>Listing</div>
-      <div
-        style={{width: '100vw', height: '90vh', backgroundColor: 'azure'}}
-        ref={el => this.mapContainer = el}
-      ></div>
-    </div>
+        <div className='sidebar pad2' style={{width: '500px', height: '400px', float: 'left'}}>
+          {
+            myPlaces.map( (place) => {
+              return(
+                <div
+                  key={place.id}
+                  onClick={ (e) => { this.flyTo(place) } }
+                >
+                  {place.name}
+                </div>
+              );
+            })
+          }
+        </div>
+        <div
+          style={{width: '500px', height: '400px', backgroundColor: 'azure', float: 'right'}}
+          ref={el => this.mapContainer = el}
+        >
+        </div>
+      </div>
     );
   }
 }
