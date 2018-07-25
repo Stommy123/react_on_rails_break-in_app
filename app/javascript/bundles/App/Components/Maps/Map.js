@@ -17,11 +17,6 @@ export default class Map extends Component {
 //API KEY FOR MAPBOX
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXdlaXNzMTk4MiIsImEiOiJIeHpkYVBrIn0.3N03oecxx5TaQz7YLg2HqA'
 
-    let map;
-    let nav;
-    let popup;
-    let marker;
-    let geo;
     let { coordinates, geolocate } = this.props;
 
     //OPTIONS FOR BUILT IN GEOLOCATOR BUTTON
@@ -134,10 +129,13 @@ export default class Map extends Component {
 
   render() {
     return(
+      <div>
+        <div class='sidebar pad2'>Listing</div>
       <div
         style={{width: '100%', height: '500px', backgroundColor: 'azure'}}
         ref={el => this.mapContainer = el}
-      />
+      ></div>
+    </div>
     );
   }
 }
