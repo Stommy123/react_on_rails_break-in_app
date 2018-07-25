@@ -148,10 +148,12 @@ export default class Map extends Component {
             myPlaces.map( (place) => {
               return(
                 <div
+                  id='scrollingNav'
                   key={place.id}
                   onClick={ (e) => { this.flyTo(place) } }
                 >
                   {place.name}
+                  <hr></hr>
                 </div>
               );
             })

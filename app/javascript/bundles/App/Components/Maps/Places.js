@@ -26,7 +26,6 @@ const styles = {
 
 class Places extends Component {
 	state = {
-	 left: false,
 	 bottom: false
  };
 
@@ -42,27 +41,6 @@ class Places extends Component {
 
 		const { classes } = this.props;
 
-    const sideList = (
-      <div className={classes.list}>
-				<Button className="SideNavHeader" fullWidth='true' onClick={this.toggleDrawer('left', true)}></Button>
-        <Divider />
-				<List></List>
-				<Button className="SideNavOptions" color='primary' fullWidth='true' onClick={this.toggleDrawer('left', true)}>Home</Button>
-        <Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Work</Button>
-        <List></List>
-				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Favorites</Button>
-        <List></List>
-				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Calender</Button>
-        <List></List>
-				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
-        <List></List>
-				<Divider />
-      </div>
-    );
 
 		const bottomList = (
 		<div className="bottomList">
@@ -71,7 +49,7 @@ class Places extends Component {
 			<div className="reportHeaderText">Send a report</div>
 		</div>
 			<div className="row">
-				
+
     <div className="col">
 		<Button className="reportButton1" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
     </div>
@@ -102,24 +80,13 @@ class Places extends Component {
 		</div>
 		);
 
-		
+
 
 
 
     return (
       <div>
-    		<Button onClick={this.toggleDrawer('left', true)}><Fa icon="bars" size="2x"></Fa></Button>
         <Nav />
-				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('left', false)}
-            onKeyDown={this.toggleDrawer('left', false)}
-          >
-            {sideList}
-          </div>
-        </Drawer>
 				<div className="bottomModule">
 				<Drawer anchor='right' open={this.state.bottom} onClose={this.toggleDrawer('bottom', false)}>
           <div
