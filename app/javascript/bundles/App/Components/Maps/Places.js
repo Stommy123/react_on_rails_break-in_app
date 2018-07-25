@@ -20,7 +20,7 @@ const styles = {
   },
 	bottomList: {
 		height: 200,
-		width: 300,
+		width: 350,
 	}
 };
 
@@ -65,17 +65,41 @@ class Places extends Component {
     );
 
 		const bottomList = (
-		<div className="reportDrawer)">
-			<div className={classes.bottomList}>
-			<Container></Container>
-				<List></List>
-				<Button fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
-				<Divider />
-				<List></List>
-				<Button fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Break In</Button>
-			</div>
+		<div className={classes.bottomList}>
+			<h5 className="reportHeader">Send a report</h5>
+			<div className="row">
+				
+    <div className="col">
+		<Button className="reportButton1" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
+    </div>
+    <div className="col">
+		<Button className="reportButton2" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Arson</Button>
+    </div>
+		<div className="col">
+		<Button className="reportButton3" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Hit & Run</Button>
+    </div>
+		<div className="col">
+		<Button className="reportButton4" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Assault</Button>
+    </div>
+		<div className="w-100"></div>
+		<div className="col">
+		<Button className="reportButton5" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Robbery</Button>
+    </div>
+		<div className="col">
+		<Button className="reportButton6" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Drug Deal</Button>
+    </div>
+    <div className="col">
+		<Button className="reportButton7" fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Murder</Button>
+    </div>
+    <div className="col">
+		<Button className="reportButton8" fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Camera</Button>
+    </div>
+		</div>
 		</div>
 		);
+
+		
+
 
 
     return (
