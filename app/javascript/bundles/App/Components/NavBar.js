@@ -48,10 +48,7 @@ const styles = {
   list: {
     width: 275,
   },
-	// bottomList: {
-	// 	height: 200,
-	// 	width: 350,
-	// }
+
 };
 
 class Nav extends Component {

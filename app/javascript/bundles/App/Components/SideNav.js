@@ -1,186 +1,143 @@
 import React from 'react';
-import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'mdbreact';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
-class SideNavPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-    this.onClick1 = this.onClick1.bind(this);
-    this.onClick2 = this.onClick2.bind(this);
-    this.onClick3 = this.onClick3.bind(this);
-    this.handleToggleClickA = this.handleToggleClickA.bind(this);
-    this.handleToggleClickB = this.handleToggleClickB.bind(this);
-    this.state ={
-      collapse: false,
-      accordion: false,
-      toggleStateA: false,
-      toggleStateB: false
-    };
-  }
+const styles = {
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
+};
 
-  // Collapse/ Accordion
-  onClick(){
-    let state = '';
+//DEFINES WHERE LiveMap LINK TAKES THE USER
+const handleLiveMap = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/places');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
 
-    if (this.state.accordion !== 0) {
-      state = 0;
-    } else {
-      state = false;
-    }
+//DEFINES WHERE CONTACT LINK TAKES THE USER
+const handleContact = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/contact');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
 
+//DEFINES WHERE ABOUT LINK TAKES THE USER
+const handleAbout = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/about');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+const handleScoreBoard = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/scoreboard');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+
+class Nav extends React.Component {
+  state = {
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  };
+
+  toggleDrawer = (side, open) => () => {
     this.setState({
-      collapse: !this.state.collapse,
-      accordion: state});
-  }
-
-  onClick1(){
-    let state = '';
-
-    if (this.state.accordion !== 1) {
-      state = 1;
-    } else {
-      state = false;
-    }
-
-    this.setState({
-      collapse: !this.state.collapse,
-      accordion: state});
-  }
-
-  onClick2(){
-    let state = '';
-
-    if (this.state.accordion !== 2) {
-      state = 2;
-    } else {
-      state = false;
-    }
-
-    this.setState({
-      collapse: !this.state.collapse,
-      accordion: state});
-  }
-
-  onClick3(){
-    let state = '';
-
-    if (this.state.accordion !== 3) {
-      state = 3;
-    } else {
-      state = false;
-    }
-
-    this.setState({
-      collapse: !this.state.collapse,
-      accordion: state});
-  }
-
-  onClick4(){
-    let state = '';
-
-    if (this.state.accordion !== 4) {
-      state = 4;
-    } else {
-      state = false;
-    }
-
-    this.setState({
-      collapse: !this.state.collapse,
-      accordion: state});
-  }
-
-
-// Slide out buttons event handlers
-  handleToggleClickA(){
-    this.setState({
-      toggleStateA: !this.state.toggleStateA
-    })
-  }
-
-  handleToggleClickB(){
-    this.setState({
-      toggleStateB: !this.state.toggleStateB
-    })
-  }
+      [side]: open,
+    });
+  };
 
   render() {
-    const divstyle = {width: "50%", display: "inline-block"}
-    const button1 = <a href="#!" onClick={this.handleToggleClickA} key="sideNavToggleA"><Fa icon="bars" size="5x"></Fa></a>
-    const button2 = <a href="#!" onClick={this.handleToggleClickB} key="sideNavToggleB"><Fa icon="bars" size="5x"></Fa></a>
-    const isOpenWithButtonA = this.state.toggleStateA;
-    const isOpenWithButtonB = this.state.toggleStateB;
+    const { classes } = this.props;
+
+    const sideList = (
+      <div className={classes.list}>
+        <List>{mailFolderListItems}</List>
+        <Divider />
+        <List>{otherMailFolderListItems}</List>
+      </div>
+    );
+
+    const fullList = (
+      <div className={classes.fullList}>
+        <List>{mailFolderListItems}</List>
+        <Divider />
+        <List>{otherMailFolderListItems}</List>
+      </div>
+    );
 
     return (
-      <Router>
-        <div className="container" style={{height: "500px"}}>
-          <div style={{height: "45%"}}></div>
-              <div className="text-center" style={divstyle}>
-              {button1}
-            </div>
-            <div className="text-center" style={divstyle}>
-              {button2}
-            </div>
-          <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-4">
-          <li>
-            <ul className="social">
-              <li><a href="#!"><Fa icon="facebook"></Fa></a></li>
-              <li><a href="#!"><Fa icon="pinterest"></Fa></a></li>
-              <li><a href="#!"><Fa icon="google-plus"></Fa></a></li>
-              <li><a href="#!"><Fa icon="twitter"></Fa></a></li>
-            </ul>
-          </li>
-            <SideNavNav>
-              <SideNavCat name="Submit blog" onClick={this.onClick} isOpen={this.state.accordion === 0 } icon="chevron-right">
-                  <SideNavLink>Submit listing</SideNavLink>
-                  <SideNavLink>Registration form</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Instruction" onClick={this.onClick1} isOpen={this.state.accordion === 1 } icon="hand-pointer-o" href="#">
-                  <SideNavLink>For bloggers</SideNavLink>
-                  <SideNavLink>For authors</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="About" onClick={this.onClick2} isOpen={this.state.accordion === 2 } icon="eye">
-                  <SideNavLink>Instruction</SideNavLink>
-                  <SideNavLink>Monthly meetings</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Contact me" onClick={this.onClick3} isOpen={this.state.accordion === 3 } icon="envelope-o">
-                  <SideNavLink>FAQ</SideNavLink>
-                  <SideNavLink>Write a message</SideNavLink>
-                </SideNavCat>
-            </SideNavNav>
-          </SideNav>
-
-          <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonB} className="side-nav-light" right breakWidth={1300}>
-          <li>
-            <ul className="social">
-              <li><a href="#!" className="icons-sm fb-ic"><i className="fa fa-facebook"></i></a></li>
-              <li><a href="#!" className="icons-sm pin-ic"><i className="fa fa-pinterest"></i></a></li>
-              <li><a href="#!" className="icons-sm gplus-ic"><i className="fa fa-google-plus"></i></a></li>
-              <li><a href="#!" className="icons-sm tw-ic"><i className="fa fa-twitter"></i></a></li>
-            </ul>
-          </li>
-            <SideNavNav>
-              <SideNavCat name="Submit blog" onClick={this.onClick} isOpen={this.state.accordion === 0 } icon="chevron-right" >
-                  <SideNavLink className="active">Submit listing</SideNavLink>
-                  <SideNavLink>Registration form</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Instruction" onClick={this.onClick1} isOpen={this.state.accordion === 1 } icon="hand-pointer-o">
-                  <SideNavLink>For bloggers</SideNavLink>
-                  <SideNavLink>For authors</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="About" onClick={this.onClick2} isOpen={this.state.accordion === 2 } icon="eye">
-                  <SideNavLink>Instruction</SideNavLink>
-                  <SideNavLink>Monthly meetings</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Contact me" onClick={this.onClick3} isOpen={this.state.accordion === 3 } icon="envelope-o">
-                  <SideNavLink>FAQ</SideNavLink>
-                  <SideNavLink>Write a message</SideNavLink>
-                </SideNavCat>
-            </SideNavNav>
-          </SideNav>
-        </div>
-      </Router>
+      <div>
+        <Button onClick={this.toggleDrawer('left', true)}>Open Left</Button>
+        
+        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.toggleDrawer('left', false)}
+            onKeyDown={this.toggleDrawer('left', false)}
+          >
+            {sideList}
+          </div>
+        </Drawer>
+        <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.toggleDrawer('top', false)}
+            onKeyDown={this.toggleDrawer('top', false)}
+          >
+            {fullList}
+          </div>
+        </Drawer>
+        <Drawer
+          anchor="bottom"
+          open={this.state.bottom}
+          onClose={this.toggleDrawer('bottom', false)}
+        >
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.toggleDrawer('bottom', false)}
+            onKeyDown={this.toggleDrawer('bottom', false)}
+          >
+            {fullList}
+          </div>
+        </Drawer>
+        <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.toggleDrawer('right', false)}
+            onKeyDown={this.toggleDrawer('right', false)}
+          >
+            {sideList}
+          </div>
+        </Drawer>
+      </div>
     );
   }
 }
 
-export default SideNavPage;
+Nav.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Nav);
