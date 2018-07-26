@@ -17,24 +17,20 @@ import Nav from '../NavBar.js'
 const styles = {
   list: {
     width: 275,
-  },
-	// bottomList: {
-	// 	height: 200,
-	// 	width: 350,
-	// }
+  }
 };
 
 class Places extends Component {
 	state = {
-	 bottom: false
- };
+    bottom: false
+  };
 
  //METHOD TO OPEN AND CLOSE DRAWER -- NOT ALWAYS WORKING
- toggleDrawer = (side, open) => () => {
-	this.setState({
-		[side]: open,
-	});
-};
+  toggleDrawer = (side, open) => () => {
+	   this.setState({
+		     [side]: open,
+	      });
+      };
 
 
 	render() {
@@ -43,20 +39,20 @@ class Places extends Component {
 
 
 		const bottomList = (
-		<div className="bottomList">
-		<div className={classes.bottomList}>
-		<div className="reportHeader">
-			<div className="reportHeaderText">Send a report</div>
-		</div>
-			<div className="row">
+		    <div className="bottomList">
+		        <div className={classes.bottomList}>
+		            <div className="reportHeader">
+			               <div className="reportHeaderText">Send a report</div>
+		            </div>
+			          <div className="row">
 
-    <div className="col">
-		<Button className="reportButton1" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
-    </div>
-    <div className="col">
-		<Button className="reportButton2" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Arson</Button>
-    </div>
-		<div className="col">
+                  <div className="col">
+		                  <Button className="reportButton1" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
+                  </div>
+                  <div className="col">
+		                  <Button className="reportButton2" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Arson</Button>
+                  </div>
+		              <div className="col">
 		<Button className="reportButton3" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Hit & Run</Button>
     </div>
 		<div className="col">

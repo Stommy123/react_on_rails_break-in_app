@@ -13,8 +13,8 @@ export default class Map extends Component {
   }
 
 //METHODS AND FUNCTIONS THAT WILL TAKE PLACE AFTER COMPONENT MOUNTS THE DOM
-  componentDidMount() {
-    axios.get('/places.json?filter=mine')
+  async componentDidMount() {
+    await axios.get('/places.json?filter=mine')
       .then( (response) => { this.setState({ myPlaces: response.data } ) } )
       .catch( (error) => { console.log(error) } )
 //API KEY FOR MAPBOX
@@ -44,25 +44,25 @@ export default class Map extends Component {
     if ("geolocation" in navigator && geolocate) {
       navigator.geolocation.getCurrentPosition(
         // success callback
-        (position) => {
+        async (position) => {
           coordinates = [
                           position.coords.longitude,
                           position.coords.latitude
                         ];
           mapOptions.center = coordinates;
-          this.createMap(mapOptions, geolocationOptions);
+          await this.createMap(mapOptions, geolocationOptions);
         },
         // failure callback
-        () => { this.createMap(mapOptions, geolocationOptions) },
+        async () => { await this.createMap(mapOptions, geolocationOptions) },
         geolocationOptions
       );
     }else{
-      this.createMap(mapOptions, geolocationOptions);
+      await this.createMap(mapOptions, geolocationOptions);
     }
   }
 
   //INITIALIZE MAPS
-  createMap = (mapOptions, geolocationOptions) => {
+  createMap = async (mapOptions, geolocationOptions) => {
     this.map = new mapboxgl.Map(mapOptions);
     const map = this.map;
     //CENTERS MAP - REFER TO MAP-OPTIONS
@@ -88,6 +88,18 @@ export default class Map extends Component {
         trackUserLocation: true
       })
     );
+
+    let res = await axios.get(`places.json`)
+    console.log(res)
+    let newMarkers = res.data
+    newMarkers.features.forEach(function (places) {
+      var elm = document.createElement('div');
+      elm.className = 'marker';
+      let marker = new mapboxgl.Marker(elm)
+      .setLngLat(places.geometry.coordinates);
+      marker.addTo(map);
+
+    })
 
 
     //ON MAP LOAD, ADD ALL PLACE MARKERS FROM .JSON DATA
