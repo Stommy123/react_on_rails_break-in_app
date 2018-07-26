@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 
 
 export default class Form extends Component {
@@ -79,7 +80,7 @@ export default class Form extends Component {
                 label="Name"
                 id="place_name"
                 value={place.name}
-                onChange={this.handleDescriptionChange}
+                onChange={this.handleNameChange}
                 margin="normal"
                 fullWidth
               />
@@ -140,7 +141,7 @@ export default class Form extends Component {
             variant="contained"
             color="primary"
             onClick={ this.handleSubmit }
-            disabled={ place.description.trim() === '' }
+            disabled={ place.name.trim() === '', place.description.trim() === '' }
           >
           Create Report!
         </Button>
