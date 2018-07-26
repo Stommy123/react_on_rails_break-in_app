@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
-
+import Divider from '@material-ui/core/Divider';
+import ReactDOMServer from 'react-dom/server'
+import Popup from './Popups.js'
 
 export default class Map extends Component {
 
@@ -13,8 +15,8 @@ export default class Map extends Component {
   }
 
 //METHODS AND FUNCTIONS THAT WILL TAKE PLACE AFTER COMPONENT MOUNTS THE DOM
-  componentDidMount() {
-    axios.get('/places.json?filter=mine')
+  async componentDidMount() {
+    await axios.get('/places.json?filter=mine')
       .then( (response) => { this.setState({ myPlaces: response.data } ) } )
       .catch( (error) => { console.log(error) } )
 //API KEY FOR MAPBOX
@@ -44,20 +46,20 @@ export default class Map extends Component {
     if ("geolocation" in navigator && geolocate) {
       navigator.geolocation.getCurrentPosition(
         // success callback
-        (position) => {
+        async (position) => {
           coordinates = [
                           position.coords.longitude,
                           position.coords.latitude
                         ];
           mapOptions.center = coordinates;
-          this.createMap(mapOptions, geolocationOptions);
+          await this.createMap(mapOptions, geolocationOptions);
         },
         // failure callback
-        () => { this.createMap(mapOptions, geolocationOptions) },
+        async () => { await this.createMap(mapOptions, geolocationOptions) },
         geolocationOptions
       );
-    }else{
-      this.createMap(mapOptions, geolocationOptions);
+    } else{
+      await this.createMap(mapOptions, geolocationOptions);
     }
   }
 
@@ -90,29 +92,12 @@ export default class Map extends Component {
     );
     //ON MAP LOAD, ADD ALL PLACE MARKERS FROM .JSON DATA
     map.on('load', (event) => {
-      map.addSource(
-        'places',
-        { type: 'geojson', data: `/places.json?lat=${lat}&lng=${lng}` }
-      );
-      //ADD MARKERS TO MAP
-      map.addLayer({ id: 'places', type: 'circle', source: 'places'});
+      this.fetchPlaces();
       //AFTER MAP SETTLES, FETCH NEW PLACE
-      map.on('moveend', (e) => { this.fetchPlaces() });
-      //SHOW POPUP ON CLICK -- STILL NEEDS TO BE STYLED
-      map.on('click', (e) => {
-        const features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
-        if (!features.length) { return; }
-        const feature = features[0];
-        const popup = new mapboxgl.Popup()
-                        .setLngLat(feature.geometry.coordinates)
-                        .setHTML(`<a href='/places/${feature.properties['id']}'>${feature.properties['name']}</a>`)
-                        .addTo(map);
-      });
-      //IF MOUSE MOVES ONTOP A POPUP, CHANGE CURSOR TYPE
-      map.on('mousemove', (e) => {
-        const features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
-        map.getCanvas().style.cursor = features.length ? 'pointer' : '';
-      });
+      map.on('moveend', (e) => {
+        console.log('moving!');
+        this.fetchPlaces();
+       });
     });
   }
 
@@ -120,9 +105,26 @@ export default class Map extends Component {
   fetchPlaces = () => {
     const map = this.map;
     const { lat, lng } = map.getCenter();
-    axios.get(`/places.json?lat=${lat}&lng=${lng}`)
-      .then((response) => { map.getSource('places').setData(response.data) })
-      .catch((error) => { console.log(error) });
+    axios.get(`places.json?lat=${lat}&lng=${lng}`)
+      .then((res) => {
+        let newMarkers = res.data
+        newMarkers.features.forEach(function (places, i) {
+          var elm = document.createElement('div');
+          elm.className = 'marker';
+          //CALLS POPUP COMPONENT AND DEFINES IT
+          let popupId = `popup-${i}`
+          let popup = new mapboxgl.Popup({ offset: 25 })
+          .setHTML(ReactDOMServer.renderToStaticMarkup(
+            <Popup styleName={popupId} places={places.properties}></Popup>
+          ))
+          //ATTACHES MARKERS TO MAP
+          let marker = new mapboxgl.Marker(elm)
+          .setLngLat(places.geometry.coordinates)
+          .setPopup(popup);
+          marker.addTo(map);
+        })
+      })
+      .catch((error) => {console.log(error)})
   }
 
   //ACTION FOR WHEN COMPONENT LEAVES THE DOM -- UNSAFE?
@@ -148,12 +150,10 @@ export default class Map extends Component {
             myPlaces.map( (place) => {
               return(
                 <div
-                  id='scrollingNav'
                   key={place.id}
                   onClick={ (e) => { this.flyTo(place) } }
                 >
                   {place.name}
-                  <hr></hr>
                 </div>
               );
             })

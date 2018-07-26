@@ -20,7 +20,40 @@ section:last-child {
     margin-bottom: 200px;
 }
 
+
+.marker {
+  background-image: url('./burglar-1.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.map-popup {
+
+  text-align:center;
+}
+.map-popup, .map-popup h3 {
+  color: black;
+}
+
+
+
+
 #map {
     position: fixed;
     width:50%;
+}
+
+#borders {
+  border: solid 1px black;
+}
+
+.mapboxgl-popup-content {
+  background-color: white;
+
+}
+
+.mapboxgl-popup-content-wrapper {
 }

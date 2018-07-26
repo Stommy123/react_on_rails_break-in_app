@@ -6,7 +6,7 @@ gem 'geocoder'
 
 gem 'react_on_rails'
 
-
+gem "font-awesome-rails"
 gem 'dotenv-rails'
 # Allow Facebook signup/login
 gem 'omniauth-facebook'

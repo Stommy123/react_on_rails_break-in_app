@@ -1,5 +1,6 @@
 import ReactOnRails from 'react-on-rails';
 import ReactDOM from 'react-dom'
+import 'babel-polyfill'
 import App from '../bundles/App/App.js';
 import Places from '../bundles/App/Components/Maps/Places.js'
 import Contact from '../bundles/App/Components/Contact.js'

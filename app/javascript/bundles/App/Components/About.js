@@ -12,7 +12,7 @@ const About = (props) => {
           <p className="lead grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
           <Row>
             <Col md="4">
-              <i class="fas fa-map-marked-alt"size="3x" className="red-text"/>
+              <i className="fas fa-map-marked-alt"size="3x" className="red-text"/>
               <Fa icon="users" size="3x" className="red-text"/>
               <h5 className="font-weight-bold my-4">Peer Statistics</h5>
               <p className="grey-text mb-md-0 mb-5">Real time user inputs ensures you are alwasy given the latest safety statistics, peer reviewed for accuracy.</p>

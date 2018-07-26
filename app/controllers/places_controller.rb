@@ -32,7 +32,7 @@ class PlacesController < ApplicationController
           @places = current_user.places
           render json: @places
         else
-          @places = Place.near([params[:lat], params[:lng]], 50)
+          @places = Place.all
           render json:  {
                           type: "FeatureCollection",
                           features: @places.map do |place|
@@ -44,6 +44,12 @@ class PlacesController < ApplicationController
                               },
                               properties: {
                                 name: place.name,
+                                category: place.category,
+                                description: place.description,
+                                street: place.street,
+                                city: place.city,
+                                state: place.state,
+                                image: place.image,
                                 id: place.id
                               }
                             }
@@ -70,7 +76,7 @@ class PlacesController < ApplicationController
 
   def place_params
     #define parameters for what is an acceptable Place report
-    params.require(:place).permit(:name, :street, :city, :state, :country, :latitude, :longitude, :image)
+    params.require(:place).permit(:name, :description, :category, :street, :city, :state, :country, :latitude, :longitude, :image)
   end
 
   def set_place

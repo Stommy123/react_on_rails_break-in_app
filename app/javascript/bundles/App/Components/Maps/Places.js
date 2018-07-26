@@ -12,29 +12,89 @@ import { Container } from '../../../../../../node_modules/semantic-ui-react';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
+import Form from '../Reports/Form.js'
+import axios from 'axios';
 
 //STYLING FOR EACH POP UP DRAWER
 const styles = {
   list: {
     width: 275,
-  },
-	// bottomList: {
-	// 	height: 200,
-	// 	width: 350,
-	// }
+  }
 };
 
 class Places extends Component {
+
 	state = {
-	 bottom: false
- };
+    places: [],
+    bottom: false,
+    currentLocation: {lat: "", lng: ""}
+  };
+
+   componentDidMount() {
+     const geolocationOptions = {
+     //Tells Geocoder to use gps locating over ip locating
+       enableHighAccuracy: true,
+     //Sets maximum wait time
+       maximumAge        : 30000,
+       timeout           : 27000
+     };
+
+     if ("geolocation" in navigator) {
+       navigator.geolocation.getCurrentPosition(
+         // success callback
+         (position) => {
+           axios.get(`/places.json?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
+             .then((response) => {
+                 let places = response.data;
+                 this.setState({ places, currentLocation: {lat: position.coords.latitude, lng: position.coords.longitude} })
+             });
+         },
+         // failure callback
+         () => {
+           axios.get(`/places.json`)
+             .then((response) => {
+                 let places = response.data;
+                 this.setState({ places })
+             });
+         },
+         geolocationOptions
+       );
+     } else {
+       axios.get(`/places.json`)
+         .then((response) => {
+             let places = response.data;
+             this.setState({ places })
+         });
+     }
+  }
 
  //METHOD TO OPEN AND CLOSE DRAWER -- NOT ALWAYS WORKING
- toggleDrawer = (side, open) => () => {
-	this.setState({
-		[side]: open,
-	});
-};
+  toggleDrawer = (side, open) => () => {
+	   this.setState({
+		     [side]: open,
+	      });
+      };
+
+  createPlace = (place) => {
+  let response = axios.post(`/places.json`, {
+      place: {
+        name: place.name,
+        category: place.category,
+        description: place.description,
+        street: place.street,
+        city: place.city,
+        state: place.state,
+        latitude: this.state.currentLocation.lat,
+        longitude: this.state.currentLocation.lng
+      }
+    })
+    let { places } = this.state;
+    if(!places == null){
+      places.push(response.data);
+      this.setState({ places });
+    }
+
+  }
 
 
 	render() {
@@ -75,13 +135,10 @@ class Places extends Component {
 				<Button className="reportButton8" fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Camera</Button>
 				</div>
 			</div>
+
 		</div>
 	</div>
 );
-
-
-
-
 
     return (
       <div>
@@ -98,8 +155,9 @@ class Places extends Component {
           </div>
         </Drawer>
 				</div>
-				<Map />
-			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button>
+				<Map /><br />
+			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button><br />
+        <Form createPlace={ this.createPlace }/>
       </div>
     );
 	}
