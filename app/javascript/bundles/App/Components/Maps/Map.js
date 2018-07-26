@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
 import Divider from '@material-ui/core/Divider';
+import ReactDOMServer from 'react-dom/server'
+import Popup from './Popups.js'
 
 export default class Map extends Component {
 
@@ -89,14 +91,23 @@ export default class Map extends Component {
       })
     );
 
+    //AWAITING JSON DATA FOR EACH MARKERS
     let res = await axios.get(`places.json`)
     console.log(res)
     let newMarkers = res.data
-    newMarkers.features.forEach(function (places) {
+    newMarkers.features.forEach(function (places, i) {
       var elm = document.createElement('div');
       elm.className = 'marker';
+      //CALLS POPUP COMPONENT AND DEFINES IT
+      let popupId = `popup-${i}`
+      let popup = new mapboxgl.Popup({ offset: 25 })
+      .setHTML(ReactDOMServer.renderToStaticMarkup(
+        <Popup styleName={popupId} places={i}></Popup>
+      ))
+      //ATTACHES MARKERS TO MAP
       let marker = new mapboxgl.Marker(elm)
-      .setLngLat(places.geometry.coordinates);
+      .setLngLat(places.geometry.coordinates)
+      .setPopup(popup);
       marker.addTo(map);
 
     })
@@ -117,23 +128,6 @@ export default class Map extends Component {
         const features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
         if (!features.length) { return; }
         const feature = features[0];
-        const popup = new mapboxgl.Popup()
-                        .setLngLat(feature.geometry.coordinates)
-                        .setHTML(`
-                          <div>
-                            <div id="borders">
-                          <img src='#' href='/places/${feature.properties['id']}'/>Image Here<br/>
-                          <a href='/places/${feature.properties['id']}'>${feature.properties['name']}</a>
-                          </div>
-                          <Divider />
-                          <a href='/places/${feature.properties['id']}'>${feature.properties['category']}</a><br/>
-                          <Divider />
-                          <a href='/places/${feature.properties['id']}'>${feature.properties['description']}</a><br/>
-                          <a href='/places/${feature.properties['id']}'>${feature.properties['street']}</a><br/>
-                          <a href='/places/${feature.properties['id']}'>${feature.properties['city']}</a><br/>
-                          </div>
-                          `)
-                        .addTo(map);
       });
       //IF MOUSE MOVES ONTOP A POPUP, CHANGE CURSOR TYPE
       map.on('mousemove', (e) => {

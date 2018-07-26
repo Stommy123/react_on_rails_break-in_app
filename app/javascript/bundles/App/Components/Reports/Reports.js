@@ -7,11 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
-import DueDate from './DueDate';
 import Button from '@material-ui/core/Button';
 import red from '@material-ui/core/colors/red';
 
-export default class Tasks extends Component {
+export default class Reports extends Component {
   state = { page: 0, rowsPerPage: 5 }
 
   handleChangePage = (event, page) => {

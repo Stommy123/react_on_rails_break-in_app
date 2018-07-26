@@ -12,6 +12,8 @@ import { Container } from '../../../../../../node_modules/semantic-ui-react';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
+import Form from '../Reports/Form.js'
+import axios from 'axios';
 
 //STYLING FOR EACH POP UP DRAWER
 const styles = {
@@ -21,9 +23,17 @@ const styles = {
 };
 
 class Places extends Component {
+
 	state = {
+    places: [],
     bottom: false
   };
+
+  async componentDidMount() {
+    let res = await axios.get(`/places.json`)
+    let places = res.data
+    this.setState({ places })
+  }
 
  //METHOD TO OPEN AND CLOSE DRAWER -- NOT ALWAYS WORKING
   toggleDrawer = (side, open) => () => {
@@ -31,6 +41,22 @@ class Places extends Component {
 		     [side]: open,
 	      });
       };
+
+  createPlace = async (place) => {
+  let response = await axios.post(`/places.json`, {
+      place: {
+        name: place.name,
+        category: place.category,
+        description: place.description,
+        street: place.street,
+        city: place.city,
+        state: place.state
+      }
+    })
+    let { places } = this.state;
+    places.push(response.data);
+    this.setState({ places });
+  }
 
 
 	render() {
@@ -76,10 +102,6 @@ class Places extends Component {
 		</div>
 		);
 
-
-
-
-
     return (
       <div>
         <Nav />
@@ -95,8 +117,9 @@ class Places extends Component {
           </div>
         </Drawer>
 				</div>
-				<Map />
-			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button>
+				<Map /><br />
+			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button><br />
+        <Form createPlace={ this.createPlace }/>
       </div>
     );
 	}
