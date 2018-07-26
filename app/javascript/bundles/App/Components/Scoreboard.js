@@ -9,9 +9,8 @@ import Button from '@material-ui/core/Button';
 import Nav from './NavBar.js';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faStroopwafel)
+
 
 export default class Scoreboard extends Component {
 
@@ -21,7 +20,7 @@ export default class Scoreboard extends Component {
     this.state = {points: props.score, badges: []};
   }
 
-  componentDidMount(){
+  componentWillMount(){
     if(this.state.points >=500) {
       this.state.badges.push(<i className="fas fa-chess-pawn fa-3x"></i>);
     }
