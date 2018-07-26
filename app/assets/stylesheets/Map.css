@@ -29,20 +29,16 @@ section:last-child {
   border-radius: 50%;
   cursor: pointer;
 }
-/* 
+
 .map-popup {
-  min-height: 125px;
-  min-width: 125px;
-  padding:15px;
+
   text-align:center;
 }
 .map-popup, .map-popup h3 {
   color: black;
 }
-.map-popup p {margin:0;}
-.map-popup h3 { margin: 5px 20px 50px 20px;}
-.map-popup button { width: 100%;}
- */
+
+
 
 
 #map {
@@ -56,6 +52,7 @@ section:last-child {
 
 .mapboxgl-popup-content {
   background-color: white;
+
 }
 
 .mapboxgl-popup-content-wrapper {
