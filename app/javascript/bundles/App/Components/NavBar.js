@@ -74,24 +74,24 @@ class Nav extends Component {
 
     const sideList = (
       <div className={classes.list}>
-				<Button className="SideNavHeader" fullWidth='true' onClick={this.toggleDrawer('left', true)}></Button>
+				<Button className="SideNavHeader" fullWidth= {true} onClick={this.toggleDrawer('left', true)}></Button>
         <Divider />
 				<List></List>
-				<Button className="SideNavOptions" color='primary' fullWidth='true' onClick={handleLiveMap}>Live Map</Button>
+				<Button className="SideNavOptions" color='primary' fullWidth={true} onClick={handleLiveMap}>Live Map</Button>
         <Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={handleScoreBoard}>ScoreBoard</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={handleScoreBoard}>ScoreBoard</Button>
         <List></List>
 				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={handleAbout}>About</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={handleAbout}>About</Button>
         <List></List>
 				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={handleContact}>Contact</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={handleContact}>Contact</Button>
         <List></List>
 				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Calender</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={this.toggleDrawer('left', true)}>Connect Calender</Button>
         <List></List>
 				<Divider />
-				<Button className="SideNavOptions" fullWidth='true' onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
         <List></List>
 				<Divider />
       </div>
@@ -116,10 +116,10 @@ class Nav extends Component {
 	}
 }
 
-//DEFINE PROP TYPES FOR MATERIAL UI COMPONENTS
-Nav.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// //DEFINE PROP TYPES FOR MATERIAL UI COMPONENTS
+// Nav.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 //EXPORTS THIS COMPONENT WITH STYLES INTACT
 export default withStyles(styles)(Nav);

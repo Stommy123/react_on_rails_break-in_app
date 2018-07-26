@@ -26,13 +26,46 @@ class Places extends Component {
 
 	state = {
     places: [],
-    bottom: false
+    bottom: false,
+    currentLocation: {lat: "", lng: ""}
   };
 
-  async componentDidMount() {
-    let res = await axios.get(`/places.json`)
-    let places = res.data
-    this.setState({ places })
+   componentDidMount() {
+     const geolocationOptions = {
+     //Tells Geocoder to use gps locating over ip locating
+       enableHighAccuracy: true,
+     //Sets maximum wait time
+       maximumAge        : 30000,
+       timeout           : 27000
+     };
+
+     if ("geolocation" in navigator) {
+       navigator.geolocation.getCurrentPosition(
+         // success callback
+         (position) => {
+           axios.get(`/places.json?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
+             .then((response) => {
+                 let places = response.data;
+                 this.setState({ places, currentLocation: {lat: position.coords.latitude, lng: position.coords.longitude} })
+             });
+         },
+         // failure callback
+         () => {
+           axios.get(`/places.json`)
+             .then((response) => {
+                 let places = response.data;
+                 this.setState({ places })
+             });
+         },
+         geolocationOptions
+       );
+     } else {
+       axios.get(`/places.json`)
+         .then((response) => {
+             let places = response.data;
+             this.setState({ places })
+         });
+     }
   }
 
  //METHOD TO OPEN AND CLOSE DRAWER -- NOT ALWAYS WORKING
@@ -50,12 +83,17 @@ class Places extends Component {
         description: place.description,
         street: place.street,
         city: place.city,
-        state: place.state
+        state: place.state,
+        latitude: this.state.currentLocation.lat,
+        longitude: this.state.currentLocation.lng
       }
     })
     let { places } = this.state;
-    places.push(response.data);
-    this.setState({ places });
+    if(!places == null){
+      places.push(response.data);
+      this.setState({ places });
+    }
+
   }
 
 

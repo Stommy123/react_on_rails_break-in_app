@@ -5,7 +5,7 @@ export default class Popup extends Component {
   render(){
     return(
       <div className="map-popup">
-        <p>"why won't you work"</p>
+        <p>{this.props.places.name}</p>
       </div>
     )
   }
