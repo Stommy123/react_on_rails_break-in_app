@@ -32,7 +32,7 @@ export default class Scoreboard extends Component {
                 <TableCell>0</TableCell>
               </TableRow>
             </TableHead>
-            <div id='everyone'>Everyone</div>
+            <h5 id='everyone'>Everyone</h5><br/>
             <TableBody>
                   <TableRow>
                     <TableCell>Rank</TableCell>

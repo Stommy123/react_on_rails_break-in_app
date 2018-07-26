@@ -58,13 +58,13 @@ export default class Map extends Component {
         async () => { await this.createMap(mapOptions, geolocationOptions) },
         geolocationOptions
       );
-    }else{
+    } else{
       await this.createMap(mapOptions, geolocationOptions);
     }
   }
 
   //INITIALIZE MAPS
-  createMap = async (mapOptions, geolocationOptions) => {
+  createMap = (mapOptions, geolocationOptions) => {
     this.map = new mapboxgl.Map(mapOptions);
     const map = this.map;
     //CENTERS MAP - REFER TO MAP-OPTIONS
@@ -90,50 +90,14 @@ export default class Map extends Component {
         trackUserLocation: true
       })
     );
-
-    //AWAITING JSON DATA FOR EACH MARKERS
-    let res = await axios.get(`places.json`)
-    console.log(res)
-    let newMarkers = res.data
-    newMarkers.features.forEach(function (places, i) {
-      var elm = document.createElement('div');
-      elm.className = 'marker';
-      //CALLS POPUP COMPONENT AND DEFINES IT
-      let popupId = `popup-${i}`
-      let popup = new mapboxgl.Popup({ offset: 25 })
-      .setHTML(ReactDOMServer.renderToStaticMarkup(
-        <Popup styleName={popupId} places={i}></Popup>
-      ))
-      //ATTACHES MARKERS TO MAP
-      let marker = new mapboxgl.Marker(elm)
-      .setLngLat(places.geometry.coordinates)
-      .setPopup(popup);
-      marker.addTo(map);
-
-    })
-
-
     //ON MAP LOAD, ADD ALL PLACE MARKERS FROM .JSON DATA
     map.on('load', (event) => {
-      map.addSource(
-        'places',
-        { type: 'geojson', data: `/places.json?lat=${lat}&lng=${lng}` }
-      );
-      //ADD MARKERS TO MAP
-      map.addLayer({ id: 'places', type: 'circle', source: 'places'});
+      this.fetchPlaces();
       //AFTER MAP SETTLES, FETCH NEW PLACE
-      map.on('moveend', (e) => { this.fetchPlaces() });
-      //SHOW POPUP ON CLICK -- STILL NEEDS TO BE STYLED
-      map.on('click', (e) => {
-        const features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
-        if (!features.length) { return; }
-        const feature = features[0];
-      });
-      //IF MOUSE MOVES ONTOP A POPUP, CHANGE CURSOR TYPE
-      map.on('mousemove', (e) => {
-        const features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
-        map.getCanvas().style.cursor = features.length ? 'pointer' : '';
-      });
+      map.on('moveend', (e) => {
+        console.log('moving!');
+        this.fetchPlaces();
+       });
     });
   }
 
@@ -141,9 +105,26 @@ export default class Map extends Component {
   fetchPlaces = () => {
     const map = this.map;
     const { lat, lng } = map.getCenter();
-    axios.get(`/places.json?lat=${lat}&lng=${lng}`)
-      .then((response) => { map.getSource('places').setData(response.data) })
-      .catch((error) => { console.log(error) });
+    axios.get(`places.json?lat=${lat}&lng=${lng}`)
+      .then((res) => {
+        let newMarkers = res.data
+        newMarkers.features.forEach(function (places, i) {
+          var elm = document.createElement('div');
+          elm.className = 'marker';
+          //CALLS POPUP COMPONENT AND DEFINES IT
+          let popupId = `popup-${i}`
+          let popup = new mapboxgl.Popup({ offset: 25 })
+          .setHTML(ReactDOMServer.renderToStaticMarkup(
+            <Popup styleName={popupId} places={places.properties}></Popup>
+          ))
+          //ATTACHES MARKERS TO MAP
+          let marker = new mapboxgl.Marker(elm)
+          .setLngLat(places.geometry.coordinates)
+          .setPopup(popup);
+          marker.addTo(map);
+        })
+      })
+      .catch((error) => {console.log(error)})
   }
 
   //ACTION FOR WHEN COMPONENT LEAVES THE DOM -- UNSAFE?

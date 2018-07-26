@@ -1,23 +1,2 @@
 
 <%= react_component 'Places', props: { coordinates: @coordinates, geolocate: true } %>
-
-
-<script type="text/javascript">
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      // success callback
-      (position) => {
-        document.getElementById('place_latitude').value = position.coords.latitude;
-        document.getElementById('place_longitude').value = position.coords.longitude;
-      },
-      // failure callback
-      () => { console.log('could not get location') },
-      // options
-      {
-        enableHighAccuracy: true,
-        maximumAge        : 30000,
-        timeout           : 27000
-      }
-    );
-  }
-</script>
