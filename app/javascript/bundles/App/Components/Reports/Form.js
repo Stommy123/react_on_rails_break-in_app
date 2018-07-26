@@ -16,7 +16,6 @@ export default class Form extends Component {
               street: '',
               city: '',
               state: ''
-
             }
           }
 
@@ -24,7 +23,14 @@ export default class Form extends Component {
     event.preventDefault();
     let { place } = this.state;
     this.props.createPlace(place);
-    place = { description : '', category: '' }
+    place = {
+      name: '',
+      category: '',
+      description: '',
+      street: '',
+      city: '',
+      state:''
+    }
     this.setState({ place });
   }
 
@@ -141,7 +147,7 @@ export default class Form extends Component {
             variant="contained"
             color="primary"
             onClick={ this.handleSubmit }
-            disabled={ place.name.trim() === '', place.description.trim() === '' }
+            disabled={place.description.trim() === ''}
           >
           Create Report!
         </Button>

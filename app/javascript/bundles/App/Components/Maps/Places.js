@@ -42,8 +42,8 @@ class Places extends Component {
 	      });
       };
 
-  createPlace = async (place) => {
-  let response = await axios.post(`/places.json`, {
+  createPlace = (place) => {
+  let response = axios.post(`/places.json`, {
       place: {
         name: place.name,
         category: place.category,
