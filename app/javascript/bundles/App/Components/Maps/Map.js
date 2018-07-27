@@ -95,7 +95,6 @@ export default class Map extends Component {
       this.fetchPlaces();
       //AFTER MAP SETTLES, FETCH NEW PLACE
       map.on('moveend', (e) => {
-        console.log('moving!');
         this.fetchPlaces();
        });
     });
