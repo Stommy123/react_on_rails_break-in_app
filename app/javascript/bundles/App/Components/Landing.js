@@ -2,11 +2,19 @@ import React from 'react';
 import  {Carousel, CarouselCaption, CarouselInner, CarouselItem} from 'mdbreact';
 import { Mask, Row, Col, Button, View, Container} from 'mdbreact';
 
+//DEFINES WHERE GET STARTED LINK TAKES THE USER
+const handleSignUp = () => {
+  alert("ahoy/1!");
+  Turbolinks.visit('/users/sign_up');
+}
+
+//DEFINES WHERE LOG IN LINK TAKES THE USER
+const handleSignIn = () => {
+  Turbolinks.visit('/users/sign_in');
+}
 
 class LandingPage extends React.Component {
-
   render(){
-
     return (
       <div id="landing_page">
           <View>
@@ -15,7 +23,7 @@ class LandingPage extends React.Component {
                 <Carousel
                   activeItem={1}
                   length={4}
-                  showControls={true}
+                  showControls={false}
                   showIndicators={true}
                   className="z-depth-2">
                 <CarouselItem itemId="1">
@@ -26,8 +34,8 @@ class LandingPage extends React.Component {
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
                   iste.</h6>
-                  <Button color="white">Download</Button>
-                  <Button outline color="white">Learn More</Button>
+                <Button outline color="white" onClick={handleSignUp} >Get Started</Button>
+                  <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
                 <Col md="6" xl="5" className="mt-xl-5">
                   <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
@@ -42,8 +50,8 @@ class LandingPage extends React.Component {
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
                   iste.</h6>
-                  <Button color="white">Download</Button>
-                  <Button outline color="white">Learn More</Button>
+                  <Button color="white" onClick={handleSignUp} >Get Started</Button>
+                  <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
                 <Col md="6" xl="5" className="mt-xl-5">
                   <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
@@ -58,8 +66,8 @@ class LandingPage extends React.Component {
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
                   iste.</h6>
-                  <Button color="white">Download</Button>
-                  <Button outline color="white">Learn More</Button>
+                  <Button color="white" onClick={handleSignUp} >Get Started</Button>
+                  <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
                 <Col md="6" xl="5" className="mt-xl-5">
                   <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
@@ -74,8 +82,8 @@ class LandingPage extends React.Component {
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
                   iste.</h6>
-                  <Button color="white">Download</Button>
-                  <Button outline color="white">Learn More</Button>
+                  <Button color="white" onClick={handleSignUp} >Get Started</Button>
+                  <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
                 <Col md="6" xl="5" className="mt-xl-5">
                   <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
