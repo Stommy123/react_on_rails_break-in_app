@@ -1,27 +1,12 @@
 
-  #Nav .navbar {
-    background-color: #424f95;
-    transition: background .5s ease-in-out,padding .5s ease-in-out;
-  }
-
-  #Nav .top-nav-collapse {
-    background: #424f95 !important;
-  }
 
   .SideNavHeader{
     height: 20vh;
+    width: 100vh;
     background-image: url("./break_in_logos-01.png");
     background-size: 10em;
     background-repeat: no-repeat;
     background-position: center;
   }
 
-  @media (max-width: 768px) {
-    #Nav .navbar:not(.top-nav-collapse) {
-        background: #424f95 !important;
-    }
-  }
 
-#scrollingNav {
-  text-align: center;
-}
