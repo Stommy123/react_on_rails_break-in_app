@@ -64,20 +64,10 @@ export default class Scoreboard extends Component {
   }
 
 
-
-
-
-
-
-
-
-
   render() {
 
 
     const { top_scores } = this.state;
-
-
 
 
     return (
@@ -111,64 +101,22 @@ export default class Scoreboard extends Component {
                       <TableCell>Username</TableCell>
                       <TableCell>Points</TableCell>
                     </TableRow>
-                    <TableRow>
-                    <TableCell>1</TableCell>
-                      {
+                    {
                         top_scores.map( (user) => {
                           return (
+                        <TableRow>
+                        <TableCell>1</TableCell>
                           <TableCell
                           key={user.id}
                           >{user.email}
                           </TableCell>
+                          <TableCell
+                          key={user.id}
+                          >{user.points}
+                          </TableCell>
+                        </TableRow>
                         )})
                       }
-                    <TableCell>1000</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>2</TableCell>
-                    <TableCell>User2</TableCell>
-                    <TableCell>900</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>3</TableCell>
-                    <TableCell>User3</TableCell>
-                    <TableCell>800</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>4</TableCell>
-                    <TableCell>User4</TableCell>
-                    <TableCell>700</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>5</TableCell>
-                    <TableCell>User5</TableCell>
-                    <TableCell>600</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>6</TableCell>
-                    <TableCell>User6</TableCell>
-                    <TableCell>500</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>7</TableCell>
-                    <TableCell>User7</TableCell>
-                    <TableCell>400</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>8</TableCell>
-                    <TableCell>User8</TableCell>
-                    <TableCell>300</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>9</TableCell>
-                    <TableCell>User9</TableCell>
-                    <TableCell>200</TableCell>
-                    </TableRow>
-                    <TableRow>
-                    <TableCell>10</TableCell>
-                    <TableCell>User10</TableCell>
-                    <TableCell>100</TableCell>
-                    </TableRow>
               </TableBody>
             </Table>
           </Paper>
