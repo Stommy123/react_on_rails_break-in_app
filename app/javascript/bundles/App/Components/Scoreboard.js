@@ -7,21 +7,24 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 import Nav from './NavBar.js';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
-library.add(faStroopwafel)
 
 export default class Scoreboard extends Component {
 
   constructor(props) {
     super(props);
     console.log(props.score);
-    this.state = {points: props.score, badges: [],};
+    this.state = {points: props.score, badges: [], top_scores: []};
   }
 
   componentWillMount(){
+    axios.get('/scoreboard.json')
+    .then((response) => {
+      this.setState({ top_scores: response.data})
+    })
     if(this.state.points >=200) {
       this.state.badges.push(<i className="fas fa-chess-pawn fa-3x"></i>);
     }
@@ -60,14 +63,23 @@ export default class Scoreboard extends Component {
   }
   }
 
-    const topScores= this.props.topScores.map(key,player){
-        return <TableCell key={key}>
-                {player.email}
-              </TableCell>
-      }
-    }
+
+
+
+
+
+
+
+
 
   render() {
+
+
+    const { top_scores } = this.state;
+
+
+
+
     return (
         <div>
         <Nav />
@@ -101,7 +113,15 @@ export default class Scoreboard extends Component {
                     </TableRow>
                     <TableRow>
                     <TableCell>1</TableCell>
-                          {topScores}
+                      {
+                        top_scores.map( (user) => {
+                          return (
+                          <TableCell
+                          key={user.id}
+                          >{user.email}
+                          </TableCell>
+                        )})
+                      }
                     <TableCell>1000</TableCell>
                     </TableRow>
                     <TableRow>
