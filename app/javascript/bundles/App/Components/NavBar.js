@@ -74,7 +74,7 @@ class Nav extends Component {
 				<Button className="SideNavHeader" fullWidth= {true} onClick={this.toggleDrawer('left', true)}></Button>
         <Divider />
 				<List></List>
-				<Button className="SideNavOptions" color='primary' fullWidth={true} onClick={handleLiveMap}>Live Map</Button>
+				<Button className="SideNavOptions" fullWidth={true} onClick={handleLiveMap}>Live Map</Button>
         <Divider />
 				<Button className="SideNavOptions" fullWidth= {true} onClick={handleScoreBoard}>ScoreBoard</Button>
         <List></List>

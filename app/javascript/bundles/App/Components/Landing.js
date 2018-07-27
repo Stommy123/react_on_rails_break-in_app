@@ -11,15 +11,15 @@ class LandingPage extends React.Component {
       <div id="landing_page">
           <View>
             <Mask className="d-flex justify-content-center align-items-center gradient">
-            <Container>
-            <Carousel
-          activeItem={1}
-          length={4}
-          showControls={true}
-          showIndicators={true}
-          className="z-depth-2">
-            <CarouselItem itemId="1">
-              <Row className="intro-content">
+              <Container>
+                <Carousel
+                  activeItem={1}
+                  length={4}
+                  showControls={true}
+                  showIndicators={true}
+                  className="z-depth-2">
+                <CarouselItem itemId="1">
+                <Row className="intro-content">
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Welcome to Break-In App </h1>
                   <hr className="hr-light"/>
