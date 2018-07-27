@@ -104,6 +104,7 @@ class Places extends Component {
 
 
 		const bottomList = (
+
 		    <div className="bottomList">
 		        <div className={classes.bottomList}>
 		            <div className="reportHeader">
@@ -113,6 +114,7 @@ class Places extends Component {
               </div>
         </div>
 		);
+
 
     return (
       <div>
