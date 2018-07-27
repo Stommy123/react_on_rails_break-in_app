@@ -24,8 +24,8 @@ section:last-child {
 .marker {
   background-image: url('./burglar-1.png');
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -37,8 +37,6 @@ section:last-child {
 .map-popup, .map-popup h3 {
   color: black;
 }
-
-
 
 
 #map {

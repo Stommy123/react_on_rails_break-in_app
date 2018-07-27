@@ -12,8 +12,8 @@ import { Container } from '../../../../../../node_modules/semantic-ui-react';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
-import Form from '../Reports/Form.js'
 import axios from 'axios';
+import Sidebar from './Sidebar.js'
 
 //STYLING FOR EACH POP UP DRAWER
 const styles = {
@@ -75,6 +75,7 @@ class Places extends Component {
 	      });
       };
 
+
   createPlace = (place) => {
   let response = axios.post(`/places.json`, {
       place: {
@@ -108,36 +109,9 @@ class Places extends Component {
 		            <div className="reportHeader">
 			               <div className="reportHeaderText">Send a report</div>
 		            </div>
-			          <div className="row">
-
-                  <div className="col">
-		                  <Button className="reportButton1" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Theft</Button>
-                  </div>
-                  <div className="col">
-		                  <Button className="reportButton2" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Arson</Button>
-                  </div>
-		              <div className="col">
-		<Button className="reportButton3" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Hit & Run</Button>
-    </div>
-		<div className="col">
-		<Button className="reportButton4" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Assault</Button>
-    </div>
-		<div className="w-100"></div>
-		<div className="col">
-		<Button className="reportButton5" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Robbery</Button>
-    </div>
-		<div className="col">
-		<Button className="reportButton6" fullWidth='true' onClick={this.toggleDrawer('bottom', true)}>Drug Deal</Button>
-    </div>
-    <div className="col">
-		<Button className="reportButton7" fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Murder</Button>
-    </div>
-    <div className="col">
-		<Button className="reportButton8" fullWidth='false' onClick={this.toggleDrawer('bottom', true)}>Camera</Button>
-    </div>
-		</div>
-		</div>
-		</div>
+                <Sidebar />
+              </div>
+        </div>
 		);
 
     return (
@@ -157,8 +131,8 @@ class Places extends Component {
 				</div>
 				<Map /><br />
 			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button><br />
-        <Form createPlace={ this.createPlace }/>
-      </div>
+        <Sidebar />
+    </div>
     );
 	}
 }
