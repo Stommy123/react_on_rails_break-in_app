@@ -102,10 +102,10 @@ export default class Scoreboard extends Component {
                       <TableCell>Points</TableCell>
                     </TableRow>
                     {
-                        top_scores.map( (user) => {
+                        top_scores.map( (user, i) => {
                           return (
                         <TableRow>
-                        <TableCell>1</TableCell>
+                        <TableCell>{i+1}</TableCell>
                           <TableCell
                           key={user.id}
                           >{user.email}
