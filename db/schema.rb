@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_07_25_042634) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,6 +55,18 @@ ActiveRecord::Schema.define(version: 2018_07_25_042634) do
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string "description"
+    t.float "lat"
+    t.float "lng"
+    t.string "photo"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -78,8 +93,10 @@ ActiveRecord::Schema.define(version: 2018_07_25_042634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "report_id"
     t.integer "place_id"
     t.index ["place_id"], name: "index_votes_on_place_id"
+    t.index ["report_id"], name: "index_votes_on_report_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 

@@ -13,8 +13,8 @@ import { Container } from '../../../../../../node_modules/semantic-ui-react';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
-import Form from '../Reports/Form.js'
 import axios from 'axios';
+import Sidebar from './Sidebar.js'
 
 
 //STYLING FOR EACH POP UP DRAWER
@@ -77,6 +77,7 @@ class Places extends Component {
 	      });
       };
 
+
   createPlace = (place) => {
   let response = axios.post(`/places.json`, {
       place: {
@@ -112,9 +113,16 @@ class Places extends Component {
 			</div>
 	
 
-		</div>
-	</div>
-);
+		    <div className="bottomList">
+		        <div className={classes.bottomList}>
+		            <div className="reportHeader">
+			               <div className="reportHeaderText">Send a report</div>
+		            </div>
+                <Sidebar />
+              </div>
+        </div>
+		);
+
 
     return (
       <div>
@@ -135,6 +143,7 @@ class Places extends Component {
 				<ModalPage/>
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSocial">Report a Crime</button>
       </div>
+
     );
 	}
 }
