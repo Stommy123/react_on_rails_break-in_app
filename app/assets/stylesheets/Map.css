@@ -58,32 +58,19 @@ section:last-child {
 .mapboxgl-popup-content-wrapper {
 } */
 
-.mapContainer{
-  border: 2px;
-  border-style: solid;
-  border-color: red;
-  width: 100vw;
-  height: 100vh;
-}
 
 #mapDiv{
-  border: 2px;
-  border-style: solid;
-  border-color: blue;
-  width: 100%;
+
+  width: 75vw;
   height: 100vh;
 }
 
 .mapRow{
-  border: 2px;
-  border-style: solid;
-  border-color: yellow;
-  /* width: 100vw; */
+
+  width: 95vw;
+  padding-left: 10%;
 }
 
 #mapCard{
-  border: 2px;
-  border-style: solid;
-  border-color: teal;
-  width: 20vw;
+  width: 25vw;
 }

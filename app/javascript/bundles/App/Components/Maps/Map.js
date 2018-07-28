@@ -145,9 +145,9 @@ export default class Map extends Component {
   render() {
     const { myPlaces } = this.state;
     return(
-      <Container className="mapContainer">
-      <Row className="mapRow">
-        <Col className='mapScroll'>
+      <div class="w-100">
+      <div class="d-flex flex-column">
+        <Row className='mapScroll'>
         <div class="card" id="mapCard">
       {
         myPlaces.map( (place) => {
@@ -164,17 +164,15 @@ export default class Map extends Component {
             })
       }
         </div>
-        </Col>
-        <Col className="mapContDisp">
-          <div>
+          <div class="card" id="mapContDisp">
             <div>
             <div  id="mapDiv" ref={el => this.mapContainer = el}>
             </div>
-        </div>
-        </div>
-        </Col>
-      </Row>
-</Container>
+          </div>
+          </div>
+        </Row>
+      </div>
+</div>
     );
   }
 }

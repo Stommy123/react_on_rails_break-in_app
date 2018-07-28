@@ -155,7 +155,7 @@ class Places extends Component {
           </div>
         </Drawer>
 				</div>
-				<Map /><br />
+				<Map />
 			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button><br />
         <Form createPlace={ this.createPlace }/>
       </div>
