@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default class Form extends Component {
 
+  // SETTING STATES FOR FORM DATA VALUES
   state = {
             place: {
               name: '',
@@ -19,6 +20,7 @@ export default class Form extends Component {
             }
           }
 
+//CLEARS INPUT VALUES UPON SUBMISSION
   handleSubmit = (event) => {
     event.preventDefault();
     let { place } = this.state;
@@ -34,6 +36,8 @@ export default class Form extends Component {
     this.setState({ place });
   }
 
+
+  //ALL THESE HANDLERS ALERTS THE FORMS TO CHARACTER CHANGES
   handleNameChange = (event) => {
     let { place } = this.state;
     place.name = event.target.value;

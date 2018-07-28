@@ -39,6 +39,7 @@ class Places extends Component {
        timeout           : 27000
      };
 
+     //IF USER DOES NOT INPUT ADDRESS FOR REPORT, IT WILL USE CURRENT LOCATION
      if ("geolocation" in navigator) {
        navigator.geolocation.getCurrentPosition(
          // success callback

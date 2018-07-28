@@ -43,7 +43,7 @@ export default class Map extends Component {
       center: [-80.2044, 25.8028]
     }
 
-    //IF GEOLOCATION IS ACTIVE THEN CENTER MAP AT CURRENT LOCATION
+    //IF USER DOES NOT INPUT ADDRESS FOR REPORT IT WILL USE CURRENT LOCATION
     if ("geolocation" in navigator && geolocate) {
       navigator.geolocation.getCurrentPosition(
         // success callback
@@ -132,6 +132,7 @@ export default class Map extends Component {
     this.map.remove();
   }
 
+  //METHOD THAT TELLS MAP WHERE TO FLY UPON CLICK OF SAVED PLACES
   flyTo = (place) => {
     this.map.flyTo({
       center: [place.longitude, place.latitude],

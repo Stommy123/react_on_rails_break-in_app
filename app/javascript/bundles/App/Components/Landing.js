@@ -4,7 +4,6 @@ import { Mask, Row, Col, Button, View, Container} from 'mdbreact';
 
 //DEFINES WHERE GET STARTED LINK TAKES THE USER
 const handleSignUp = () => {
-  alert("ahoy/1!");
   Turbolinks.visit('/users/sign_up');
 }
 
@@ -13,8 +12,7 @@ const handleSignIn = () => {
   Turbolinks.visit('/users/sign_in');
 }
 
-class LandingPage extends React.Component {
-  render(){
+const LandingPage = (props) => {
     return (
       <div id="landing_page">
           <View>
@@ -96,7 +94,6 @@ class LandingPage extends React.Component {
           </View>
           </div>
     );
-  }
 };
 
 export default LandingPage;

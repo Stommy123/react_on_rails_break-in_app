@@ -14,6 +14,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import Form from '../Reports/Form.js'
+import axios from 'axios';
 
 function TabContainer(props) {
   const { children, dir } = props;
@@ -52,6 +53,8 @@ const styles = theme => ({
 class Sidebar extends React.Component {
   state = {
     value: 0,
+    places: [],
+    currentLocation: {lat: "", lng: ""}
   };
 
   handleChange = (event, value) => {
@@ -61,6 +64,27 @@ class Sidebar extends React.Component {
   handleChangeIndex = index => {
     this.setState({ value: index });
   };
+
+  createPlace = (place) => {
+  let response = axios.post(`/places.json`, {
+      place: {
+        name: place.name,
+        category: place.category,
+        description: place.description,
+        street: place.street,
+        city: place.city,
+        state: place.state,
+        latitude: this.state.currentLocation.lat,
+        longitude: this.state.currentLocation.lng
+      }
+    })
+    let { places } = this.state;
+    if(!places == null){
+      places.push(response.data);
+      this.setState({ places });
+    }
+
+  }
 
   render() {
     const { classes, theme } = this.props;
@@ -112,14 +136,14 @@ class Sidebar extends React.Component {
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
-          <TabContainer dir={theme.direction}><Form /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
+          <TabContainer dir={theme.direction}><Form createPlace={this.createPlace} /></TabContainer>
         </SwipeableViews>
         {fabs.map((fab, index) => (
           <Zoom

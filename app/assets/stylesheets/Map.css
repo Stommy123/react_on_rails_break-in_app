@@ -79,6 +79,16 @@ section:last-child {
   height: 94vh;
   }
 
+  .marker {
+    background-image: url('https://i.imgur.com/cxmkNQu.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
 
 
 @media (max-width: 740px) {

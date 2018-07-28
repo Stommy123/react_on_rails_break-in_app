@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
-import Nav from './NavBar.js';
+import Nav from '../NavBar.js';
 
 const About = (props) => {
     return(
@@ -41,7 +41,7 @@ const About = (props) => {
             </Col>
           </Row>
 
-          
+
         </section>
       </Container>
     </div>
