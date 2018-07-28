@@ -146,7 +146,7 @@ export default class Map extends Component {
     return(
       <div class="w-100">
       <div class="d-flex flex-column">
-        <Row className='mapScroll'>
+        <Row class="d-flex flex-row">
         <div class="card" id="mapCard">
       {
         myPlaces.map( (place) => {

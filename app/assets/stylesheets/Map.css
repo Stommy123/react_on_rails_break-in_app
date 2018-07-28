@@ -58,17 +58,48 @@ section:last-child {
 
 
 #mapDiv{
-
   width: 75vw;
   height: 100vh;
 }
 
 .mapRow{
-
-  width: 95vw;
+  width: 100vw;
   padding-left: 10%;
 }
 
 #mapCard{
   width: 25vw;
+  height: 94vh;
 }
+
+#mapDiv{
+  height: 94vh;
+}
+#mapContDisp{
+  height: 94vh;
+  }
+
+
+
+@media (max-width: 740px) {
+  #mapContDisp{
+    width: 100vw;
+    height: 80vh;
+  }
+  #mapCard{
+    width: 100vw;
+  }
+  #mapDiv{
+    width: 100vw;
+    height: 80vh;
+  }
+
+}
+/* @media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 600px;
+  }
+} */
