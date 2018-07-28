@@ -1,18 +1,18 @@
-#features {
+/* #features {
     width: 15%;
     margin-left: 50%;
     font-family: sans-serif;
     overflow-y: scroll;
     background-color: #fafafa;
-}
-section {
+} */
+/* section {
     padding:  25px 50px;
     line-height: 25px;
     border-bottom: 1px solid #ddd;
     opacity: 0.25;
     font-size: 13px;
-}
-section.active {
+} */
+/* section.active {
     opacity: 1;
 }
 section:last-child {
@@ -54,4 +54,21 @@ section:last-child {
 }
 
 .mapboxgl-popup-content-wrapper {
+} */
+
+
+#mapDiv{
+
+  width: 75vw;
+  height: 100vh;
+}
+
+.mapRow{
+
+  width: 95vw;
+  padding-left: 10%;
+}
+
+#mapCard{
+  width: 25vw;
 }

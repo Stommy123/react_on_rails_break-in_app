@@ -4,6 +4,7 @@ import axios from 'axios';
 import Divider from '@material-ui/core/Divider';
 import ReactDOMServer from 'react-dom/server'
 import Popup from './Popups.js'
+import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
 
 export default class Map extends Component {
 
@@ -143,27 +144,34 @@ export default class Map extends Component {
   render() {
     const { myPlaces } = this.state;
     return(
-      <div>
-        <div className='sidebar pad2' style={{width: '500px', height: '400px', float: 'left'}}>
-          {
-            myPlaces.map( (place) => {
-              return(
-                <div
-                  key={place.id}
-                  onClick={ (e) => { this.flyTo(place) } }
-                >
-                  {place.name}
-                </div>
-              );
+      <div class="w-100">
+      <div class="d-flex flex-column">
+        <Row className='mapScroll'>
+        <div class="card" id="mapCard">
+      {
+        myPlaces.map( (place) => {
+          return(
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item"
+              key={place.id}
+              onClick={ (e) => { this.flyTo(place) } }
+            >
+              {place.name}
+            </li>
+            </ul>
+            );
             })
-          }
+      }
         </div>
-        <div
-          style={{width: '500px', height: '400px', backgroundColor: 'azure', float: 'right'}}
-          ref={el => this.mapContainer = el}
-        >
-        </div>
+          <div class="card" id="mapContDisp">
+            <div>
+            <div  id="mapDiv" ref={el => this.mapContainer = el}>
+            </div>
+          </div>
+          </div>
+        </Row>
       </div>
+</div>
     );
   }
 }
