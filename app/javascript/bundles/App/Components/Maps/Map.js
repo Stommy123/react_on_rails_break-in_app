@@ -148,10 +148,14 @@ export default class Map extends Component {
       <div class="d-flex flex-column">
         <Row class="d-flex flex-row">
         <div class="card" id="mapCard">
+        <div className="savedLocationHeader">
+          Saved Locations
+        </div>
       {
         myPlaces.map( (place) => {
           return(
             <ul class="list-group list-group-flush">
+            
             <li class="list-group-item"
               key={place.id}
               onClick={ (e) => { this.flyTo(place) } }

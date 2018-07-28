@@ -79,19 +79,25 @@ section:last-child {
   height: 94vh;
   }
 
-
+.savedLocationHeader{
+  text-align: center;
+  height: 5em;
+  padding-top: 2em;
+  background-color: rgba(182, 179, 179, 0.527)
+}
 
 @media (max-width: 740px) {
   #mapContDisp{
     width: 100vw;
-    height: 80vh;
+    height: 70vh;
   }
   #mapCard{
     width: 100vw;
+    height: 20vh;
   }
   #mapDiv{
     width: 100vw;
-    height: 80vh;
+    height: 60vh;
   }
 
 }
