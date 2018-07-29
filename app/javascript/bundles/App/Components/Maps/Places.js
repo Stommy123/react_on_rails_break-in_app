@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Map from './Map';
+import ModalPage from '../AppDrawer';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -14,6 +15,7 @@ import green from '@material-ui/core/colors/green';
 import Nav from '../NavBar.js'
 import axios from 'axios';
 import Sidebar from './Sidebar.js'
+
 
 //STYLING FOR EACH POP UP DRAWER
 const styles = {
@@ -133,9 +135,10 @@ class Places extends Component {
         </Drawer>
 				</div>
 				<Map />
-			 	<Button color='primary' id='addReport' variant="fab"  aria-label="Add" onClick={this.toggleDrawer('bottom', true)}><UpIcon /></Button><br />
-        <Sidebar />
-    </div>
+				<ModalPage/>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSocial">Report a Crime</button>
+      </div>
+
     );
 	}
 }
