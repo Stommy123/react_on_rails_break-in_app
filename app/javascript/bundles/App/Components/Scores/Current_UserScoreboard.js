@@ -26,7 +26,7 @@ const CurrentUserScore = ({points}) => (
                     <TableRow>
                         <TableCell>My Points:</TableCell>
                         <TableCell></TableCell>
-                        <TableCell>{points.points}</TableCell>
+                        <TableCell>{points.points}hi</TableCell>
                     </TableRow>
                </TableHead>
 )
