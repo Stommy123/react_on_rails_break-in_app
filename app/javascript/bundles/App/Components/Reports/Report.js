@@ -146,7 +146,7 @@ export default class ReportModal extends Component {
     return (
       <Container className="modalContainer">
         <div className="modal fade right" id="modalSocial" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-sm modal-full-height modal-right" role="document">
+          <div className="modal-dialog modal-sm" role="document">
             <div className="modal-content">
               <div className="modal-header red darken-3 white-text">
                 <h4 className="title"> Pick a category!</h4>
