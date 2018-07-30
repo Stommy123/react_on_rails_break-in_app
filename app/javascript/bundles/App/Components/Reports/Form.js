@@ -15,9 +15,9 @@ export default class Form extends Component {
               name: '',
               category: '',
               description: '',
-              street: '',
-              city: '',
-              state: ''
+              street: 'Optional',
+              city: 'Optional',
+              state: 'Optional'
             }
           }
 
@@ -39,18 +39,6 @@ export default class Form extends Component {
 
 
   //ALL THESE HANDLERS ALERTS THE FORMS TO CHARACTER CHANGES
-  handleNameChange = (event) => {
-    let { place } = this.state;
-    place.name = event.target.value;
-    this.setState({ place });
-  }
-
-  handleCategoryChange = (event) => {
-    let { place } = this.state;
-    place.category = event.target.value;
-    this.setState({ place });
-  }
-
   handleDescriptionChange = (event) => {
     let { place } = this.state;
     place.description = event.target.value;
@@ -77,6 +65,7 @@ export default class Form extends Component {
 
 
   render(){
+    const { categories } = this.props;
     const { place } = this.state;
     return(
       <Paper style={{margin: 10, padding: 10}}>
@@ -86,22 +75,11 @@ export default class Form extends Component {
           onSubmit={ this.handleSubmit }
         >
           <Grid container spacing={24}>
-            <Grid item md={8} xs={12} >
-              <TextField
-                label="Name"
-                id="place_name"
-                value={place.name}
-                onChange={this.handleNameChange}
-                margin="normal"
-                fullWidth
-              />
-            </Grid>
             <Grid item md={4} xs={12}>
               <TextField
                 label="Category"
                 id="place_category"
-                value={place.category}
-                onChange={this.handleCategoryChange}
+                value={categories.category}
                 margin="normal"
                 InputLabelProps={{shrink: true}}
                 fullWidth
@@ -122,6 +100,7 @@ export default class Form extends Component {
                 label="Street"
                 id="place_street"
                 value={place.street}
+                defaultValue="Optional"
                 onChange={this.handleStreetChange}
                 margin="normal"
                 fullWidth
@@ -132,6 +111,7 @@ export default class Form extends Component {
                 label="City"
                 id="place_city"
                 value={place.city}
+                defaultValue="Optional"
                 onChange={this.handleCityChange}
                 margin="normal"
                 fullWidth
@@ -142,6 +122,7 @@ export default class Form extends Component {
                 label="State"
                 id="place_state"
                 value={place.state}
+                defaultValue="Optional"
                 onChange={this.handleStateChange}
                 margin="normal"
                 fullWidth

@@ -130,13 +130,6 @@ export default class Map extends Component {
               alert ('Upvoted')
             }
           })
-          popup.on('open', (e2) => {
-            document.getElementById(popupId2).addEventListener('click', handleDownVote)
-            function handleDownVote() {
-              alert ('Downvoted')
-
-            }
-          })
           //ATTACHES MARKERS TO MAP
           let marker = new mapboxgl.Marker(elm)
           .setLngLat(places.geometry.coordinates)
