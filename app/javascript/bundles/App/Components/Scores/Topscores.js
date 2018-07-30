@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Card, CardBody, CardImage, CardTitle, CardText } from 'mdbreact';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -35,8 +36,14 @@ render() {
 
 
   return (
+    <div className="d-flex p-2" id="cardDiv">
+        <Card className="rankingCard">
+          {
+            new WOW().init()}
+          <CardImage  className="wow fadeInRight img-fluid" src="https://lh3.googleusercontent.com/vwwSvpvcxnSjZ7RlTPavcLT6PMt8fFfFHGedTs09XkZT4UaqWrGr4SQLJQQ7kHOCOCMgnvQctjDKQonisoJS=w2362-h1318-rw" waves />
+          <CardBody>
+
           <TableBody>
-            <div id='everyone'>Everyone</div>
                   <TableRow>
                     <TableCell>Rank</TableCell>
                     <TableCell>Username</TableCell>
@@ -59,6 +66,9 @@ render() {
                       )})
                     }
             </TableBody>
+            </CardBody>
+          </Card>
+        </div>
     )
   }
 }

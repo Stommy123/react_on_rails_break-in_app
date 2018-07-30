@@ -26,10 +26,10 @@ const LandingPage = (props) => {
                   className="z-depth-2">
                 <CarouselItem itemId="1">
                 <Row className="intro-content">
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Welcome to Break-In App </h1>
                   <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
+                  <h6 className="mb-4" id="landingContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
                   iste.</h6>
                 <Button outline color="white" onClick={handleSignUp} >Get Started</Button>
@@ -42,7 +42,7 @@ const LandingPage = (props) => {
                 </CarouselItem>
                 <CarouselItem itemId="2">
               <Row className="intro-content2">
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 2! </h1>
                   <hr className="hr-light"/>
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
@@ -58,7 +58,7 @@ const LandingPage = (props) => {
                 </CarouselItem>
                 <CarouselItem itemId="3">
               <Row className="intro-content3">
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
+                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 3! </h1>
                   <hr className="hr-light"/>
                   <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
