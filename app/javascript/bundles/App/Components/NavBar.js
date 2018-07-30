@@ -9,6 +9,15 @@ import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'm
 import { Container } from '../../../../../node_modules/semantic-ui-react';
 
 
+//DEFINES WHERE Home LINK TAKES THE USER
+const handleHome = () => {
+  let link = document.createElement('a');
+  link.setAttribute('href', '/');
+  link.setAttribute('rel', 'nofollow');
+  document.body.appendChild(link);
+  link.click();
+}
+
 //DEFINES WHERE LiveMap LINK TAKES THE USER
 const handleLiveMap = () => {
   let link = document.createElement('a');
@@ -70,8 +79,8 @@ class Nav extends Component {
 		const { classes } = this.props;
 
     const sideList = (
-      <div className={classes.list}>
-				<Button className="SideNavHeader" fullWidth= {true} onClick={this.toggleDrawer('left', true)}></Button>
+      <div className={classes.list}>handleHomehandleHome
+				<Button className="SideNavHeader" fullWidth= {true} onClick={handleHome}></Button>
         <Divider />
 				<List></List>
 				<Button className="SideNavOptions" fullWidth={true} onClick={handleLiveMap}>Live Map</Button>
