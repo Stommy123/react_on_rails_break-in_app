@@ -350,3 +350,102 @@ geojson.features.forEach(function(marker) {
       <%= form.submit %>
     </div>
   <% end %>
+
+
+  import React, {Component} from 'react';
+  import { Container, Button, fa, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
+  import SwipeableViews from 'react-swipeable-views';
+  import AppBar from '@material-ui/core/AppBar';
+  import Tabs from '@material-ui/core/Tabs';
+  import Tab from '@material-ui/core/Tab';
+  import Typography from '@material-ui/core/Typography';
+  import PropTypes from 'prop-types';
+
+  function TabContainer(props) {
+    return (
+      <Typography component="div">{props.children}</Typography>
+    );
+  }
+
+  TabContainer.propTypes = {
+    children: PropTypes.node.IsRequired
+  };
+
+  class ModalPage extends Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        modal: false,
+        value: 0
+      };
+      this.toggle = this.toggle.bind(this);
+    }
+
+    handleChange = (event, value) => {
+      this.setState({ value });
+    };
+
+    toggle() {
+      this.setState({
+        modal: !this.state.modal
+      });
+    }
+
+    render() {
+
+      const { classes } = this.props;
+      const { value } = this.state;
+
+      return (
+        <Container className="modalContainer">
+          <div className="modal fade right" id="modalSocial" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-sm modal-full-height modal-right" role="document">
+              <div className="modal-content">
+                <div className="modal-header red darken-3 white-text">
+                  <h4 className="title"> Pick a category!</h4>
+                  <Button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></Button>
+                </div>
+                <div className="modal-body mb-0 text-center" id="modalBody">
+                  <Tabs value={value} onChange={this.handleChange}>
+                    <Tab>
+                    <a className="aTag"><img className="reportButton1" src="https://i.imgur.com/cxmkNQu.png"/></a>
+                    <a className="aTag"><img className="reportButton2" src="https://i.imgur.com/ll0kZvC.png"/></a>
+                    </Tab>
+                  </Tabs>
+                  <Tabs value={value} onChange={this.handleChange}>
+                    <Tab >
+                    <a className="aTag"><img className="reportButton3" src="https://i.imgur.com/L8UeAXg.png"/></a>
+                    <a className="aTag"><img className="reportButton4" src="https://i.imgur.com/LnRmyVs.png"/></a>
+                    </Tab>
+                  </Tabs>
+                  <Tabs value={value} onChange={this.handleChange}>
+                    <Tab>
+                    <a className="aTag"><img className="reportButton5" src="https://i.imgur.com/ll0kZvC.png"/></a>
+                    <a className="aTag"><img className="reportButton6" src="https://i.imgur.com/GsQxdcz.png"/></a>
+                    </Tab>
+                  </Tabs>
+                  <Tabs value={value} onChange={this.handleChange}>
+                    <a className="aTag"><img className="reportButton7" src="https://i.imgur.com/Kfp5yRJ.png"/></a>
+                    <a className="aTag"><img className="reportButton8" src="https://i.imgur.com/w4pPu1L.png"/></a>
+                  </Tabs>
+               </div>
+               {value === 0 && <TabContainer>Item One</TabContainer>}
+               {value === 1 && <TabContainer>Item Two</TabContainer>}
+               {value === 2 && <TabContainer>Item Three</TabContainer>}
+               <div className="modal-footer">
+                <Button type="button" color="secondary" className=" btn btn-primary red darken-3 white-text">Save Report</Button>
+               </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+      );
+    }
+  }
+
+  ModalPage.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+
+  export default ModalPage;

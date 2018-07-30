@@ -3,7 +3,7 @@
 //     border-style: solid;
 //     border-color: blue;
 //     position: relative;
-//     height: 80vh;   
+//     height: 80vh;
 // }
 // .modal-body{
 //     width: 40vw;
@@ -28,7 +28,11 @@
 //     padding: 2%;
 // }
 
+.title {
+  text-align: center;
+}
 .reportButton1{
+    background-image: url('https://i.imgur.com/cxmkNQu.png');
     height: 6em;
     width: 6em;
     border: 2px;
@@ -98,9 +102,15 @@
     border: 2px;
     border-style: solid;
     border-color: red;
+    width: 500px;
 }
 
+.modal-footer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 740px) {
-    
-  
+
+
   }

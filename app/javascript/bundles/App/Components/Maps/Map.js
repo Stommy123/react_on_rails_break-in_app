@@ -77,6 +77,7 @@ export default class Map extends Component {
         accessToken: mapboxgl.accessToken
       })
     );
+
     //APPENDS GEOLOCATOR BUTTON
     map.addControl(
       new mapboxgl.GeolocateControl({
@@ -145,19 +146,19 @@ export default class Map extends Component {
   render() {
     const { myPlaces } = this.state;
     return(
-      <div class="w-100">
-      <div class="d-flex flex-column">
-        <Row class="d-flex flex-row">
-        <div class="card" id="mapCard">
+      <div className="w-100">
+      <div className="d-flex flex-column">
+        <Row className="d-flex flex-row">
+        <div className="card" id="mapCard">
         <div className="savedLocationHeader">
           Saved Locations
         </div>
       {
         myPlaces.map( (place) => {
           return(
-            <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item"
+            <ul className="list-group list-group-flush">
+
+            <li className="list-group-item"
               key={place.id}
               onClick={ (e) => { this.flyTo(place) } }
             >
@@ -168,7 +169,7 @@ export default class Map extends Component {
             })
       }
         </div>
-          <div class="card" id="mapContDisp">
+          <div className="card" id="mapContDisp">
             <div>
             <div  id="mapDiv" ref={el => this.mapContainer = el}>
             </div>

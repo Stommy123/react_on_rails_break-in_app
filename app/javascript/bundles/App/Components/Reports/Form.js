@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default class Form extends Component {
 
+
   // SETTING STATES FOR FORM DATA VALUES
   state = {
             place: {
