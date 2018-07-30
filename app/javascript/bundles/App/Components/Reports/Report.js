@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { Container, Button, fa, Modal, ModalBody, ModalHeader, ModalFooter, Input } from 'mdbreact';
+import { Container , fa, Modal, ModalBody, ModalHeader, ModalFooter, Input } from 'mdbreact';
 import Form from './Form'
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -109,14 +110,14 @@ export default class ReportModal extends Component {
                 <Button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></Button>
               </div>
               <div className="modal-body mb-0 text-center" id="modalBody">
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton1" src="https://i.imgur.com/cxmkNQu.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton2" src="https://i.imgur.com/ll0kZvC.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton3" src="https://i.imgur.com/L8UeAXg.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton4" src="https://i.imgur.com/LnRmyVs.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton5" src="https://i.imgur.com/ll0kZvC.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton6" src="https://i.imgur.com/GsQxdcz.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton7" src="https://i.imgur.com/Kfp5yRJ.png"/></a></Button>
-                <Button color="primary" data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton8" src="https://i.imgur.com/w4pPu1L.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton1" src="https://i.imgur.com/cxmkNQu.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton2" src="https://i.imgur.com/ll0kZvC.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton3" src="https://i.imgur.com/L8UeAXg.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton4" src="https://i.imgur.com/LnRmyVs.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton5" src="https://i.imgur.com/ll0kZvC.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton6" src="https://i.imgur.com/GsQxdcz.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton7" src="https://i.imgur.com/Kfp5yRJ.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.toggle2}><a className="aTag"><img className="reportButton8" src="https://i.imgur.com/w4pPu1L.png"/></a></Button>
              </div>
              <div className="modal-footer">
               <Button type="button" color="secondary" className=" btn btn-primary red darken-3 white-text">Save Report</Button>
