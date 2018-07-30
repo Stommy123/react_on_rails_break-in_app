@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Button} from 'semantic-ui-react'
 import TextField from '@material-ui/core/TextField';
-
+import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
 
 
 
@@ -9,7 +9,7 @@ export default class Popup extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      upvotes: 0,
+      upvotes: 17,
 
     }
   }
@@ -18,8 +18,8 @@ export default class Popup extends Component {
   handleUpvote = (event) => {
     event.preventDefault();
     let { upvotes } = this.state;
-    this.props.HandleUpVote(upvotes);
-    upvotes += 1
+    upvotes += 1;
+    console.log("HELLO!");
     this.setState({ upvotes });
   }
 
@@ -27,17 +27,15 @@ export default class Popup extends Component {
   render(){
     return(
       <div className="map-popup">
-        <p>{this.props.places.name}</p>
-        <p>{this.props.places.category}</p>
-        <p>{this.props.places.description}</p>
-
-        <p>{this.props.places.street}, {this.props.places.city}, {this.props.places.state}</p>
+        <p>{this.props.place.name}</p>
+        <p>{this.props.place.category}</p>
+        <p>{this.props.place.description}</p>
+        <p id='demo'>{this.state.upvotes}</p>
+        <p>{this.props.place.street}, {this.props.place.city}, {this.props.place.state}</p>
           <Button
-            color="blue"
-            id={this.props.Upvote}
-            onClick={this.handleUpvote}
-          >
-            Upvote
+            id={`place_${this.props.place.id}`}
+            color="green"
+          ><Fa icon="thumbs-up" />
           </Button>
       </div>
     )

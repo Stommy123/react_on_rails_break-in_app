@@ -43,7 +43,23 @@ const CurrentUserScore = ({points}) => (
     </div>
   </Card>
   </CardGroup>
-
+    <TableHead>
+        <TableRow>
+            <TableCell> My Rank: </TableCell>
+            <TableCell></TableCell>
+            <TableCell> {points.badges} </TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell> Rank Name: </TableCell>
+            <TableCell></TableCell>
+            <TableCell> {points.rank} </TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>My Points:</TableCell>
+            <TableCell></TableCell>
+            <TableCell>{points.points}</TableCell>
+        </TableRow>
+   </TableHead>
 )
 
 export default CurrentUserScore;

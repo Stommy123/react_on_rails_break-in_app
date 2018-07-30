@@ -92,7 +92,7 @@ export default class ReportModal extends Component {
         longitude: this.state.currentLocation.lng
       }
     })
-    let { places } = this.state;
+    let { places, } = this.state;
     if(!places == null){
       places.push(response.data);
       this.setState({ places, modal2: !this.state.modal2 });

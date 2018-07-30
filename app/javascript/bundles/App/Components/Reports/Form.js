@@ -34,6 +34,7 @@ export default class Form extends Component {
       city: '',
       state:''
     }
+    
     this.setState({ place });
   }
 
