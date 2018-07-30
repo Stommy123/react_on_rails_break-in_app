@@ -7,6 +7,10 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'mdbreact';
 
+//DEFINES WHERE LiveMap LINK TAKES THE USER
+const handleHome = () => {
+  Turbolinks.visit('/');
+}
 
 //DEFINES WHERE LiveMap LINK TAKES THE USER
 const handleLiveMap = () => {
@@ -66,7 +70,7 @@ class Nav extends Component {
 
     const sideList = (
       <div className={classes.list}>
-				<Button className="SideNavHeader" fullWidth= {true} onClick={this.toggleDrawer('left', true)}></Button>
+				<Button className="SideNavHeader" fullWidth= {true} onClick={handleHome}></Button>
         <Divider />
 				<List></List>
 				<Button className="SideNavOptions" fullWidth={true} onClick={handleLiveMap}>Live Map</Button>
