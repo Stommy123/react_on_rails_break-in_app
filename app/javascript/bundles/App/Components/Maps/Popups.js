@@ -1,46 +1,36 @@
 import React, { Component } from 'react';
 import {Button} from 'semantic-ui-react'
-import Flash from './Flash.js'
 
 
 
-//INCREASES UPVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
-const handleUpVote = () => {
-    alert("ahoy/1!");
-  upvotes = upvotes + 1
-   const flash = {
-     open: true,
-     message: 'Upvoted!',
-     type: 'notice'
-   };
-   this.setState({
-     upvotes: this.state.upvotes + 1,
-      flash });
- }
 
-//INCREASES DOWNVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
- const handleDownVote = () => {
-   downvotes = downvotes + 1
-   const flash = {
-     open: true,
-     message: 'Downvoted!',
-     type: 'alert'
-   };
-   this.setState({
-     downvotes: this.states.downvotes + 1,
-      flash });
- }
 export default class Popup extends Component {
-  state = {
-            upvotes: 0,
-            downvotes: 0,
-            flash: {
-              message: '',
-              open: false,
-              type: ''
-            }
-          }
+  constructor(props) {
+    super(props)
+    this.state = {
+      upvotes: 0,
+      downvotes: 0,
 
+    }
+  }
+
+  //INCREASES UPVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
+  handleUpvote = (event) => {
+    event.preventDefault();
+    let { upvotes } = this.state;
+    this.props.HandleUpVote(upvotes);
+    upvotes += 1
+    this.setState({ upvotes });
+  }
+
+  //INCREASES DOWNVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
+  handleDownvote = (event) => {
+    event.preventDefault();
+    let { downvotes } = this.state;
+    this.props.HandleDownVote(downvotes);
+    downvotes += 1
+    this.setState({ downvotes });
+  }
 
   render(){
     return(
@@ -50,28 +40,20 @@ export default class Popup extends Component {
         <p>{this.props.places.street}, {this.props.places.city}, {this.props.places.state}</p>
         <p>{this.state.upvotes}</p>
         <p>{this.state.downvotes}</p>
-
           <Button
             color="blue"
-            id={this.props.styleName}
-            className="startNav"
-            onClick={this.handleUpVote}
+            id={this.props.Upvote}
+            onClick={this.handleUpvote}
           >
             Upvote
           </Button>
           <Button
             color="red"
-            id={this.props.styleName}
-            className="startNav"
-            onClick={this.handleDownVote}
+            id={this.props.Downvote}
+            onClick={this.handleDownvote}
           >
             Downvote
           </Button>
-          <Flash
-            message={ this.state.flash.message }
-            open={ this.state.flash.open}
-            type={ this.state.flash.type }
-            />
       </div>
     )
   }

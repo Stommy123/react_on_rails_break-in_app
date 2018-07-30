@@ -11,9 +11,14 @@ export default class Map extends Component {
 //Inherits window.map from wherever its called
   constructor(){
     super();
-    this.state = { myPlaces: [] };
+    this.state = {
+      myPlaces: [],
+      upvotes: 0,
+      downvotes: 0,
+    };
     window.map = this;
   }
+
 
 //METHODS AND FUNCTIONS THAT WILL TAKE PLACE AFTER COMPONENT MOUNTS THE DOM
   async componentDidMount() {
@@ -109,15 +114,29 @@ export default class Map extends Component {
     axios.get(`places.json?lat=${lat}&lng=${lng}`)
       .then((res) => {
         let newMarkers = res.data
-        newMarkers.features.forEach(function (places, i) {
+        newMarkers.features.forEach(function (places, i, j) {
           var elm = document.createElement('div');
           elm.className = 'marker';
           //CALLS POPUP COMPONENT AND DEFINES IT
           let popupId = `popup-${i}`
+          let popupId2 = `popup-${j}`
           let popup = new mapboxgl.Popup({ offset: 25 })
           .setHTML(ReactDOMServer.renderToStaticMarkup(
-            <Popup styleName={popupId} places={places.properties}></Popup>
+            <Popup Downvote={popupId2} Upvote={popupId} places={places.properties}></Popup>
           ))
+          popup.on('open', (e) => {
+            document.getElementById(popupId).addEventListener('click', handleUpVote)
+            function handleUpVote() {
+              alert ('Upvoted')
+            }
+          })
+          popup.on('open', (e2) => {
+            document.getElementById(popupId2).addEventListener('click', handleDownVote)
+            function handleDownVote() {
+              alert ('Downvoted')
+
+            }
+          })
           //ATTACHES MARKERS TO MAP
           let marker = new mapboxgl.Marker(elm)
           .setLngLat(places.geometry.coordinates)
@@ -143,41 +162,59 @@ export default class Map extends Component {
     })
   }
 
+
+  //INCREASES UPVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
+  handleUpVote = (event) => {
+    event.preventDefault();
+    let { upvotes } = this.state;
+    this.props.HandleUpVote(upvotes);
+    upvotes += 1
+    this.setState({ upvotes });
+  }
+
+  //INCREASES DOWNVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
+  handleDownVote = (event) => {
+    event.preventDefault();
+    let { downvotes } = this.state;
+    this.props.HandleDownVote(downvotes);
+    downvotes += 1
+    this.setState({ downvotes });
+  }
+
   render() {
     const { myPlaces } = this.state;
     return(
       <div className="w-100">
-      <div className="d-flex flex-column">
-        <Row className="d-flex flex-row">
-        <div className="card" id="mapCard">
-        <div className="savedLocationHeader">
-          Saved Locations
-        </div>
-      {
-        myPlaces.map( (place) => {
-          return(
-            <ul className="list-group list-group-flush">
-
-            <li className="list-group-item"
-              key={place.id}
-              onClick={ (e) => { this.flyTo(place) } }
-            >
-              {place.name}
-            </li>
-            </ul>
-            );
-            })
-      }
-        </div>
-          <div className="card" id="mapContDisp">
-            <div>
-            <div  id="mapDiv" ref={el => this.mapContainer = el}>
+        <div className="d-flex flex-column">
+          <Row className="d-flex flex-row">
+            <div className="card" id="mapCard">
+              <div className="savedLocationHeader">
+                Saved Locations
+              </div>
+              {
+                myPlaces.map( (place) => {
+                  return(
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item"
+                        key={place.id}
+                        onClick={ (e) => { this.flyTo(place) } }
+                        >
+                        {place.name}
+                      </li>
+                    </ul>
+                  );
+                })
+              }
             </div>
-          </div>
-          </div>
-        </Row>
+            <div className="card" id="mapContDisp">
+              <div>
+                <div  id="mapDiv" ref={el => this.mapContainer = el}>
+                </div>
+              </div>
+            </div>
+          </Row>
+        </div>
       </div>
-</div>
     );
   }
 }
