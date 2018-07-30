@@ -54,8 +54,6 @@ export default class Places extends Component {
          });
      }
   }
-
-  
 	render() {
     return (
       <div>
