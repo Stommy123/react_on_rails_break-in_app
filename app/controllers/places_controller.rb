@@ -50,7 +50,6 @@ class PlacesController < ApplicationController
                                 city: place.city,
                                 state: place.state,
                                 image: place.image,
-                                user: place.user.email,
                                 id: place.id
                               }
                             }

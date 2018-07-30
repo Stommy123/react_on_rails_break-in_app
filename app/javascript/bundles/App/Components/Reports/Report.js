@@ -95,7 +95,7 @@ export default class ReportModal extends Component {
     let { places } = this.state;
     if(!places == null){
       places.push(response.data);
-      this.setState({ places });
+      this.setState({ places, modal2: !this.state.modal2 });
     }
 
   }

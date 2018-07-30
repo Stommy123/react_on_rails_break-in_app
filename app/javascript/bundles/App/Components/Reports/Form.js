@@ -44,6 +44,11 @@ export default class Form extends Component {
     place.description = event.target.value;
     this.setState({ place });
   }
+  handleNameChange = (event) => {
+    let { place } = this.state;
+    place.name = event.target.value;
+    this.setState({ place });
+  }
   handleCategoryChange = (event) => {
     let { place } = this.state;
     place.category = event.target.value;
@@ -95,6 +100,16 @@ export default class Form extends Component {
                 id="place_description"
                 value={place.description}
                 onChange={this.handleDescriptionChange}
+                margin="normal"
+                fullWidth
+              />
+            </Grid>
+            <Grid item md={8} xs={12} >
+              <TextField
+                label="Venue"
+                id="place_name"
+                value={place.name}
+                onChange={this.handleNameChange}
                 margin="normal"
                 fullWidth
               />

@@ -6,39 +6,34 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'mdbreact';
-import { Container } from '../../../../../node_modules/semantic-ui-react';
 
 
 //DEFINES WHERE LiveMap LINK TAKES THE USER
 const handleLiveMap = () => {
-  let link = document.createElement('a');
-  link.setAttribute('href', '/places');
-  link.setAttribute('rel', 'nofollow');
-  document.body.appendChild(link);
-  link.click();
+  Turbolinks.visit('/places');
 }
 
 //DEFINES WHERE CONTACT LINK TAKES THE USER
 const handleContact = () => {
-  let link = document.createElement('a');
-  link.setAttribute('href', '/contact');
-  link.setAttribute('rel', 'nofollow');
-  document.body.appendChild(link);
-  link.click();
+  Turbolinks.visit('/contact');
 }
 
 //DEFINES WHERE ABOUT LINK TAKES THE USER
 const handleAbout = () => {
-  let link = document.createElement('a');
-  link.setAttribute('href', '/about');
-  link.setAttribute('rel', 'nofollow');
-  document.body.appendChild(link);
-  link.click();
+  Turbolinks.visit('/about');
 }
 const handleScoreBoard = () => {
+  Turbolinks.visit('/scoreboard');
+}
+const handleAccount = () => {
+  Turbolinks.visit('/users/edit');
+}
+
+const handleLogout = () => {
   let link = document.createElement('a');
-  link.setAttribute('href', '/scoreboard');
+  link.setAttribute('href', '/users/sign_out');
   link.setAttribute('rel', 'nofollow');
+  link.setAttribute('data-method', 'delete');
   document.body.appendChild(link);
   link.click();
 }
@@ -91,6 +86,12 @@ class Nav extends Component {
 				<Button className="SideNavOptions" fullWidth= {true} onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
         <List></List>
 				<Divider />
+        <Button className="SideNavOptions" fullWidth= {true} onClick={handleAccount}>My Account</Button>
+        <List></List>
+				<Divider />
+        <List></List>
+        <Button className="SideNavOptions" fullWidth= {true} onClick={handleLogout}>Log Out</Button>
+        <Divider />
       </div>
     );
 

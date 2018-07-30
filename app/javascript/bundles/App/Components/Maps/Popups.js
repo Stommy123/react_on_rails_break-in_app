@@ -10,7 +10,6 @@ export default class Popup extends Component {
     super(props)
     this.state = {
       upvotes: 0,
-      downvotes: 0,
       count: 0,
       modal: false,
       mailAddress: '@mdo'
@@ -34,14 +33,6 @@ export default class Popup extends Component {
     this.setState({ upvotes });
   }
 
-  //INCREASES DOWNVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
-  handleDownvote = (event) => {
-    event.preventDefault();
-    let { downvotes } = this.state;
-    this.props.HandleDownVote(downvotes);
-    downvotes += 1
-    this.setState({ downvotes });
-  }
 
   render(){
     return(
@@ -52,7 +43,7 @@ export default class Popup extends Component {
           <input type='button' value='+' onClick={this.incrementCounter} />
 
         <p>{this.props.places.street}, {this.props.places.city}, {this.props.places.state}</p>
-        <p>Upvotes:{this.state.upvotes}   |   Downvotes:{this.state.downvotes}</p>
+        <p>Upvotes:{this.state.upvotes}</p>
         <p>Reported by {this.props.places.user}</p>
           <Button
             color="blue"
