@@ -1,38 +1,10 @@
-// #modalBody{
-//     border:2px;
-//     border-style: solid;
-//     border-color: blue;
-//     position: relative;
-//     height: 80vh;
-// }
-// .modal-body{
-//     width: 40vw;
-//     height: 75vh;
-//     border:2px;
-//     border-style: solid;
-//     border-color: red;
-// }
-// .modalContainer{
-//     border:2px;
-//     border-style: solid;
-//     border-color: purple;
-//     width: 15vw;
-// }
 
-// .reportButton1, .reportButton2, .reportButton3, .reportButton4, .reportButton5, .reportButton6, .reportButton7, .reportButton8{
-//     height: 6em;
-//     width: 6em;
-//     border: 2px;
-//     border-style: solid;
-//     border-color: transparent;
-//     padding: 2%;
-// }
 
 .title {
   text-align: center;
 }
-.reportButton1{
-    background-image: url('https://i.imgur.com/cxmkNQu.png');
+
+.reportButton{
     height: 6em;
     width: 6em;
     border: 2px;
@@ -41,62 +13,7 @@
     padding: 2%;
 }
 
-.reportButton2{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
-.reportButton3{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
-.reportButton4{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
-.reportButton5{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
-.reportButton6{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
-.reportButton7{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
-.reportButton8{
-    height: 6em;
-    width: 6em;
-    border: 2px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2%;
-}
+
 
 
 .modal-content{

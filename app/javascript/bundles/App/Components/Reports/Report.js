@@ -39,7 +39,7 @@ export default class ReportModal extends Component {
   handleActivity = (event) => {
     event.preventDefault();
     let { categories } = this.state;
-    categories = { category: 'Suspicious Activity' }
+    categories = { category: 'Suspicious-Activity' }
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
@@ -153,12 +153,12 @@ export default class ReportModal extends Component {
                 <Button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></Button>
               </div>
               <div className="modal-body mb-0 text-center" id="modalBody">
-                <Button data-dismiss="modal" onClick={this.handleActivity}><a className="aTag"><img className="reportButton1" src="https://i.imgur.com/cxmkNQu.png"/></a></Button>
-                <Button data-dismiss="modal" onClick={this.handleArson}><a className="aTag"><img className="reportButton2" src="https://i.imgur.com/ll0kZvC.png"/></a></Button>
-                <Button data-dismiss="modal" onClick={this.handleVehicle}><a className="aTag"><img className="reportButton3" src="https://i.imgur.com/L8UeAXg.png"/></a></Button>
-                <Button data-dismiss="modal" onClick={this.handleViolence}><a className="aTag"><img className="reportButton4" src="https://i.imgur.com/LnRmyVs.png"/></a></Button>
-                <Button data-dismiss="modal" onClick={this.handleDrugs}><a className="aTag"><img className="reportButton6" src="https://i.imgur.com/GsQxdcz.png"/></a></Button>
-                <Button data-dismiss="modal" onClick={this.handleCrime}><a className="aTag"><img className="reportButton7" src="https://i.imgur.com/Kfp5yRJ.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.handleActivity}><a className="aTag"><img className="reportButton" src="https://i.imgur.com/cxmkNQu.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.handleCrime}><a className="aTag"><img className="reportButton" src="https://i.imgur.com/Kfp5yRJ.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.handleArson}><a className="aTag"><img className="reportButton" src="https://i.imgur.com/ll0kZvC.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.handleVehicle}><a className="aTag"><img className="reportButton" src="https://i.imgur.com/L8UeAXg.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.handleDrugs}><a className="aTag"><img className="reportButton" src="https://i.imgur.com/GsQxdcz.png"/></a></Button>
+                <Button data-dismiss="modal" onClick={this.handleViolence}><a className="aTag"><img className="reportButton" src="https://i.imgur.com/LnRmyVs.png"/></a></Button>
              </div>
              <div className="modal-footer">
               <Button type="button" color="secondary" className=" btn btn-primary red darken-3 white-text">Save Report</Button>

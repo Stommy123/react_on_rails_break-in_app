@@ -116,7 +116,7 @@ export default class Map extends Component {
         let newMarkers = res.data
         newMarkers.features.forEach(function (places, i, j) {
           var elm = document.createElement('div');
-          elm.className = 'marker';
+          elm.className = `${places.properties.category}`;
           //CALLS POPUP COMPONENT AND DEFINES IT
           let popupId = `popup-${i}`
           let popupId2 = `popup-${j}`

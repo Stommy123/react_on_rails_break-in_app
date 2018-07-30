@@ -13,7 +13,7 @@ export default class Form extends Component {
   state = {
             place: {
               name: '',
-              category: '',
+              category: this.props.categories.category,
               description: '',
               street: 'Optional',
               city: 'Optional',
@@ -43,6 +43,11 @@ export default class Form extends Component {
     let { place } = this.state;
     place.description = event.target.value;
     this.setState({ place });
+  }
+  handleCategoryChange = (event) => {
+    let { place } = this.state;
+    place.category = event.target.value;
+    this.setState({ category });
   }
 
   handleStreetChange = (event) => {
@@ -79,9 +84,8 @@ export default class Form extends Component {
               <TextField
                 label="Category"
                 id="place_category"
-                value={categories.category}
+                value={place.category}
                 margin="normal"
-                InputLabelProps={{shrink: true}}
                 fullWidth
                 />
             </Grid>

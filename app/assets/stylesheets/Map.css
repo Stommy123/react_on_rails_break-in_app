@@ -1,60 +1,3 @@
-/* #features {
-    width: 15%;
-    margin-left: 50%;
-    font-family: sans-serif;
-    overflow-y: scroll;
-    background-color: #fafafa;
-} */
-/* section {
-    padding:  25px 50px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 13px;
-} */
-/* section.active {
-    opacity: 1;
-}
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 200px;
-}
-
-
-.marker {
-  background-image: url('./burglar-1.png');
-  background-size: cover;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.map-popup {
-
-  text-align:center;
-}
-.map-popup, .map-popup h3 {
-  color: black;
-}
-
-
-#map {
-    position: fixed;
-    width:50%;
-}
-
-#borders {
-  border: solid 1px black;
-}
-
-.mapboxgl-popup-content {
-  background-color: white;
-
-}
-
-.mapboxgl-popup-content-wrapper {
-} */
 
 
 #mapDiv{
@@ -79,8 +22,49 @@ section:last-child {
   height: 94vh;
   }
 
-  .marker {
+  .Suspicious-Activity {
     background-image: url('https://i.imgur.com/cxmkNQu.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .Arson {
+    background-image: url('https://i.imgur.com/ll0kZvC.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .Vehicle-Related {
+    background-image: url('https://i.imgur.com/L8UeAXg.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .Violence {
+    background-image: url('https://i.imgur.com/LnRmyVs.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .Crime {
+    background-image: url('https://i.imgur.com/Kfp5yRJ.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .Drug {
+    background-image: url('https://i.imgur.com/GsQxdcz.png');
     background-size: cover;
     width: 25px;
     height: 25px;
