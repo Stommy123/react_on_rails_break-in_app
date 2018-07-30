@@ -54,7 +54,7 @@
     border-radius: 50%;
     cursor: pointer;
   }
-  
+
   .Crime {
     background-image: url('https://i.imgur.com/Kfp5yRJ.png');
     background-size: cover;
@@ -63,7 +63,7 @@
     border-radius: 50%;
     cursor: pointer;
   }
-  .Drug {
+  .Drugs {
     background-image: url('https://i.imgur.com/GsQxdcz.png');
     background-size: cover;
     width: 25px;
