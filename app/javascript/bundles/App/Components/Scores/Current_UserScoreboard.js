@@ -43,6 +43,7 @@ const CurrentUserScore = ({points}) => (
     </div>
   </Card>
   </CardGroup>
+
 )
 
 export default CurrentUserScore;

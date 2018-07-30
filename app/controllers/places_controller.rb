@@ -28,8 +28,9 @@ class PlacesController < ApplicationController
       end
       #If format is json, render all nearby places as markers
       format.json do
+
         if params[:filter] == "mine"
-          @places = current_user.places
+          @places = current_user.places.where.not(name: nil)
           render json: @places
         else
           @places = Place.all

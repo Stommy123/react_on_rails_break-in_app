@@ -122,7 +122,7 @@ export default class Map extends Component {
           let popupId2 = `popup-${j}`
           let popup = new mapboxgl.Popup({ offset: 25 })
           .setHTML(ReactDOMServer.renderToStaticMarkup(
-            <Popup Downvote={popupId2} Upvote={popupId} places={places.properties}></Popup>
+            <Popup  Downvote={popupId2} Upvote={popupId} places={places.properties}></Popup>
           ))
           popup.on('open', (e) => {
             document.getElementById(popupId).addEventListener('click', handleUpVote)
