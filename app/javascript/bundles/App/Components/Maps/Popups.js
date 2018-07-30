@@ -11,10 +11,12 @@ export default class Popup extends Component {
     this.state = {
       upvotes: 0,
       downvotes: 0,
+      count: 0,
       modal: false,
       mailAddress: '@mdo'
 
     }
+    this.incrementCounter = this.updateCounter.bind(this, 1);
     this.toggle = this.toggle.bind(this);
   }
 
@@ -46,6 +48,9 @@ export default class Popup extends Component {
       <div className="map-popup">
         <p>{this.props.places.name}</p>
         <p>{this.props.places.description}</p>
+          <div>{this.state.count}</div>
+          <input type='button' value='+' onClick={this.incrementCounter} />
+
         <p>{this.props.places.street}, {this.props.places.city}, {this.props.places.state}</p>
         <p>Upvotes:{this.state.upvotes}   |   Downvotes:{this.state.downvotes}</p>
         <p>Reported by {this.props.places.user}</p>
@@ -56,15 +61,11 @@ export default class Popup extends Component {
           >
             Upvote
           </Button>
-          <Button
-            color="red"
-            id={this.props.Downvote}
-            onClick={this.handleDownvote}
-          >
-            Downvote
-          </Button>
       </div>
     )
   }
+    updateCounter(count) {
+        this.setState({count: this.state.count + count});
+      }
 
 }
