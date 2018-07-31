@@ -79,7 +79,10 @@ export default class Scoreboard extends Component {
       <div>
         <Nav />
         <Card className="userInteraction">
-        <CardImage className="img-fluid" src="https://i.imgur.com/Jlk8nYO.png" waves />
+        {
+            new WOW().init()}
+        <CardImage id="userBanner"className="wow fadeInLeft img-fluid" src="https://lh5.googleusercontent.com/AgLzVMc8FCtNHxjz2vKzXNMvZadddP0zQEiSm4PXiLxeUszPJrhVbz9s9wyDdm7eIG9hijL7kOo-hLRfHwUf=w2194-h1228-rw" waves />
+
           <CardBody>
                 <CurrentUserScore points={this.state} />
           </CardBody>

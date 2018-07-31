@@ -40,7 +40,7 @@ render() {
         <Card className="rankingCard">
           {
             new WOW().init()}
-          <CardImage  className="wow fadeInRight img-fluid" src="https://i.imgur.com/P3oT1SZ.png" waves />
+          <CardImage id="rankingBanner" className="wow fadeInRight img-fluid" src="https://lh3.googleusercontent.com/vwwSvpvcxnSjZ7RlTPavcLT6PMt8fFfFHGedTs09XkZT4UaqWrGr4SQLJQQ7kHOCOCMgnvQctjDKQonisoJS=w2362-h1318-rw" waves />
           <CardBody>
 
           <TableBody>
