@@ -7,8 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # require 'faker'
+# User.destroy_all
+#
 # 50.times do
 #   user = User.new(
+#     username: Faker::Internet.unique.username,
 #     email: Faker::Internet.unique.email,
 #     points: Faker::Number.between(100,1000),
 #     password: 'asdfasdf'

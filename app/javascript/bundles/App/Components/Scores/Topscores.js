@@ -56,7 +56,7 @@ render() {
                       <TableCell>{i+1}</TableCell>
                         <TableCell
                         key={user.id}
-                        >{user.email}
+                        >{user.username}
                         </TableCell>
                         <TableCell
                         key={user.id}
