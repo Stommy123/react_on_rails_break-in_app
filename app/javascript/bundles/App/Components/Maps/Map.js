@@ -129,7 +129,7 @@ export default class Map extends Component {
           ))
           popup.on('open', (e) => {
             document.getElementById(`place_${place.properties.id}`).addEventListener('click', function() {
-              document.getElementById('demo').innerHTML = "<strong>Validation: </strong> 18"
+              document.getElementById('demo').innerHTML += "<strong>Validation: </strong> 18"
             });
           })
           //ATTACHES MARKERS TO MAP
