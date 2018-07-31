@@ -5,6 +5,8 @@ import Divider from '@material-ui/core/Divider';
 import ReactDOMServer from 'react-dom/server'
 import Popup from './Popups.js'
 import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
+import ReportModal from '../Reports/Report';
+import Button from '@material-ui/core/Button';
 
 export default class Map extends Component {
 
@@ -13,8 +15,7 @@ export default class Map extends Component {
     super();
     this.state = {
       myPlaces: [],
-      upvotes: 0,
-      downvotes: 0,
+      upVotes: {}
     };
     window.map = this;
   }
@@ -76,6 +77,8 @@ export default class Map extends Component {
     //CENTERS MAP - REFER TO MAP-OPTIONS
     const { lat, lng } = map.getCenter();
     console.log(lat, lng);
+
+
     //APPENDS SEARCH BAR NAVIGATOR
     map.addControl(
       new MapboxGeocoder({
@@ -110,34 +113,41 @@ export default class Map extends Component {
   //METHOD THAT MAKES AXIOS REQUEST FOR PLACES.JSON
   fetchPlaces = () => {
     const map = this.map;
+    const self = this;
     const { lat, lng } = map.getCenter();
     axios.get(`places.json?lat=${lat}&lng=${lng}`)
       .then((res) => {
         let newMarkers = res.data
-        newMarkers.features.forEach(function (places, i, j) {
+        let {upVotes} = this.state;
+        newMarkers.features.forEach(function (place, i, j) {
+          upVotes[place.properties.id] = 0;
           var elm = document.createElement('div');
-          elm.className = `${places.properties.category}`;
-          //CALLS POPUP COMPONENT AND DEFINES IT
-          let popupId = `popup-${i}`
-          let popupId2 = `popup-${j}`
+          elm.className = `${place.properties.category}`;
           let popup = new mapboxgl.Popup({ offset: 25 })
           .setHTML(ReactDOMServer.renderToStaticMarkup(
-            <Popup Downvote={popupId2} Upvote={popupId} places={places.properties}></Popup>
+            <Popup place={place.properties}></Popup>
           ))
           popup.on('open', (e) => {
-            document.getElementById(popupId).addEventListener('click', handleUpVote)
-            function handleUpVote() {
-              alert ('Upvoted')
-            }
+            document.getElementById(`place_${place.properties.id}`).addEventListener('click', function() {
+              document.getElementById('demo').innerHTML += "<strong>Validation: </strong> 18"
+            });
           })
           //ATTACHES MARKERS TO MAP
           let marker = new mapboxgl.Marker(elm)
-          .setLngLat(places.geometry.coordinates)
+          .setLngLat(place.geometry.coordinates)
           .setPopup(popup);
           marker.addTo(map);
         })
+        this.setState({upVotes});
       })
       .catch((error) => {console.log(error)})
+  }
+
+  handleUpvote = (id) => {
+    let {upVotes} = this.state;
+    upVotes[id] += 1;
+    this.setState({upVotes});
+    console.log(upVotes);
   }
 
   //ACTION FOR WHEN COMPONENT LEAVES THE DOM -- UNSAFE?
@@ -155,25 +165,6 @@ export default class Map extends Component {
     })
   }
 
-
-  //INCREASES UPVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
-  handleUpVote = (event) => {
-    event.preventDefault();
-    let { upvotes } = this.state;
-    this.props.HandleUpVote(upvotes);
-    upvotes += 1
-    this.setState({ upvotes });
-  }
-
-  //INCREASES DOWNVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
-  handleDownVote = (event) => {
-    event.preventDefault();
-    let { downvotes } = this.state;
-    this.props.HandleDownVote(downvotes);
-    downvotes += 1
-    this.setState({ downvotes });
-  }
-
   render() {
     const { myPlaces } = this.state;
     return(
@@ -188,7 +179,7 @@ export default class Map extends Component {
               {
                 myPlaces.map( (place) => {
                   return(
-                    <ul className="list-group list-group-flush">
+                    <ul key={place.id} className="list-group list-group-flush">
                       <li className="list-group-item"
                         key={place.id}
                         onClick={ (e) => { this.flyTo(place) } }
@@ -204,8 +195,9 @@ export default class Map extends Component {
               <div>
                 <div  id="mapDiv" ref={el => this.mapContainer = el}>
                 </div>
+                <Button id="reportbutton" type="button" variant="contained" color="secondary" data-toggle="modal" data-target="#modalSocial">Report a Crime</Button>
               </div>
-            </div>
+              </div>
           </Row>
         </div>
       </div>

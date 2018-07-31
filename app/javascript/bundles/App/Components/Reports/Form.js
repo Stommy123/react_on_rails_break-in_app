@@ -15,9 +15,9 @@ export default class Form extends Component {
               name: '',
               category: this.props.categories.category,
               description: '',
-              street: 'Optional',
-              city: 'Optional',
-              state: 'Optional'
+              street: '',
+              city: '',
+              state: ''
             }
           }
 
@@ -34,6 +34,7 @@ export default class Form extends Component {
       city: '',
       state:''
     }
+    
     this.setState({ place });
   }
 
@@ -106,7 +107,7 @@ export default class Form extends Component {
             </Grid>
             <Grid item md={8} xs={12} >
               <TextField
-                label="Venue"
+                label="Venue (Optional)"
                 id="place_name"
                 value={place.name}
                 onChange={this.handleNameChange}
@@ -116,10 +117,9 @@ export default class Form extends Component {
             </Grid>
             <Grid item md={8} xs={12} >
               <TextField
-                label="Street"
+                label="Street (Optional)"
                 id="place_street"
                 value={place.street}
-                defaultValue="Optional"
                 onChange={this.handleStreetChange}
                 margin="normal"
                 fullWidth
@@ -127,10 +127,9 @@ export default class Form extends Component {
             </Grid>
             <Grid item md={8} xs={12} >
               <TextField
-                label="City"
+                label="City (Optional)"
                 id="place_city"
                 value={place.city}
-                defaultValue="Optional"
                 onChange={this.handleCityChange}
                 margin="normal"
                 fullWidth
@@ -138,10 +137,9 @@ export default class Form extends Component {
             </Grid>
             <Grid item md={8} xs={12} >
               <TextField
-                label="State"
+                label="State (Optional)"
                 id="place_state"
                 value={place.state}
-                defaultValue="Optional"
                 onChange={this.handleStateChange}
                 margin="normal"
                 fullWidth

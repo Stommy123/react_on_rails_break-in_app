@@ -30,7 +30,7 @@ const LandingPage = (props) => {
                 <CarouselItem itemId="1">
                 <Row className="intro-content">
                 <Col className="mt-xl-8">
-                  <img src="https://lh4.googleusercontent.com/5NFwUoi2-id-S8VJCdrSpHSbMDFu_T--sFBFTjQl3WHElyr9L-eM8DKs682Rn5zyOgTR5Tu41V9Zr5lNpZZw=w2252-h1228-rw" className="img-fluid" id="introLogo" alt="landingLogo"/>
+                  <img src="https://i.imgur.com/Ebe9Mvf.png" className="img-fluid" id="introLogo" alt="landingLogo"/>
                 </Col>
                 </Row>
                 </CarouselItem>
