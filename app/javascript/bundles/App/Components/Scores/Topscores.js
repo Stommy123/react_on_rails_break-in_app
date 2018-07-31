@@ -52,8 +52,8 @@ render() {
                   {
                       top_scores.map( (user, i) => {
                         return (
-                      <TableRow>
-                      <TableCell>{i+1}</TableCell>
+                      <TableRow key={user.id}>
+                      <TableCell key={user.id}>{i+1}</TableCell>
                         <TableCell
                         key={user.id}
                         >{user.email}
