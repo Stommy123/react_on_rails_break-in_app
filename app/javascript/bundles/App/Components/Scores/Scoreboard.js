@@ -30,19 +30,19 @@ export default class Scoreboard extends Component {
       this.setState({ top_scores: response.data})
     })
     if(this.state.points >=200) {
-      this.state.badges.push(<i className="fas fa-chess-pawn fa-3x"></i>);
+      this.state.badges.push(<i className="fas fa-chess-pawn fa-2x"></i>);
     }
     if(this.state.points >=400 ) {
-      this.state.badges.push(<i className="fas fa-chess-knight fa-3x"></i>);
+      this.state.badges.push(<i className="fas fa-chess-knight fa-2x"></i>);
     }
     if(this.state.points >=700) {
-      this.state.badges.push(<i className="fas fa-chess-rook fa-3x"></i>);
+      this.state.badges.push(<i className="fas fa-chess-rook fa-2x"></i>);
     }
     if(this.state.points >=900) {
-      this.state.badges.push(<i className="fas fa-chess-queen fa-3x"></i>);
+      this.state.badges.push(<i className="fas fa-chess-queen fa-2x"></i>);
     }
     if(this.state.points >=1100) {
-      this.state.badges.push(<i className="fas fa-chess-king fa-3x"></i>);
+      this.state.badges.push(<i className="fas fa-chess-king fa-2x"></i>);
     }
     this.rank()
   }
@@ -77,13 +77,13 @@ export default class Scoreboard extends Component {
 
 
     return (
-      <div>
+      <div className="scoreboardPage">
         <Nav />
         <Card className="userInteraction">
         {
             new WOW().init()}
-        <CardImage id="userBanner"className="wow fadeInLeft img-fluid" src="https://lh5.googleusercontent.com/AgLzVMc8FCtNHxjz2vKzXNMvZadddP0zQEiSm4PXiLxeUszPJrhVbz9s9wyDdm7eIG9hijL7kOo-hLRfHwUf=w2194-h1228-rw" waves />
-          <CardBody>
+        
+          <CardBody className="wow fadeInLeft">
                 <CurrentUserScore points={this.state} />
           </CardBody>
         </Card>
