@@ -36,8 +36,8 @@ render() {
 
 
   return (
-    <div className="d-flex p-2" id="cardDiv">
-        <Card className="rankingCard">
+    <div className="d-flex p-3" id="cardDiv">
+        <Card className="rankingCard p-3">
           {
             new WOW().init()}
           <CardImage id="rankingBanner" className="wow fadeInRight img-fluid" src="https://i.imgur.com/P3oT1SZ.png" waves />
