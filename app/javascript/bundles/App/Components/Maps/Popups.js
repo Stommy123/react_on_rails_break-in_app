@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Button} from 'semantic-ui-react'
-import { Container , fa, Modal, ModalBody, ModalHeader, ModalFooter, Input } from 'mdbreact';
-
+import TextField from '@material-ui/core/TextField';
+import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
+import Divider from '@material-ui/core/Divider';
 
 
 
@@ -9,27 +10,17 @@ export default class Popup extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      upvotes: 0,
-      count: 0,
-      modal: false,
-      mailAddress: '@mdo'
+      upvotes: 17,
 
     }
-    this.incrementCounter = this.updateCounter.bind(this, 1);
-    this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
   //INCREASES UPVOTE COUNT BY 1 FOR EVERY BUTTON PRESS
   handleUpvote = (event) => {
     event.preventDefault();
     let { upvotes } = this.state;
-    this.props.HandleUpVote(upvotes);
-    upvotes += 1
+    upvotes += 1;
+    console.log("HELLO!");
     this.setState({ upvotes });
   }
 
@@ -37,26 +28,20 @@ export default class Popup extends Component {
   render(){
     return(
       <div className="map-popup">
-        <p>{this.props.places.name}</p>
-        <p>{this.props.places.description}</p>
-          <div>{this.state.count}</div>
-          <input type='button' value='+' onClick={this.incrementCounter} />
-
-        <p>{this.props.places.street}, {this.props.places.city}, {this.props.places.state}</p>
-        <p>Upvotes:{this.state.upvotes}</p>
-        <p>Reported by {this.props.places.user}</p>
+        <p><strong>{this.props.place.name}</strong></p>
+        <p><strong>Category: </strong>{this.props.place.category}</p>
+        <Divider />
+        <p><strong>Description: </strong>{this.props.place.description}</p>
+        <Divider />
+        <p id='demo'><strong>Validations: </strong>{this.state.upvotes}</p>
+        <p><strong>Address: </strong>{this.props.place.street}, {this.props.place.city}, {this.props.place.state}</p>
           <Button
-            color="blue"
-            id={this.props.Upvote}
-            onClick={this.handleUpvote}
-          >
-            Upvote
+            id={`place_${this.props.place.id}`}
+            color="green"
+          ><Fa icon="thumbs-up" />
           </Button>
       </div>
     )
   }
-    updateCounter(count) {
-        this.setState({count: this.state.count + count});
-      }
 
 }

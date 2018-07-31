@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_042634) do
+ActiveRecord::Schema.define(version: 2018_07_31_035557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,18 +55,6 @@ ActiveRecord::Schema.define(version: 2018_07_25_042634) do
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
-  create_table "reports", force: :cascade do |t|
-    t.string "description"
-    t.float "lat"
-    t.float "lng"
-    t.string "photo"
-    t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_reports_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_07_25_042634) do
     t.string "provider"
     t.string "uid"
     t.integer "points"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -93,10 +82,8 @@ ActiveRecord::Schema.define(version: 2018_07_25_042634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "report_id"
     t.integer "place_id"
     t.index ["place_id"], name: "index_votes_on_place_id"
-    t.index ["report_id"], name: "index_votes_on_report_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 

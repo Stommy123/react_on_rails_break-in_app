@@ -17,6 +17,7 @@
 
 #mapDiv{
   height: 94vh;
+  position: absolute;
 }
 #mapContDisp{
   height: 94vh;

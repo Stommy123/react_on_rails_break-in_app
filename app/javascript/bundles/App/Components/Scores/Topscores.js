@@ -40,13 +40,15 @@ render() {
         <Card className="rankingCard p-3">
           {
             new WOW().init()}
-          <CardImage id="rankingBanner" className="wow fadeInRight img-fluid" src="https://lh3.googleusercontent.com/vwwSvpvcxnSjZ7RlTPavcLT6PMt8fFfFHGedTs09XkZT4UaqWrGr4SQLJQQ7kHOCOCMgnvQctjDKQonisoJS=w2362-h1318-rw" waves />
+          <CardImage id="rankingBanner" className="wow fadeInRight img-fluid" src="https://i.imgur.com/P3oT1SZ.png" waves />
           <CardBody>
 
           <TableBody>
                   <TableRow>
                     <TableCell>Rank</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>Username</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>Points</TableCell>
                   </TableRow>
                   {
@@ -54,14 +56,10 @@ render() {
                         return (
                       <TableRow>
                       <TableCell>{i+1}</TableCell>
-                        <TableCell
-                        key={user.id}
-                        >{user.email}
-                        </TableCell>
-                        <TableCell
-                        key={user.id}
-                        >{user.points}
-                        </TableCell>
+                      <TableCell></TableCell>
+                      <TableCell key={user.id}>{user.email}</TableCell>
+                      <TableCell></TableCell>
+                      <TableCell key={user.id}>{user.points}</TableCell>
                       </TableRow>
                       )})
                     }
