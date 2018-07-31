@@ -6,7 +6,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-// import Button from '@material-ui/core/Button';
 import Nav from '../NavBar.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -83,6 +82,7 @@ export default class Scoreboard extends Component {
         {
             new WOW().init()}
         <CardImage id="userBanner"className="wow fadeInLeft img-fluid" src="https://lh5.googleusercontent.com/AgLzVMc8FCtNHxjz2vKzXNMvZadddP0zQEiSm4PXiLxeUszPJrhVbz9s9wyDdm7eIG9hijL7kOo-hLRfHwUf=w2194-h1228-rw" waves />
+
           <CardBody>
                 <CurrentUserScore points={this.state} />
           </CardBody>
