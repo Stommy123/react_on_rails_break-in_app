@@ -4,9 +4,10 @@ import Nav from '../NavBar.js';
 
 const About = (props) => {
     return(
-      <div>
+      <div className="aboutContainer">
         <Nav />
-        <Container>
+        <Container className="aboutContent">
+        <div>
         <section className="text-center my-5" id="aboutContent">
           <h2 className="h1-responsive font-weight-bold my-5">So why is Break-In so great?</h2>
           <p className="lead grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
@@ -27,6 +28,7 @@ const About = (props) => {
               <h5 className="h1-responsive font-weight-bold my-4">Engagement</h5>
               <p className="lead grey-text h-responsive grey-text mb-md-0 mb-5">With our trophy system and anonymous submission process, we ensure our users are engaged and reporting information accurately.</p>
             </Col>
+            <br/>>
             <Col className="FAQlist">
             <h2 className="h1-responsive font-weight-bold my-5">FAQ</h2>
           <ListGroup>
@@ -43,6 +45,7 @@ const About = (props) => {
 
 
         </section>
+        </div>
       </Container>
     </div>
     );

@@ -17,7 +17,7 @@ const CurrentUserScore = ({points}) => (
   <Card className="UserCard1">
     <div className="text-white text-center d-flex align-items-center rgba-cyan-strong py-5 px-4">
       <div className="cardBody">
-        <h5 className="pink-text"><Fa icon="pie-chart" /></h5>
+        
         <CardTitle tag="h3" className="pt-3"><strong>Badges</strong></CardTitle>
         <Button color="pink">{points.badges}</Button>
       </div>
@@ -26,7 +26,7 @@ const CurrentUserScore = ({points}) => (
   <Card className="UserCard" style={{backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20(47).jpg')"}}>
     <div className="text-white text-center d-flex align-items-center rgba-grey-strong py-5 px-4">
       <div className="cardBody">
-        <h5 className="orange-text"><Fa icon="desktop" /></h5>
+       
         <CardTitle tag="h3" className="pt-3"><strong>Rank Name</strong></CardTitle>
         <p></p>
         <Button color="deep-orange">{points.rank}</Button>
@@ -36,7 +36,7 @@ const CurrentUserScore = ({points}) => (
   <Card className="UserCard">
     <div className="text-white text-center d-flex align-items-center rgba-cyan-strong py-5 px-4">
       <div className="cardBody">
-        <h5 className="pink-text"><Fa icon="area-chart" /></h5>
+
         <CardTitle tag="h3" className="pt-3"><strong>My Points</strong></CardTitle>
         <Button color="pink"><Fa icon="clone left" />{points.points}</Button>
       </div>
