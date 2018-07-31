@@ -5,6 +5,8 @@ import Divider from '@material-ui/core/Divider';
 import ReactDOMServer from 'react-dom/server'
 import Popup from './Popups.js'
 import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
+import ReportModal from '../Reports/Report';
+import Button from '@material-ui/core/Button';
 
 export default class Map extends Component {
 
@@ -127,7 +129,7 @@ export default class Map extends Component {
           ))
           popup.on('open', (e) => {
             document.getElementById(`place_${place.properties.id}`).addEventListener('click', function() {
-              document.getElementById('demo').innerHTML = "18"
+              document.getElementById('demo').innerHTML = "<strong>Validation: </strong> 18"
             });
           })
           //ATTACHES MARKERS TO MAP
@@ -192,8 +194,9 @@ export default class Map extends Component {
               <div>
                 <div  id="mapDiv" ref={el => this.mapContainer = el}>
                 </div>
+                <Button id="reportbutton" type="button" variant="contained" color="secondary" data-toggle="modal" data-target="#modalSocial">Report a Crime</Button>
               </div>
-            </div>
+              </div>
           </Row>
         </div>
       </div>
