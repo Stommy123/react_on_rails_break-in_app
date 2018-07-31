@@ -168,7 +168,7 @@ export default class Map extends Component {
   render() {
     const { myPlaces } = this.state;
     return(
-      
+
       <div className="w-100 p-3" id="mainMapCont">
         <div className="d-flex flex-column">
           <Row className="d-flex flex-row">
@@ -195,8 +195,8 @@ export default class Map extends Component {
             <div className="card" id="mapContDisp">
               <div>
                 <div  id="mapDiv" ref={el => this.mapContainer = el}>
+                  <Button id="reportbutton" type="button" variant="contained" color="secondary" data-toggle="modal" data-target="#modalSocial">Report a Crime</Button>
                 </div>
-                <Button id="reportbutton" type="button" variant="contained" color="secondary" data-toggle="modal" data-target="#modalSocial">Report a Crime</Button>
               </div>
               </div>
           </Row>

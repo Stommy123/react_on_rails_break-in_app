@@ -39,9 +39,7 @@ const LandingPage = (props) => {
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 2! </h1>
                   <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                  iste.</h6>
+                  <h6 className="mb-4">Up to date crime reports!</h6>
                   <Button color="white" onClick={handleSignUp} >Get Started</Button>
                   <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
@@ -55,9 +53,7 @@ const LandingPage = (props) => {
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 3! </h1>
                   <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                  iste.</h6>
+                  <h6 className="mb-4">Find a safe place to park!</h6>
                   <Button color="white" onClick={handleSignUp} >Get Started</Button>
                   <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
@@ -71,9 +67,7 @@ const LandingPage = (props) => {
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Slide 4! </h1>
                   <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                  iste.</h6>
+                  <h6 className="mb-4">Help others make safe decisions in your neighborhood!</h6>
                   <Button color="white" onClick={handleSignUp} >Get Started</Button>
                   <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
