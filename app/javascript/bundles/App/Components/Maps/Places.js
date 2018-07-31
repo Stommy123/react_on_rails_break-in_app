@@ -59,9 +59,8 @@ export default class Places extends Component {
       <div>
         <Nav />
 				<div className="bottomModule"></div>
-				<Map />
+				<Map></Map>
 				<ReportModal/>
-				
     </div>
     );
 	}

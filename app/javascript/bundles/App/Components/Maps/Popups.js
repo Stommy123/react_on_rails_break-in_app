@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button} from 'semantic-ui-react'
 import TextField from '@material-ui/core/TextField';
 import { Container, Fa, Row, Col, ListGroup, ListGroupItem } from 'mdbreact';
+import Divider from '@material-ui/core/Divider';
 
 
 
@@ -27,11 +28,13 @@ export default class Popup extends Component {
   render(){
     return(
       <div className="map-popup">
-        <p>{this.props.place.name}</p>
-        <p>{this.props.place.category}</p>
-        <p>{this.props.place.description}</p>
-        <p id='demo'>{this.state.upvotes}</p>
-        <p>{this.props.place.street}, {this.props.place.city}, {this.props.place.state}</p>
+        <p><strong>{this.props.place.name}</strong></p>
+        <p><strong>Category: </strong>{this.props.place.category}</p>
+        <Divider />
+        <p><strong>Description: </strong>{this.props.place.description}</p>
+        <Divider />
+        <p id='demo'><strong>Validations: </strong>{this.state.upvotes}</p>
+        <p><strong>Address: </strong>{this.props.place.street}, {this.props.place.city}, {this.props.place.state}</p>
           <Button
             id={`place_${this.props.place.id}`}
             color="green"

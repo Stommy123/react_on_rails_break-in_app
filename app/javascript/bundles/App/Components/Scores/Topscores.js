@@ -46,22 +46,20 @@ render() {
           <TableBody>
                   <TableRow>
                     <TableCell>Rank</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>Username</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>Points</TableCell>
                   </TableRow>
                   {
                       top_scores.map( (user, i) => {
                         return (
-                      <TableRow key={user.id}>
-                      <TableCell key={user.id}>{i+1}</TableCell>
-                        <TableCell
-                        key={user.id}
-                        >{user.email}
-                        </TableCell>
-                        <TableCell
-                        key={user.id}
-                        >{user.points}
-                        </TableCell>
+                      <TableRow>
+                      <TableCell>{i+1}</TableCell>
+                      <TableCell></TableCell>
+                      <TableCell key={user.id}>{user.email}</TableCell>
+                      <TableCell></TableCell>
+                      <TableCell key={user.id}>{user.points}</TableCell>
                       </TableRow>
                       )})
                     }
