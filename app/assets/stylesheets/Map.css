@@ -1,27 +1,31 @@
 
 
 #mapDiv{
-  width: 75vw;
-  height: 100vh;
+  width: 72vw;
+  height: 94vh;
 }
 
 .mapRow{
   width: 100vw;
-  padding-left: 10%;
+  /* padding-left: 10%; */
 }
 
-#mapCard{
-  width: 25vw;
+#SavedLocationCard{
+  width: 20vw;
   height: 94vh;
+  border: 2px;
+  margin-left: 1em;
+  margin-right: .5em;
 }
 
-#mapDiv{
-  height: 94vh;
-}
 #mapContDisp{
   height: 94vh;
   }
 
+  #mainMapCont{
+    /* border: 2px; */
+    padding-left: 1em;
+  }
   .Suspicious-Activity {
     background-image: url('https://i.imgur.com/cxmkNQu.png');
     background-size: cover;
@@ -83,15 +87,26 @@
 @media (max-width: 740px) {
   #mapContDisp{
     width: 100vw;
-    height: 70vh;
+    height: 72vh;
   }
-  #mapCard{
+  #SavedLocationCard{
     width: 100vw;
     height: 20vh;
   }
   #mapDiv{
     width: 100vw;
-    height: 60vh;
+    height: 72vh;
+  }
+  #mainMapCont{
+    /* border: 2px; */
+    padding-left: 2em;
+  }
+
+  .savedLocationHeader{
+    text-align: center;
+    height: 5em;
+    padding-top: 2em;
+    background-color: rgba(182, 179, 179, 0.527)
   }
 
 }

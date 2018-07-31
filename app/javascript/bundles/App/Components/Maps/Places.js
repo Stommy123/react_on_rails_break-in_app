@@ -56,7 +56,7 @@ export default class Places extends Component {
   }
 	render() {
     return (
-      <div>
+      <div className="mapConsolidate">
         <Nav />
 				<div className="bottomModule"></div>
 				<Map />

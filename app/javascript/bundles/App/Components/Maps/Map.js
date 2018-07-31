@@ -177,10 +177,11 @@ export default class Map extends Component {
   render() {
     const { myPlaces } = this.state;
     return(
-      <div className="w-100">
+      
+      <div className="w-100 p-3" id="mainMapCont">
         <div className="d-flex flex-column">
           <Row className="d-flex flex-row">
-            <div className="card" id="mapCard">
+            <div className="card" id="SavedLocationCard">
               <div className="savedLocationHeader">
                 Saved Locations
               </div>

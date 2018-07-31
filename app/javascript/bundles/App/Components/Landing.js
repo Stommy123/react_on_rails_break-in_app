@@ -16,6 +16,9 @@ const LandingPage = (props) => {
     return (
       <div id="landing_page">
           <View>
+          <video autoplay muted loop id="myVideo">
+          <source src="https://drive.google.com/file/d/1i7FXe5pKoNLhwE3fTjKzWjQ-zy1FfA2V/" type="video/mp4"/>
+          </video>
             <Mask className="d-flex justify-content-center align-items-center gradient">
               <Container>
                 <Carousel
