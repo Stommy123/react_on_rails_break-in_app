@@ -5,6 +5,7 @@ class User < ApplicationRecord
   #Sorts users by points
   scope :by_points, -> { order(points: :desc)}
 
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

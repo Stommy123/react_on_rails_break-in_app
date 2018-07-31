@@ -62,7 +62,7 @@ export default class Scoreboard extends Component {
     }
     else if(this.state.points >=200){
     this.setState({rank: "Pawn"})
-  } else {
+    } else {
     this.setState({rank: "Unranked"})
   }
   }
