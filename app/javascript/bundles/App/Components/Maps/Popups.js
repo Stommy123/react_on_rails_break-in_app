@@ -33,8 +33,9 @@ export default class Popup extends Component {
         <Divider />
         <p><strong>Description: </strong>{this.props.place.description}</p>
         <Divider />
-        <p id='demo'><strong>Validations: </strong>{this.state.upvotes}</p>
         <p><strong>Address: </strong>{this.props.place.street}, {this.props.place.city}, {this.props.place.state}</p>
+        <Divider/>
+        <p id='demo'><strong>Validations: </strong>{this.state.upvotes}</p>
           <Button
             id={`place_${this.props.place.id}`}
             color="green"
