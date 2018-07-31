@@ -26,17 +26,8 @@ const LandingPage = (props) => {
                   className="z-depth-2">
                 <CarouselItem itemId="1">
                 <Row className="intro-content">
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
-                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Welcome to Break-In App </h1>
-                  <hr className="hr-light"/>
-                  <h6 className="mb-4" id="landingContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                  dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                  iste.</h6>
-                <Button outline color="white" onClick={handleSignUp} >Get Started</Button>
-                  <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
-                </div>
-                <Col md="6" xl="5" className="mt-xl-5">
-                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
+                <Col className="mt-xl-8">
+                  <img src="https://lh4.googleusercontent.com/5NFwUoi2-id-S8VJCdrSpHSbMDFu_T--sFBFTjQl3WHElyr9L-eM8DKs682Rn5zyOgTR5Tu41V9Zr5lNpZZw=w2252-h1228-rw" className="img-fluid" id="introLogo" alt="landingLogo"/>
                 </Col>
                 </Row>
                 </CarouselItem>

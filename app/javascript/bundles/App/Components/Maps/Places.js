@@ -61,7 +61,7 @@ export default class Places extends Component {
 				<div className="bottomModule"></div>
 				<Map />
 				<ReportModal/>
-				<Button type="button" variant="contained"  color="secondary" data-toggle="modal" data-target="#modalSocial">Report a Crime</Button>
+				
     </div>
     );
 	}
