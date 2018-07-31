@@ -185,6 +185,7 @@ export default class Map extends Component {
                         >
                         {place.name}
                       </li>
+                      <Divider />
                     </ul>
                   );
                 })

@@ -34,7 +34,7 @@ export default class Form extends Component {
       city: '',
       state:''
     }
-    
+
     this.setState({ place });
   }
 
@@ -148,7 +148,7 @@ export default class Form extends Component {
           </Grid>
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={ this.handleSubmit }
             disabled={place.description.trim() === ''}
           >
