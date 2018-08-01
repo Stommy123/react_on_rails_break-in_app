@@ -2,7 +2,7 @@
 
 #mapDiv{
   width: 72vw;
-  height: 94vh;
+  height: 92vh;
 }
 
 .mapRow{
@@ -26,6 +26,7 @@
   #mainMapCont{
     /* border: 2px; */
     padding-left: 1em;
+
   }
   .Suspicious-Activity {
     background-image: url('https://i.imgur.com/cxmkNQu.png');
