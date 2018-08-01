@@ -14,26 +14,29 @@ const handleSignIn = () => {
 
 const LandingPage = (props) => {
     return (
+    <div className="landingAll">
+    
       <div id="landing_page">
-          <View>
-          <video autoplay muted loop id="myVideo">
-          <source src="https://drive.google.com/file/d/1i7FXe5pKoNLhwE3fTjKzWjQ-zy1FfA2V/" type="video/mp4"/>
-          </video>
-            <Mask className="d-flex justify-content-center align-items-center gradient">
-              <Container>
+          <View className="landingContainer">
+            
+              <Container >
+              
                 <Carousel
                   activeItem={1}
                   length={4}
                   showControls={false}
                   showIndicators={true}
-                  className="z-depth-2">
+                  className="z-depth-2"
+                  id="carouselAll">
+                <Mask className="d-flex justify-content-center align-items-center gradient">
                 <CarouselItem itemId="1">
                 <Row className="intro-content">
                 <Col className="mt-xl-8">
-                  <img src="https://i.imgur.com/Ebe9Mvf.png" className="img-fluid" id="introLogo" alt="landingLogo"/>
+                  <img src="https://lh3.googleusercontent.com/5IOd71sggX2go2F5hlfqEX-lnJPTt1q-n8aU3QNchd0eA4GcMaJrmoCRzjrBtjWlcIyptf0hOj0hf1CuE9uN=w2412-h1228-rw" className="img-fluid" id="introLogo" alt="landingLogo"/>
                 </Col>
                 </Row>
                 </CarouselItem>
+                 </Mask>
                 <CarouselItem itemId="2">
               <Row className="intro-content2">
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5" id="intro-content-text">
@@ -46,7 +49,7 @@ const LandingPage = (props) => {
                   <Button outline color="white" onClick={handleSignIn} >Have an account? Log in!</Button>
                 </div>
                 <Col md="6" xl="5" className="mt-xl-5">
-                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" alt="landingImg"/>
+                  <img src="https://lh5.googleusercontent.com/sJfmSc3luZLPNWfGaLh5w9QH0GFb2MMx1h6Up0VJ9Uf38ETin7ON44bCidJx5Po38CdJfo_kb7Ab-c23gGSo=w2098-h1228" className="img-fluid" alt="landingImg"/>
                 </Col>
                 </Row>
                 </CarouselItem>
@@ -83,9 +86,10 @@ const LandingPage = (props) => {
                 </Row>
                 </CarouselItem>
                 </Carousel>
+   
               </Container>
-            </Mask>
           </View>
+          </div>
           </div>
     );
 };
