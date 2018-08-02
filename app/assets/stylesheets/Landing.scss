@@ -18,13 +18,17 @@
   border-style: solid;
   border-color: blue; */
 
+#carouselAll{
+  margin-top: 1em;
+}
+
 
 #landing_page .gradient {
-    background: linear-gradient(10deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+    background: linear-gradient(360deg, rgba(170, 66, 154, 100), rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
   }
 
   #landing_page .view {
-    background-image: url('https://i.imgur.com/KNvGWhc.jpg');
+    background-image: url('https://lh5.googleusercontent.com/-TMejY2Hh0o4fFfxZ2uq4Z-65YWfLg6Iys1_PWAOGO-ibrag_qlWi1kJ5U6oFXDbjlcTODU7wPVhpTsyWlJh=w2098-h1228-rw');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -40,8 +44,13 @@
   
   }
 
- #introLogo{
-   
+//  #introLogo{
+//    height: 20vh;
+//    width: 30vw;
+//  }
+ .landing-Container{
+padding-top: 3em;
+
  }
 
   @media (max-width: 768px) {
