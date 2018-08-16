@@ -462,3 +462,43 @@ geojson.features.forEach(function(marker) {
       end
     end
   end
+
+
+
+  unless params[:associated].nil?
+    associated_person_ids = params[:associated].map{|p|p.to_i}
+    associated_people = Person.where(id: associated_person_ids)
+  else
+    associated_people = []
+  end
+  unless associated_people.empty?
+    associated_role = Role.where(name: "associated").last
+    associated_people.each do |person|
+      AssignedRole.create(user: current_user, company: @company, role: associated_role, person: person)
+    end
+  end
+
+
+
+  so ...
+
+# get the association role
+assoc_role = Role.where(name: "association").last
+
+# get the current assignments of associations
+current_assignments = current_user.assigned_roles.where(company: @company, role: assoc_role)
+
+# then we take their input
+# i guess it comes in as an array of people ids
+new_assocs = params[:associated].map{|a|a.to_i}
+
+# destroy AssignedRoles from @assoc_people if the person_id is not in @assoc_people
+current_assignments.each do |assignment|
+  assignment.destroy unless new_assoc.include? assignment.person.id
+end
+
+# create AssignedRoles if p_id not in current_assignments
+new_assocs.each do |p_id|
+  qu = current_assignments.where(person_id: p_id)
+  current_user.assigned_roles.create(company: @company, role: assoc_role, person: Person.find(p_id)) if qu.empty?
+end
