@@ -9,6 +9,15 @@ import axios from 'axios';
 //STYLING FOR EACH POP UP DRAWER
 
 
+// let markers = document.querySelectorAll.classList('elm')
+// markers.forEach(marker => {
+// 	marker.classList.remove('elm')
+// 	if marker.category === 'lifting'
+// 	marker.classList.add('lifting')
+// 	else if marker.category === ''
+// })
+
+
 export default class Places extends Component {
 
 	state = {

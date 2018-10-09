@@ -21,8 +21,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html do
         @place = Place.new
-        @coordinates  = Geocoder.search(request.ip)
-                          .first
+        @coordinates  = request.location
                           .coordinates
                           .reverse
       end
