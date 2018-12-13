@@ -1,23 +1,13 @@
 class ApplicationController < ActionController::Base
-  #Whatever is put here will apply to all controllers
-  #Verify geocoder api for axios request
-  skip_before_action :verify_authenticity_token, if: :json_request?
-
-  #Renders layout depending on resourceful routes
-  layout :by_resource
+  skip_before_action :verify_authenticity_token, if: :json_request?   #Verify geocoder api for axios request
+  layout :by_resource   #Renders layout depending on resourceful routes
 
   private
-  #Formats json file in view
-  def json_request?
+  def json_request?   #Formats json file in view
    request.format.json?
- end
+  end
 
- #Validates controller for devise requirements
-  def by_resource
-    if devise_controller?
-      "devise"
-    else
-      "application"
-    end
+  def by_resource  #Validates controller for devise requirements
+    devise_controller? ? "devise" : "application"
   end
 end

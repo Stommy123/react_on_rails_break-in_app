@@ -6,6 +6,8 @@ gem 'geocoder'
 
 gem 'react_on_rails'
 
+gem 'sqlite3'
+
 gem "font-awesome-rails"
 gem 'dotenv-rails'
 # Allow Facebook signup/login

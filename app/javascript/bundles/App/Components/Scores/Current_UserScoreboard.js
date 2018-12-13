@@ -1,18 +1,7 @@
-import React, { Component } from 'react';
-import { Button, Card, CardGroup, Fa, CardBody, CardImage, CardTitle, CardText } from 'mdbreact';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+import React from 'react';
+import { Button, Card, CardGroup, Fa, CardTitle } from 'mdbreact';
 
-
-
-const CurrentUserScore = ({points}) => (
+const CurrentUserScore = ({ points }) => (
   <CardGroup className="CardGroup">
   <Card className="UserCard1">
     <div className="text-white text-center d-flex align-items-center rgba-cyan-strong py-5 px-4" id="cyan">

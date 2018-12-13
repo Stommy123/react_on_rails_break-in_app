@@ -1,86 +1,69 @@
 import React, {Component} from 'react';
-import { Container , fa, Modal, ModalBody, ModalHeader, ModalFooter, Input } from 'mdbreact';
+import { Container, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import Form from './Form'
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 
 
 export default class ReportModal extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       places: [],
-      categories: {
-        category: ''
-      },
+      categories: { category: '' },
       currentLocation: {lat: "", lng: ""},
       modal: false,
       modal2: false
-
     };
-    this.toggle = this.toggle.bind(this);
-    this.toggle2 = this.toggle2.bind(this);
   }
 
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+  toggle = () => this.setState({ modal: !this.state.modal })
+  toggle2 = () => this.setState({ modal2: !this.state.modal2 })
 
-  toggle2() {
-    this.setState({
-      modal2: !this.state.modal2
-    });
-  }
-
-
-  handleActivity = (event) => {
+  handleActivity = event => {
     event.preventDefault();
-    let { categories } = this.state;
-    categories = { category: 'Suspicious-Activity' }
+    const { categories } = this.state;
+    categories.category = 'Suspicious-Activity' 
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
-  handleArson = (event) => {
+  handleArson = event => {
     event.preventDefault();
-    let { categories } = this.state;
-    categories = { category: 'Arson' }
+    const { categories } = this.state;
+    categories.category = 'Arson' 
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
-  handleVehicle = (event) => {
+  handleVehicle = event => {
     event.preventDefault();
-    let { categories } = this.state;
-    categories = { category: 'Vehicle-Related' }
+    const { categories } = this.state;
+    categories.category = 'Vehicle-Related' 
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
-  handleViolence = (event) => {
+  handleViolence = event => {
     event.preventDefault();
-    let { categories } = this.state;
-    categories = { category: 'Violence' }
+    const { categories } = this.state;
+    categories.category = 'Violence' 
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
-  handleDrugs = (event) => {
+  handleDrugs = event => {
     event.preventDefault();
-    let { categories } = this.state;
-    categories = { category: 'Drugs' }
+    const { categories } = this.state;
+    categories.category = 'Drugs' 
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
-  handleCrime = (event) => {
+  handleCrime = event => {
     event.preventDefault();
-    let { categories } = this.state;
-    categories = { category: 'Crime' }
+    const { categories } = this.state;
+    categories.category = 'Crime' 
     this.setState({ categories, modal2: !this.state.modal2 });
   }
 
-
-  createPlace = (place) => {
-  let response = axios.post(`/places.json`, {
+  createPlace = async place => {
+  const { data } = await axios.post(`/places.json`, {
       place: {
         name: place.name,
         category: place.category,
@@ -92,57 +75,12 @@ export default class ReportModal extends Component {
         longitude: this.state.currentLocation.lng
       }
     })
-    let { places, } = this.state;
-    if(!places == null){
-      places.push(response.data);
-      this.setState({ places });
-    }
-
+    const { places } = this.state;
+    if (places) places.push(data);
+    this.setState({ places });
   }
 
-  componentDidMount() {
-    const geolocationOptions = {
-    //Tells Geocoder to use gps locating over ip locating
-      enableHighAccuracy: true,
-    //Sets maximum wait time
-      maximumAge        : 30000,
-      timeout           : 27000
-    };
-
-    //IF USER DOES NOT INPUT ADDRESS FOR REPORT, IT WILL USE CURRENT LOCATION
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        // success callback
-        (position) => {
-          axios.get(`/places.json?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
-            .then((response) => {
-                let places = response.data;
-                this.setState({ places, currentLocation: {lat: position.coords.latitude, lng: position.coords.longitude} })
-            });
-        },
-        // failure callback
-        () => {
-          axios.get(`/places.json`)
-            .then((response) => {
-                let places = response.data;
-                this.setState({ places })
-            });
-        },
-        geolocationOptions
-      );
-    } else {
-      axios.get(`/places.json`)
-        .then((response) => {
-            let places = response.data;
-            this.setState({ places })
-        });
-    }
- }
-
-
   render() {
-      const { place } = this.state;
-
     return (
       <Container className="modalContainer">
         <div className="modal fade right" id="modalSocial" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -3,13 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
-
 
 export default class Form extends Component {
 
-
-  // SETTING STATES FOR FORM DATA VALUES
   state = {
             place: {
               name: '',
@@ -34,49 +30,46 @@ export default class Form extends Component {
       city: '',
       state:''
     }
-
     this.setState({ place });
   }
 
-
   //ALL THESE HANDLERS ALERTS THE FORMS TO CHARACTER CHANGES
-  handleDescriptionChange = (event) => {
-    let { place } = this.state;
+  handleDescriptionChange = event => {
+    const { place } = this.state;
     place.description = event.target.value;
     this.setState({ place });
   }
-  handleNameChange = (event) => {
-    let { place } = this.state;
+  handleNameChange = event => {
+    const { place } = this.state;
     place.name = event.target.value;
     this.setState({ place });
   }
-  handleCategoryChange = (event) => {
-    let { place } = this.state;
+  handleCategoryChange = event => {
+    const { place } = this.state;
     place.category = event.target.value;
     this.setState({ category });
   }
 
-  handleStreetChange = (event) => {
-    let { place } = this.state;
+  handleStreetChange = event => {
+    const { place } = this.state;
     place.street = event.target.value;
     this.setState({ place });
   }
 
-  handleCityChange = (event) => {
-    let { place } = this.state;
+  handleCityChange = event => {
+    const { place } = this.state;
     place.city = event.target.value;
     this.setState({ place });
   }
 
-  handleStateChange = (event) => {
-    let { place } = this.state;
+  handleStateChange = event => {
+    const { place } = this.state;
     place.state = event.target.value;
     this.setState({ place });
   }
 
 
   render(){
-    const { categories } = this.props;
     const { place } = this.state;
     return(
       <Paper style={{margin: 10, padding: 10}}>

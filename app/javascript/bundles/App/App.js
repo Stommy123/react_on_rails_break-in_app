@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from './Components/NavBar.js'
 import LandingPage from './Components/Landing.js';
 
 
-class App extends Component {
+const App = () => (
+    <div className="App">
+      <Nav user={this.props.user} />
+      <LandingPage />
+    </div>
+)
 
 
-  render() {
-    return (
-      <div className="App">
-        <Nav user={this.props.user} />
-        <LandingPage></LandingPage>
-      </div>
-    );
-  }
-}
 
 export default App;
