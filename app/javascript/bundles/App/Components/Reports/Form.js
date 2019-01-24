@@ -8,12 +8,12 @@ export default class Form extends Component {
 
   state = {
             place: {
-              name: '',
+              name: String(),
               category: this.props.categories.category,
-              description: '',
-              street: '',
-              city: '',
-              state: ''
+              description: String(),
+              street: String(),
+              city: String(),
+              state: String(),
             }
           }
 
@@ -23,50 +23,17 @@ export default class Form extends Component {
     let { place } = this.state;
     this.props.createPlace(place);
     place = {
-      name: '',
-      category: '',
-      description: '',
-      street: '',
-      city: '',
-      state:''
+      name: String(),
+      category: String(),
+      description: String(),
+      street: String(),
+      city: String(),
+      state: String(),
     }
     this.setState({ place });
   }
 
-  //ALL THESE HANDLERS ALERTS THE FORMS TO CHARACTER CHANGES
-  handleDescriptionChange = event => {
-    const { place } = this.state;
-    place.description = event.target.value;
-    this.setState({ place });
-  }
-  handleNameChange = event => {
-    const { place } = this.state;
-    place.name = event.target.value;
-    this.setState({ place });
-  }
-  handleCategoryChange = event => {
-    const { place } = this.state;
-    place.category = event.target.value;
-    this.setState({ category });
-  }
-
-  handleStreetChange = event => {
-    const { place } = this.state;
-    place.street = event.target.value;
-    this.setState({ place });
-  }
-
-  handleCityChange = event => {
-    const { place } = this.state;
-    place.city = event.target.value;
-    this.setState({ place });
-  }
-
-  handleStateChange = event => {
-    const { place } = this.state;
-    place.state = event.target.value;
-    this.setState({ place });
-  }
+  handleChange = field => event => this.setState({ place: { [field]: event.target.value } })
 
 
   render(){
@@ -93,7 +60,7 @@ export default class Form extends Component {
                 label="Description"
                 id="place_description"
                 value={place.description}
-                onChange={this.handleDescriptionChange}
+                onChange={this.handleChange('description')}
                 margin="normal"
                 fullWidth
               />
@@ -103,7 +70,7 @@ export default class Form extends Component {
                 label="Venue (Optional)"
                 id="place_name"
                 value={place.name}
-                onChange={this.handleNameChange}
+                onChange={this.handleChange('name')}
                 margin="normal"
                 fullWidth
               />
@@ -113,7 +80,7 @@ export default class Form extends Component {
                 label="Street (Optional)"
                 id="place_street"
                 value={place.street}
-                onChange={this.handleStreetChange}
+                onChange={this.handleChange('street')}
                 margin="normal"
                 fullWidth
               />
@@ -123,7 +90,7 @@ export default class Form extends Component {
                 label="City (Optional)"
                 id="place_city"
                 value={place.city}
-                onChange={this.handleCityChange}
+                onChange={this.handleChange('city')}
                 margin="normal"
                 fullWidth
               />
@@ -133,7 +100,7 @@ export default class Form extends Component {
                 label="State (Optional)"
                 id="place_state"
                 value={place.state}
-                onChange={this.handleStateChange}
+                onChange={this.handleChange('state')}
                 margin="normal"
                 fullWidth
               />
