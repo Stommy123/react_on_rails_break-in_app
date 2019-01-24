@@ -53,8 +53,6 @@ class PlacesController < ApplicationController
   def show
   end
 
-
-
   def destroy     #destroys the current user's place report then redirect back to map page
     @place = current_user.places.find(params[:id])
     @place.destroy

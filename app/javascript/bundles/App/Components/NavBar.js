@@ -6,13 +6,8 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import { Fa } from 'mdbreact';
 
-const handleHome = () => Turbolinks.visit('/') //DEFINES WHERE LiveMap LINK TAKES THE USER
-const handleLiveMap = () => Turbolinks.visit('/places') //DEFINES WHERE LiveMap LINK TAKES THE USER
-const handleContact = () => Turbolinks.visit('/contact') //DEFINES WHERE CONTACT LINK TAKES THE USER
-const handleAbout = () => Turbolinks.visit('/about') //DEFINES WHERE ABOUT LINK TAKES THE USER
-const handleScoreBoard = () => Turbolinks.visit('/scoreboard') //DEFINES WHERE SCOREBOARD LINK TAKES THE USER
-const handleAccount = () => Turbolinks.visit('/users/edit') //DEFINES WHERE THE EDIT LINKS TAKES THE USER
 
+const handleLink = link => _ => Turobilinks.visit(link)
 const handleLogout = () => {
   const link = document.createElement('a');
   link.setAttribute('href', '/users/sign_out');
@@ -31,18 +26,18 @@ class Nav extends Component {
 		const { classes } = this.props;
     const sideList = (
       <div className={classes.list}>
-				<Button className="SideNavHeader" fullWidth= {true} onClick={handleHome}>Home</Button>
+				<Button className="SideNavHeader" fullWidth= {true} onClick={handleLink('/')}>Home</Button>
         <Divider />
 				<List />
-				<Button className="SideNavOptions" fullWidth={true} onClick={handleLiveMap}>Live Map</Button>
+				<Button className="SideNavOptions" fullWidth={true} onClick={handleLink('/places')}>Live Map</Button>
         <Divider />
-				<Button className="SideNavOptions" fullWidth= {true} onClick={handleScoreBoard}>ScoreBoard</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={handleLink('/scoreboard')}>ScoreBoard</Button>
         <List />
 				<Divider />
-				<Button className="SideNavOptions" fullWidth= {true} onClick={handleAbout}>About</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={handleLink('/about')}>About</Button>
         <List/>
 				<Divider />
-				<Button className="SideNavOptions" fullWidth= {true} onClick={handleContact}>Contact</Button>
+				<Button className="SideNavOptions" fullWidth= {true} onClick={handleLink('/contact')}>Contact</Button>
         <List />
 				<Divider />
 				<Button className="SideNavOptions" fullWidth= {true} onClick={this.toggleDrawer('left', true)}>Connect Calender</Button>
@@ -51,7 +46,7 @@ class Nav extends Component {
 				<Button className="SideNavOptions" fullWidth= {true} onClick={this.toggleDrawer('left', true)}>Connect Facebook Events</Button>
         <List />
 				<Divider />
-        <Button className="SideNavOptions" fullWidth= {true} onClick={handleAccount}>My Account</Button>
+        <Button className="SideNavOptions" fullWidth= {true} onClick={handleLink('/users/edit')}>My Account</Button>
         <List />
 				<Divider />
         <List />
